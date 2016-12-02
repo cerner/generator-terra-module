@@ -1,12 +1,20 @@
-Before you log an issue, please review these guidelines to help ensure a smooth process for everyone.
+Please fill out the below template as best you can.
+--------------------------------------------------------
 
-Thanks.
+### Description of Issue
+Describe the issue as best you can. We love screenshots!
 
-* Please browse our [existing issues][1] before logging new issues.
-* Check that the issue has not already been fixed in the `master` branch.
-* Open an issue with a descriptive title and a summary.
-* Please be as clear and explicit as you can in your description of the problem.
-* Please state the version of OS, Node, and generator-terra-module you are using in the description.
-* Include any relevant code in the issue summary.
+###System Configuration
+#### Component Version
 
-[1]: https://github.com/cerner/generator-terra-module/issues
+#### Node Version
+
+#### Additional Details (optional)
+
+### Steps to Reproduce the Issue
+1. Step 1
+1. Step 2
+
+### Expected Outcomes
+- Links can be styled as buttons
+- Disabled links behave the same as disabled buttons
