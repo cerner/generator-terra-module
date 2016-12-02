@@ -6,7 +6,7 @@ Thanks.
 * Check that the issue has not already been fixed in the `master` branch.
 * Open an issue with a descriptive title and a summary.
 * Please be as clear and explicit as you can in your description of the problem.
-* Please state the version of OS, Node, and generator-terra you are using in the description.
+* Please state the version of OS, Node, and generator-terra-module you are using in the description.
 * Include any relevant code in the issue summary.
 
-[1]: https://github.com/cerner/generator-terra/issues
+[1]: https://github.com/cerner/generator-terra-module/issues

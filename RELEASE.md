@@ -10,6 +10,6 @@ Releasing the project requires these steps:
 3. PACKAGE-COMMAND and/or RELEASE-COMMAND
 4. Update `master` to a new minor version
 
-[project-url]: https://github.com/cerner/generator-terra/
+[project-url]: https://github.com/cerner/generator-terra-module/
 [semantic-versioning]: http://semver.org/
 [github-release-url]: https://help.github.com/articles/creating-releases/
