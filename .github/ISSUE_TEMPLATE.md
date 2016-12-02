@@ -4,8 +4,8 @@ Please fill out the below template as best you can.
 ### Description of Issue
 Describe the issue as best you can. We love screenshots!
 
-###System Configuration
-#### Component Version
+### System Configuration
+#### Generator Version
 
 #### Node Version
 
