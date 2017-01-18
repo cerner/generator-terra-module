@@ -22,14 +22,22 @@ function toClassName(str) {
 }
 
 /**
+ * Converts a string of the form a-b-c into b-c
+ * @param {String} the project name
+ */
+function namespacelessProjectName(str) {
+  var hyphenlessProjectNameArray = str.split("-");
+  hyphenlessProjectNameArray.shift();
+  return hyphenlessProjectNameArray.join("-");
+}
+
+/**
  * Converts a string of the form a-b-c into a-BC
  * @param {String} the project name
  */
 function toCssClassName(str) {
-  var hyphenlessProjectNameArray = str.split("-");
-  hyphenlessProjectNameArray.shift();
-  var namespacelessProjectName = hyphenlessProjectNameArray.join("-");
-  return str.replace(namespacelessProjectName, toClassName(namespacelessProjectName));
+  const namespaceless = namespacelessProjectName(str);
+  return str.replace(namespaceless, toClassName(namespaceless));
 }
 
 module.exports = yeoman.Base.extend({
@@ -64,6 +72,11 @@ module.exports = yeoman.Base.extend({
       this.props = props;
       // To access props later use this.props.name;
 
+      this.props.cssClassName = toCssClassName(this.props.projectName);
+      this.props.namespacelessProjectClassName = toClassName(namespacelessProjectName(this.props.projectName));
+      this.props.projectClassName = toClassName(this.props.projectName);
+      this.props.titlecaseProjectName = toTitleCase(this.props.projectName.replace('-', ' '));
+
       done();
     }.bind(this));
   },
@@ -71,11 +84,11 @@ module.exports = yeoman.Base.extend({
   writing: function () {
     this.fs.copyTpl(
       this.templatePath('src/projectName.jsx'),
-      this.destinationPath('src/' + toClassName(this.props.projectName) + '.jsx'),
+      this.destinationPath('src/' + this.props.projectClassName + '.jsx'),
       {
         projectName: this.props.projectName,
-        projectClassName: toClassName(this.props.projectName),
-        projectCssClassName: toCssClassName(this.props.projectName)
+        projectClassName: this.props.namespacelessProjectClassName,
+        projectCssClassName: this.props.cssClassName
       }
     );
 
@@ -83,7 +96,7 @@ module.exports = yeoman.Base.extend({
       this.templatePath('src/projectName.scss'),
       this.destinationPath('src/' + this.props.projectName + '.scss'),
       {
-        projectCssClassName: toCssClassName(this.props.projectName)
+        projectCssClassName: this.props.cssClassName
       }
     );
 
@@ -92,18 +105,8 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('docs/'),
       {
         projectName: this.props.projectName,
-        titlecaseProjectName: toTitleCase(this.props.projectName.replace('-', ' ')),
+        titlecaseProjectName: this.props.titlecaseProjectName,
         currentYear: new Date().getFullYear()
-      }
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('tests/**/*'),
-      this.destinationPath('tests/'),
-      {
-        projectName: this.props.projectName,
-        projectClassName: toClassName(this.props.projectName),
-        projectCssClassName: toCssClassName(this.props.projectName)
       }
     );
 
@@ -111,18 +114,20 @@ module.exports = yeoman.Base.extend({
       this.templatePath('demos/**/*'),
       this.destinationPath('demos/'),
       {
+        namespacelessProjectClassName: this.props.namespacelessProjectClassName,
         projectName: this.props.projectName,
-        projectClassName: toClassName(this.props.projectName),
-        projectCssClassName: toCssClassName(this.props.projectName)
+        projectClassName: this.props.projectClassName,
+        projectCssClassName: this.props.cssClassName
       }
     );
 
     this.fs.copyTpl(
       this.templatePath('projectNameTest.jsx'),
-      this.destinationPath('tests/__tests__/' + toClassName(this.props.projectName) + 'Test.jsx'),
+      this.destinationPath('tests/__tests__/' + this.props.projectClassName + 'Test.jsx'),
       {
-        projectClassName: toClassName(this.props.projectName),
-        projectCssClassName: toCssClassName(this.props.projectName)
+        namespacelessProjectClassName: this.props.namespacelessProjectClassName,
+        projectClassName: this.props.projectClassName,
+        projectCssClassName: this.props.cssClassName
       }
     );
 
@@ -174,7 +179,7 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('README.md'),
       {
         projectName: this.props.projectName,
-        titlecaseProjectName: toTitleCase(this.props.projectName.replace('-', ' ')),
+        titlecaseProjectName: this.props.titlecaseProjectName,
         currentYear: new Date().getFullYear()
       }
     );
@@ -184,7 +189,7 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('package.json'),
       {
         projectName: this.props.projectName,
-        projectClassName: toClassName(this.props.projectName)
+        projectClassName: this.props.projectClassName
       }
     );
 
@@ -233,7 +238,7 @@ module.exports = yeoman.Base.extend({
     this.fs.write(this.destinationPath('src/_mixins.scss'), '');
     this.fs.write(this.destinationPath('src/_variables.scss'), '');
 
-    this.fs.write(this.destinationPath('docs/' + this.props.projectName + '.md'), '# ' + toTitleCase(this.props.projectName.replace('-', ' ')) + '\n\n' +
+    this.fs.write(this.destinationPath('docs/' + this.props.projectName + '.md'), '# ' + this.props.titlecaseProjectName + '\n\n' +
       ' {insert description}\n\n' +
       '## Getting Started\n\n' +
       '- Install with [npm](https://www.npmjs.com): `npm install ' + this.props.projectName + '`\n' +

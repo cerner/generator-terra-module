@@ -61,7 +61,7 @@ describe('generator-terra-module:app', function () {
   });
 
   it('fills the React Component file with a dummy React Component', function () {
-    assert.fileContent('src/WaffleCake.jsx', 'class WaffleCake extends React.Component');
+    assert.fileContent('src/WaffleCake.jsx', 'class Cake extends React.Component');
   });
 
   it('fills the sass file with some dummy sass', function () {

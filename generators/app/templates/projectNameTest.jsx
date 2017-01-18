@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import <%= projectClassName %> from '../../src/<%= projectClassName %>';
+import <%= namespacelessProjectClassName %> from '../../src/<%= projectClassName %>';
 
-const defaultVariety = <<%= projectClassName %> />;
-const primaryVariety = <<%= projectClassName %> name="primary" variant="<%= projectCssClassName %>--primary" />;
+const defaultVariety = <<%= namespacelessProjectClassName %> />;
+const primaryVariety = <<%= namespacelessProjectClassName %> name="primary" variant="<%= projectCssClassName %>--primary" />;
 
 
 // Snapshot Tests
