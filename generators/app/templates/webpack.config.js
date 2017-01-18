@@ -49,6 +49,6 @@ module.exports = {
     extensions: ['', '.webpack.js', '.js', '.jsx'],
   },
   sassLoader: {
-    data: `@import "${path.resolve(__dirname, './demos/theme.scss')}";`, // This is applied to each module.
+    data: `@import "${path.resolve('node_modules/terra-legacy-theme/src/terra-legacy-theme.scss')}";`,
   },
 };
