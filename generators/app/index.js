@@ -83,8 +83,8 @@ module.exports = yeoman.Base.extend({
 
   writing: function () {
     this.fs.copyTpl(
-      this.templatePath('src/projectName.jsx'),
-      this.destinationPath('src/' + this.props.projectClassName + '.jsx'),
+      this.templatePath('src/projectName.js'),
+      this.destinationPath('src/' + this.props.projectClassName + '.js'),
       {
         projectName: this.props.projectName,
         projectClassName: this.props.namespacelessProjectClassName,
@@ -111,24 +111,43 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('demos/**/*'),
-      this.destinationPath('demos/'),
+      this.templatePath('stories/**/*'),
+      this.destinationPath('stories/'),
+      {
+        projectName: this.props.projectName,
+        titlecaseProjectName: this.props.titlecaseProjectName,
+        projectClassName: this.props.projectClassName
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('.storybook/**/*'),
+      this.destinationPath('.storybook/')
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('projectNameTest.jsx'),
+      this.destinationPath('tests/__tests__/' + this.props.projectClassName + '.test.js'),
       {
         namespacelessProjectClassName: this.props.namespacelessProjectClassName,
-        projectName: this.props.projectName,
         projectClassName: this.props.projectClassName,
         projectCssClassName: this.props.cssClassName
       }
     );
 
     this.fs.copyTpl(
-      this.templatePath('projectNameTest.jsx'),
-      this.destinationPath('tests/__tests__/' + this.props.projectClassName + 'Test.jsx'),
+      this.templatePath('style_mock.js'),
+      this.destinationPath('tests/__mocks__/style_mock.js'),
       {
         namespacelessProjectClassName: this.props.namespacelessProjectClassName,
         projectClassName: this.props.projectClassName,
         projectCssClassName: this.props.cssClassName
       }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('tests/**/*'),
+      this.destinationPath('tests/')
     );
 
     this.fs.copy(
@@ -190,14 +209,6 @@ module.exports = yeoman.Base.extend({
       {
         projectName: this.props.projectName,
         projectClassName: this.props.projectClassName
-      }
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('webpack.config.js'),
-      this.destinationPath('webpack.config.js'),
-      {
-        projectName: this.props.projectName
       }
     );
 

@@ -46,6 +46,4 @@ class <%= projectClassName %> extends React.Component {
   variant: '<%= projectCssClassName %>--default',
 };
 
-export const includePaths = path.join(__dirname, '../src/');
-
 export default <%= projectClassName %>;

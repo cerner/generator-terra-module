@@ -1,10 +1,12 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import initStoryshots from 'storyshots';
 import <%= namespacelessProjectClassName %> from '../../src/<%= projectClassName %>';
 
 const defaultVariety = <<%= namespacelessProjectClassName %> />;
 const primaryVariety = <<%= namespacelessProjectClassName %> name="primary" variant="<%= projectCssClassName %>--primary" />;
 
+// Run snapshot tests for react-storybook
+initStoryshots();
 
 // Snapshot Tests
 it('should render a default component', () => {

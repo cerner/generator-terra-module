@@ -40,16 +40,7 @@ describe('generator-terra-module:app', function () {
       'NOTICE',
       'package.json',
       'README.md',
-      'RELEASE.md',
-      'webpack.config.js'
-    ]);
-  });
-
-  it('creates the demo files', function () {
-    assert.file([
-      'demos/demo.html',
-      'demos/demo.jsx',
-      'demos/demo.scss'
+      'RELEASE.md'
     ]);
   });
 
@@ -60,10 +51,6 @@ describe('generator-terra-module:app', function () {
     ]);
   });
 
-  it('fills the React Component file with a dummy React Component', function () {
-    assert.fileContent('src/WaffleCake.jsx', 'class Cake extends React.Component');
-  });
-
   it('fills the sass file with some dummy sass', function () {
     assert.fileContent('src/waffle-cake.scss', '@import \'./variables\';');
     assert.fileContent('src/waffle-cake.scss', '@import \'./mixins\';');
@@ -72,10 +59,6 @@ describe('generator-terra-module:app', function () {
 
   it('fills the docs/README file with title cased project data', function () {
     assert.fileContent('docs/README.md', 'Waffle Cake Documentation');
-  });
-
-  it('fills the demos/demo.html file with project data', function () {
-    assert.fileContent('demos/demo.html', '<title>waffle-cake</title>');
   });
 
   it('fills the CONTRIBUTING file with project data', function () {
@@ -91,7 +74,6 @@ describe('generator-terra-module:app', function () {
   it('fills the package.json file with project data', function () {
     assert.fileContent('package.json', 'git+https://github.com/cerner/waffle-cake.git');
     assert.fileContent('package.json', 'https://github.com/cerner/waffle-cake/issues');
-    assert.fileContent('package.json', 'https://github.com/cerner/waffle-cake#readme');
   });
 
   it('fills the README file with project data', function () {
