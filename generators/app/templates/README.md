@@ -16,7 +16,9 @@
 
 ## Getting Started
 
-- Install with [npm](https://www.npmjs.com): `npm install <%= projectName %>`
+- Install from [npmjs](https://www.npmjs.com)
+  - `npm install <%= projectName %>`
+  - `yarn install <%= projectName %>`
 - [Download the latest version](https://github.com/cerner/<%= projectName %>/archive/master.zip)
 - Clone the repo: `git clone https://github.com/cerner/<%= projectName %>.git`
 
