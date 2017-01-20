@@ -11,7 +11,7 @@ module.exports = {
     ],
   },
   sassLoader: {
-    data: `@import "${path.resolve('node_modules/terra-legacy-theme/src/terra-legacy-theme.scss')}";`,
+    data: `@import "${path.resolve('node_modules/terra-legacy-theme/src/terra-legacy-theme.scss')}"; @import "${path.resolve('node_modules/terra-application/src/terra-application.scss')}"; $terra-bidi: true;`,
   },
   postcss: [
     autoprefixer({
