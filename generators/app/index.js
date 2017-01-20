@@ -242,7 +242,9 @@ module.exports = yeoman.Base.extend({
     this.fs.write(this.destinationPath('docs/' + this.props.projectName + '.md'), '# ' + this.props.titlecaseProjectName + '\n\n' +
       ' {insert description}\n\n' +
       '## Getting Started\n\n' +
-      '- Install with [npm](https://www.npmjs.com): `npm install ' + this.props.projectName + '`\n' +
+      '- Install with [npmjs](https://www.npmjs.com): \n' +
+      '  - `npm install ' + this.props.projectName + '` \n' +
+      '  - `yarn install ' + this.props.projectName + '` \n' +
       '- [Download the latest version](https://github.com/cerner/' + this.props.projectName + '/archive/master.zip)\n' +
       '- Clone the repo: `git clone https://github.com/cerner/' + this.props.projectName + '.git`\n');
   },
