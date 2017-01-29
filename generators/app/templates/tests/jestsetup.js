@@ -6,8 +6,10 @@ global.render = render;
 global.mount = mount;
 
 // Skip createElement warnings but fail tests on any other warning
-console.error = message => {
-    if (!/(React.createElement: type should not be null)/.test(message)) {
-        throw new Error(message);
-    }
+/* eslint-disable no-console */
+console.error = (message) => {
+  if (!/(React.createElement: type should not be null)/.test(message)) {
+    throw new Error(message);
+  }
 };
+/* eslint-enable no-console */

@@ -84,9 +84,9 @@ module.exports = yeoman.Base.extend({
   writing: function () {
     this.fs.copyTpl(
       this.templatePath('src/projectName.jsx'),
-      this.destinationPath('src/' + this.props.projectClassName + '.jsx'),
+      this.destinationPath('src/' + toClassName(namespacelessProjectName(this.props.projectName)) + '.jsx'),
       {
-        projectName: this.props.projectName,
+        projectName: namespacelessProjectName(this.props.projectName),
         projectClassName: this.props.namespacelessProjectClassName,
         projectCssClassName: this.props.cssClassName
       }
@@ -94,7 +94,7 @@ module.exports = yeoman.Base.extend({
 
     this.fs.copyTpl(
       this.templatePath('src/projectName.scss'),
-      this.destinationPath('src/' + this.props.projectName + '.scss'),
+      this.destinationPath('src/' + namespacelessProjectName(this.props.projectName) + '.scss'),
       {
         projectCssClassName: this.props.cssClassName
       }
@@ -114,9 +114,7 @@ module.exports = yeoman.Base.extend({
       this.templatePath('stories/**/*'),
       this.destinationPath('stories/'),
       {
-        projectName: this.props.projectName,
-        titlecaseProjectName: this.props.titlecaseProjectName,
-        projectClassName: this.props.projectClassName
+        projectName: toClassName(namespacelessProjectName(this.props.projectName))
       }
     );
 
@@ -127,7 +125,7 @@ module.exports = yeoman.Base.extend({
 
     this.fs.copyTpl(
       this.templatePath('projectNameTest.jsx'),
-      this.destinationPath('tests/' + this.props.projectClassName + '.test.jsx'),
+      this.destinationPath('tests/' + toClassName(namespacelessProjectName(this.props.projectName)) + '.test.jsx'),
       {
         namespacelessProjectClassName: this.props.namespacelessProjectClassName,
         projectClassName: this.props.projectClassName,
@@ -198,7 +196,7 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('package.json'),
       {
         projectName: this.props.projectName,
-        projectClassName: this.props.projectClassName
+        projectClassName: toClassName(namespacelessProjectName(this.props.projectName))
       }
     );
 
@@ -239,7 +237,7 @@ module.exports = yeoman.Base.extend({
     this.fs.write(this.destinationPath('src/_mixins.scss'), '');
     this.fs.write(this.destinationPath('src/_variables.scss'), '');
 
-    this.fs.write(this.destinationPath('docs/' + this.props.projectName + '.md'), '# ' + this.props.titlecaseProjectName + '\n\n' +
+    this.fs.write(this.destinationPath('docs/' + toClassName(namespacelessProjectName(this.props.projectName)) + '.md'), '# ' + this.props.titlecaseProjectName + '\n\n' +
       ' {insert description}\n\n' +
       '## Getting Started\n\n' +
       '- Install with [npmjs](https://www.npmjs.com): \n' +
