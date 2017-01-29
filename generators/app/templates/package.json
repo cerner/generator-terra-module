@@ -1,6 +1,6 @@
 {
   "name": "<%=projectName%>",
-  "main": "lib/<%=projectClassName%>.js",
+  "main": "lib/<%=jsxFileName%>.js",
   "version": "0.1.0",
   "description": "<%=projectName%>",
   "repository": {
@@ -11,7 +11,7 @@
     "Cerner",
     "Terra",
     "<%=projectName%>",
-    "<%=projectClassName%>",
+    "<%=jsxFileName%>",
     "UI"
   ],
   "author": "Cerner Corporation",

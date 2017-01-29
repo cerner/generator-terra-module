@@ -40,6 +40,7 @@ function toCssClassName(str) {
   return str.replace(namespaceless, toClassName(namespaceless));
 }
 
+
 module.exports = yeoman.Base.extend({
   constructor: function () {
     yeoman.Base.apply(this, arguments);
@@ -76,6 +77,9 @@ module.exports = yeoman.Base.extend({
       this.props.namespacelessProjectClassName = toClassName(namespacelessProjectName(this.props.projectName));
       this.props.projectClassName = toClassName(this.props.projectName);
       this.props.titlecaseProjectName = toTitleCase(this.props.projectName.replace('-', ' '));
+      this.props.jsxFileName = toClassName(namespacelessProjectName(this.props.projectName));
+      this.props.scssFileName = namespacelessProjectName(this.props.projectName);
+      this.props.currentYear = new Date().getFullYear();
 
       done();
     }.bind(this));
@@ -84,9 +88,9 @@ module.exports = yeoman.Base.extend({
   writing: function () {
     this.fs.copyTpl(
       this.templatePath('src/projectName.jsx'),
-      this.destinationPath('src/' + toClassName(namespacelessProjectName(this.props.projectName)) + '.jsx'),
+      this.destinationPath('src/' + this.props.jsxFileName + '.jsx'),
       {
-        projectName: namespacelessProjectName(this.props.projectName),
+        scssFileName: this.props.scssFileName,
         projectClassName: this.props.namespacelessProjectClassName,
         projectCssClassName: this.props.cssClassName
       }
@@ -94,7 +98,7 @@ module.exports = yeoman.Base.extend({
 
     this.fs.copyTpl(
       this.templatePath('src/projectName.scss'),
-      this.destinationPath('src/' + namespacelessProjectName(this.props.projectName) + '.scss'),
+      this.destinationPath('src/' + this.props.scssFileName + '.scss'),
       {
         projectCssClassName: this.props.cssClassName
       }
@@ -106,7 +110,7 @@ module.exports = yeoman.Base.extend({
       {
         projectName: this.props.projectName,
         titlecaseProjectName: this.props.titlecaseProjectName,
-        currentYear: new Date().getFullYear()
+        currentYear: this.props.currentYear
       }
     );
 
@@ -114,7 +118,7 @@ module.exports = yeoman.Base.extend({
       this.templatePath('stories/**/*'),
       this.destinationPath('stories/'),
       {
-        projectName: toClassName(namespacelessProjectName(this.props.projectName))
+        jsxFileName: this.props.jsxFileName
       }
     );
 
@@ -125,7 +129,7 @@ module.exports = yeoman.Base.extend({
 
     this.fs.copyTpl(
       this.templatePath('projectNameTest.jsx'),
-      this.destinationPath('tests/' + toClassName(namespacelessProjectName(this.props.projectName)) + '.test.jsx'),
+      this.destinationPath('tests/' + this.props.jsxFileName + '.test.jsx'),
       {
         namespacelessProjectClassName: this.props.namespacelessProjectClassName,
         projectClassName: this.props.projectClassName,
@@ -187,7 +191,7 @@ module.exports = yeoman.Base.extend({
       {
         projectName: this.props.projectName,
         titlecaseProjectName: this.props.titlecaseProjectName,
-        currentYear: new Date().getFullYear()
+        currentYear: this.props.currentYear
       }
     );
 
@@ -196,7 +200,7 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('package.json'),
       {
         projectName: this.props.projectName,
-        projectClassName: toClassName(namespacelessProjectName(this.props.projectName))
+        jsxFileName: this.props.jsxFileName
       }
     );
 
@@ -222,7 +226,7 @@ module.exports = yeoman.Base.extend({
       this.templatePath('NOTICE'),
       this.destinationPath('NOTICE'),
       {
-        currentYear: new Date().getFullYear()
+        currentYear: this.props.currentYear
       }
     );
 
@@ -237,7 +241,7 @@ module.exports = yeoman.Base.extend({
     this.fs.write(this.destinationPath('src/_mixins.scss'), '');
     this.fs.write(this.destinationPath('src/_variables.scss'), '');
 
-    this.fs.write(this.destinationPath('docs/' + toClassName(namespacelessProjectName(this.props.projectName)) + '.md'), '# ' + this.props.titlecaseProjectName + '\n\n' +
+    this.fs.write(this.destinationPath('docs/' + this.props.jsxFileName + '.md'), '# ' + this.props.titlecaseProjectName + '\n\n' +
       ' {insert description}\n\n' +
       '## Getting Started\n\n' +
       '- Install with [npmjs](https://www.npmjs.com): \n' +
