@@ -40,7 +40,6 @@ function toCssClassName(str) {
   return str.replace(namespaceless, toClassName(namespaceless));
 }
 
-
 module.exports = yeoman.Base.extend({
   constructor: function () {
     yeoman.Base.apply(this, arguments);
