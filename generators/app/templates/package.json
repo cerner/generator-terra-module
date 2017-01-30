@@ -1,6 +1,6 @@
 {
   "name": "<%=projectName%>",
-  "main": "lib/<%=projectClassName%>.js",
+  "main": "lib/<%=jsxFileName%>.js",
   "version": "0.1.0",
   "description": "<%=projectName%>",
   "repository": {
@@ -11,7 +11,7 @@
     "Cerner",
     "Terra",
     "<%=projectName%>",
-    "<%=projectClassName%>",
+    "<%=jsxFileName%>",
     "UI"
   ],
   "author": "Cerner Corporation",
@@ -72,7 +72,7 @@
     "build": "babel src --out-dir lib",
     "deploy": "build-storybook && gh-pages -d storybook-static",
     "lint": "yarn lint-js && yarn lint-scss",
-    "lint-js": "eslint --ext .js,.jsx src",
+    "lint-js": "eslint --ext .js,.jsx .",
     "lint-scss": "stylelint src/**/*.scss",
     "pretest": "yarn lint",
     "release:major": "yarn test && yarn build && npm version major -m \"Released version %s\" && npm publish && git push --follow-tags",
