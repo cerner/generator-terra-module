@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
+    "@kadira/storybook-addon-options": "^1.0.1",
     "autoprefixer": "^6.6.1",
     "babel-cli": "^6.18.0",
     "babel-jest": "^18.0.0",
@@ -52,7 +53,10 @@
     "node-sass": "^4.3.0",
     "postcss-loader": "^1.2.2",
     "react-addons-test-utils": "^15.4.2",
+    "react-storybook-addon-props-combinations": "^0.3.0",
     "sass-loader": "^4.1.1",
+    "storybook-addon-a11y": "0.0.4",
+    "storybook-addon-i18n-tools": "^1.0.0",
     "storyshots": "^3.2.0",
     "style-loader": "^0.13.1",
     "stylelint": "^7.7.1",
