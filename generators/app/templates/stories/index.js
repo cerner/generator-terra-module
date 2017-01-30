@@ -8,7 +8,7 @@ import { setOptions } from '@kadira/storybook-addon-options';
 
 setOptions({
   name: '<%= projectClassName %>',
-  url: 'https://github.com/cerner/terra-grid',
+  url: 'https://github.com/cerner/<%= projectClassName.split(/(?=[A-Z])/).join('-').toLowerCase() %>',
   goFullScreen: false,
   showLeftPanel: true,
   showDownPanel: true,
