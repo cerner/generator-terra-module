@@ -1,6 +1,6 @@
 import React from 'react';
 import initStoryshots from 'storyshots';
-import <%= namespacelessProjectClassName %> from '../src/<%= projectClassName %>';
+import <%= namespacelessProjectClassName %> from '../src/<%= namespacelessProjectClassName %>';
 
 const defaultVariety = <<%= namespacelessProjectClassName %> />;
 const primaryVariety = <<%= namespacelessProjectClassName %> name="primary" variant="<%= projectCssClassName %>--primary" />;
