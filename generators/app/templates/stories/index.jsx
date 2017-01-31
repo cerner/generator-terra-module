@@ -9,7 +9,7 @@ import { setOptions } from '@kadira/storybook-addon-options';
 
 setOptions({
   name: '<%= jsxFileName %>',
-  url: 'https://github.com/cerner/terra-<%= jsxFileName %>',
+  url: 'https://github.com/cerner/terra-<%= jsxFileName.toLowerCase() %>',
   goFullScreen: false,
   showLeftPanel: true,
   showDownPanel: true,
