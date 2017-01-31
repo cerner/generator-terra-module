@@ -73,7 +73,8 @@ module.exports = yeoman.Base.extend({
       // To access props later use this.props.name;
 
       this.props.cssClassName = toCssClassName(this.props.projectName);
-      this.props.namespacelessProjectClassName = toClassName(namespacelessProjectName(this.props.projectName));
+      this.props.namespacelessProjectName = namespacelessProjectName(this.props.projectName);
+      this.props.namespacelessProjectClassName = toClassName(this.props.namespacelessProjectName);
       this.props.projectClassName = toClassName(this.props.projectName);
       this.props.titlecaseProjectName = toTitleCase(this.props.projectName.replace('-', ' '));
 
@@ -84,7 +85,7 @@ module.exports = yeoman.Base.extend({
   writing: function () {
     this.fs.copyTpl(
       this.templatePath('src/projectName.jsx'),
-      this.destinationPath('src/' + this.props.projectClassName + '.jsx'),
+      this.destinationPath('src/' + this.props.namespacelessProjectClassName + '.jsx'),
       {
         projectName: this.props.projectName,
         projectClassName: this.props.namespacelessProjectClassName,
@@ -116,7 +117,7 @@ module.exports = yeoman.Base.extend({
       {
         projectName: this.props.projectName,
         titlecaseProjectName: this.props.titlecaseProjectName,
-        projectClassName: this.props.projectClassName
+        namespacelessProjectClassName: this.props.namespacelessProjectClassName
       }
     );
 
@@ -127,17 +128,49 @@ module.exports = yeoman.Base.extend({
 
     this.fs.copyTpl(
       this.templatePath('projectNameTest.jsx'),
-      this.destinationPath('tests/' + this.props.projectClassName + '.test.jsx'),
+      this.destinationPath('tests/spec/' + this.props.namespacelessProjectClassName + '.test.jsx'),
       {
         namespacelessProjectClassName: this.props.namespacelessProjectClassName,
-        projectClassName: this.props.projectClassName,
         projectCssClassName: this.props.cssClassName
       }
     );
 
     this.fs.copyTpl(
       this.templatePath('tests/**/*'),
-      this.destinationPath('tests/')
+      this.destinationPath('tests/'),
+      {
+        projectName: this.props.projectName,
+        namespacelessProjectName: this.props.namespacelessProjectName,
+        namespacelessProjectClassName: this.props.namespacelessProjectClassName
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('projectNameVariant/**/*'),
+      this.destinationPath('tests/features/fixtures/' + this.props.namespacelessProjectName + '-variant/'),
+      {
+        projectName: this.props.projectName,
+        namespacelessProjectClassName: this.props.namespacelessProjectClassName
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('projectName-base.html'),
+      this.destinationPath('tests/features/fixtures/' + this.props.namespacelessProjectName + '-base.html'),
+      {
+        projectName: this.props.projectName
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('projectName-spec.js'),
+      this.destinationPath('tests/features/' + this.props.namespacelessProjectName + '-spec.js'),
+      {
+        namespacelessProjectClassName: this.props.namespacelessProjectClassName,
+        namespacelessProjectName: this.props.namespacelessProjectName,
+        projectCssClassName: this.props.cssClassName,
+        titlecaseProjectName: this.props.titlecaseProjectName
+      }
     );
 
     this.fs.copy(
@@ -198,7 +231,8 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('package.json'),
       {
         projectName: this.props.projectName,
-        projectClassName: this.props.projectClassName
+        projectClassName: this.props.projectClassName,
+        namespacelessProjectClassName: this.props.namespacelessProjectClassName
       }
     );
 
