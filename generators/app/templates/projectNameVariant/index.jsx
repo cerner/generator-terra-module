@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import <%= namespacelessProjectClassName %> from '../../../../lib/<%= namespacelessProjectClassName %>';
+import <%= jsxFileName %> from '../../../../lib/<%= jsxFileName %>';
 
-const noPropsVariety = <<%= namespacelessProjectClassName %> />;
+const noPropsVariety = <<%= jsxFileName %> />;
 
 ReactDOM.render(noPropsVariety, document.getElementById('<%= projectName %>'));

@@ -74,9 +74,11 @@ module.exports = yeoman.Base.extend({
 
       this.props.cssClassName = toCssClassName(this.props.projectName);
       this.props.namespacelessProjectName = namespacelessProjectName(this.props.projectName);
-      this.props.namespacelessProjectClassName = toClassName(this.props.namespacelessProjectName);
       this.props.projectClassName = toClassName(this.props.projectName);
       this.props.titlecaseProjectName = toTitleCase(this.props.projectName.replace('-', ' '));
+      this.props.jsxFileName = toClassName(namespacelessProjectName(this.props.projectName));
+      this.props.scssFileName = namespacelessProjectName(this.props.projectName);
+      this.props.currentYear = new Date().getFullYear();
 
       done();
     }.bind(this));
@@ -85,17 +87,17 @@ module.exports = yeoman.Base.extend({
   writing: function () {
     this.fs.copyTpl(
       this.templatePath('src/projectName.jsx'),
-      this.destinationPath('src/' + this.props.namespacelessProjectClassName + '.jsx'),
+      this.destinationPath('src/' + this.props.jsxFileName + '.jsx'),
       {
-        projectName: this.props.projectName,
-        projectClassName: this.props.namespacelessProjectClassName,
+        scssFileName: this.props.scssFileName,
+        projectClassName: this.props.jsxFileName,
         projectCssClassName: this.props.cssClassName
       }
     );
 
     this.fs.copyTpl(
       this.templatePath('src/projectName.scss'),
-      this.destinationPath('src/' + this.props.projectName + '.scss'),
+      this.destinationPath('src/' + this.props.scssFileName + '.scss'),
       {
         projectCssClassName: this.props.cssClassName
       }
@@ -107,7 +109,7 @@ module.exports = yeoman.Base.extend({
       {
         projectName: this.props.projectName,
         titlecaseProjectName: this.props.titlecaseProjectName,
-        currentYear: new Date().getFullYear()
+        currentYear: this.props.currentYear
       }
     );
 
@@ -115,9 +117,7 @@ module.exports = yeoman.Base.extend({
       this.templatePath('stories/**/*'),
       this.destinationPath('stories/'),
       {
-        projectName: this.props.projectName,
-        titlecaseProjectName: this.props.titlecaseProjectName,
-        namespacelessProjectClassName: this.props.namespacelessProjectClassName
+        jsxFileName: this.props.jsxFileName
       }
     );
 
@@ -128,9 +128,9 @@ module.exports = yeoman.Base.extend({
 
     this.fs.copyTpl(
       this.templatePath('projectNameTest.jsx'),
-      this.destinationPath('tests/spec/' + this.props.namespacelessProjectClassName + '.test.jsx'),
+      this.destinationPath('tests/spec/' + this.props.jsxFileName + '.test.jsx'),
       {
-        namespacelessProjectClassName: this.props.namespacelessProjectClassName,
+        jsxFileName: this.props.jsxFileName,
         projectCssClassName: this.props.cssClassName
       }
     );
@@ -141,7 +141,7 @@ module.exports = yeoman.Base.extend({
       {
         projectName: this.props.projectName,
         namespacelessProjectName: this.props.namespacelessProjectName,
-        namespacelessProjectClassName: this.props.namespacelessProjectClassName
+        jsxFileName: this.props.jsxFileName
       }
     );
 
@@ -150,7 +150,7 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('tests/features/fixtures/' + this.props.namespacelessProjectName + '-variant/'),
       {
         projectName: this.props.projectName,
-        namespacelessProjectClassName: this.props.namespacelessProjectClassName
+        jsxFileName: this.props.jsxFileName
       }
     );
 
@@ -166,7 +166,7 @@ module.exports = yeoman.Base.extend({
       this.templatePath('projectName-spec.js'),
       this.destinationPath('tests/features/' + this.props.namespacelessProjectName + '-spec.js'),
       {
-        namespacelessProjectClassName: this.props.namespacelessProjectClassName,
+        jsxFileName: this.props.jsxFileName,
         namespacelessProjectName: this.props.namespacelessProjectName,
         projectCssClassName: this.props.cssClassName,
         titlecaseProjectName: this.props.titlecaseProjectName
@@ -222,7 +222,7 @@ module.exports = yeoman.Base.extend({
       {
         projectName: this.props.projectName,
         titlecaseProjectName: this.props.titlecaseProjectName,
-        currentYear: new Date().getFullYear()
+        currentYear: this.props.currentYear
       }
     );
 
@@ -231,8 +231,7 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('package.json'),
       {
         projectName: this.props.projectName,
-        projectClassName: this.props.projectClassName,
-        namespacelessProjectClassName: this.props.namespacelessProjectClassName
+        jsxFileName: this.props.jsxFileName
       }
     );
 
@@ -258,7 +257,7 @@ module.exports = yeoman.Base.extend({
       this.templatePath('NOTICE'),
       this.destinationPath('NOTICE'),
       {
-        currentYear: new Date().getFullYear()
+        currentYear: this.props.currentYear
       }
     );
 
@@ -273,7 +272,7 @@ module.exports = yeoman.Base.extend({
     this.fs.write(this.destinationPath('src/_mixins.scss'), '');
     this.fs.write(this.destinationPath('src/_variables.scss'), '');
 
-    this.fs.write(this.destinationPath('docs/' + this.props.projectName + '.md'), '# ' + this.props.titlecaseProjectName + '\n\n' +
+    this.fs.write(this.destinationPath('docs/' + this.props.jsxFileName + '.md'), '# ' + this.props.titlecaseProjectName + '\n\n' +
       ' {insert description}\n\n' +
       '## Getting Started\n\n' +
       '- Install with [npmjs](https://www.npmjs.com): \n' +

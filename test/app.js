@@ -52,9 +52,9 @@ describe('generator-terra-module:app', function () {
   });
 
   it('fills the sass file with some dummy sass', function () {
-    assert.fileContent('src/waffle-cake.scss', '@import \'./variables\';');
-    assert.fileContent('src/waffle-cake.scss', '@import \'./mixins\';');
-    assert.fileContent('src/waffle-cake.scss', '.waffle-Cake');
+    assert.fileContent('src/cake.scss', '@import \'./variables\';');
+    assert.fileContent('src/cake.scss', '@import \'./mixins\';');
+    assert.fileContent('src/cake.scss', '.waffle-Cake');
   });
 
   it('fills the docs/README file with title cased project data', function () {

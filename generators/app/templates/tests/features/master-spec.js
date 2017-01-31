@@ -1,4 +1,4 @@
 import { testRunner } from 'terra-toolkit';
-import runnerFor<%= namespacelessProjectClassName %> from './<%= namespacelessProjectName %>-spec';
+import runnerFor<%= jsxFileName %> from './<%= namespacelessProjectName %>-spec';
 
-testRunner([runnerFor<%= namespacelessProjectClassName %>]);
+testRunner([runnerFor<%= jsxFileName %>]);

@@ -1,5 +1,5 @@
 // Test Suite Purpose:
-//   To test the <%= namespacelessProjectClassName %>
+//   To test the <%= jsxFileName %>
 
 import { By } from 'selenium-webdriver';
 

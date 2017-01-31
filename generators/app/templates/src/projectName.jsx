@@ -5,7 +5,7 @@
 
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import '../src/<%= projectName %>.scss';
+import '../src/<%= scssFileName %>.scss';
 
 class <%= projectClassName %> extends React.Component {
   constructor() {

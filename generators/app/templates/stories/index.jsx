@@ -1,8 +1,9 @@
+/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
-import <%= namespacelessProjectClassName %> from '../src/<%= namespacelessProjectClassName %>';
+import <%= jsxFileName %> from '../src/<%= jsxFileName %>';
 
-storiesOf('<%= namespacelessProjectClassName %> ', module)
+storiesOf('<%= jsxFileName %> ', module)
   .add('Without props', () => (
-    <<%= namespacelessProjectClassName %> />
+    <<%= jsxFileName %> />
   ));

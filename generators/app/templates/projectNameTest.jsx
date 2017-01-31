@@ -1,9 +1,9 @@
 import React from 'react';
 import initStoryshots from 'storyshots';
-import <%= namespacelessProjectClassName %> from '../../src/<%= namespacelessProjectClassName %>';
+import <%= jsxFileName %> from '../../src/<%= jsxFileName %>';
 
-const defaultVariety = <<%= namespacelessProjectClassName %> />;
-const primaryVariety = <<%= namespacelessProjectClassName %> name="primary" variant="<%= projectCssClassName %>--primary" />;
+const defaultVariety = <<%= jsxFileName %> />;
+const primaryVariety = <<%= jsxFileName %> name="primary" variant="<%= projectCssClassName %>--primary" />;
 
 // Run snapshot tests for react-storybook
 initStoryshots();
