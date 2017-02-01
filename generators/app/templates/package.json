@@ -56,7 +56,6 @@
     "gh-pages": "^0.12.0",
     "html-webpack-plugin": "^2.28.0",
     "identity-obj-proxy": "^3.0.0",
-    "jasmine": "^2.5.2",
     "jasmine-es6": "^0.4.0",
     "jasmine-spec-reporter": "^3.1.0",
     "jest": "^18.1.0",
@@ -75,7 +74,7 @@
     "stylelint-config-sass-guidelines": "^1.1.1",
     "terra-application": "^0.2.0",
     "terra-legacy-theme": "^0.1.0",
-    "terra-toolkit": "https://github.com/cerner/terra-toolkit.git#first_pass",
+    "terra-toolkit": "https://github.com/cerner/terra-toolkit.git",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
   },

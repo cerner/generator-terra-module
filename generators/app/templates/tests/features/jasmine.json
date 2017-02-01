@@ -4,6 +4,7 @@
     "master-spec.js"
   ],
   "helpers": [
+    "../node_modules/jasmine-es6/lib/install.js",
     "helpers/helper.js"
   ],
   "stopSpecOnExpectationFailure": false,
