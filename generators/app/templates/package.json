@@ -88,7 +88,7 @@
     "build": "babel src --out-dir lib",
     "deploy": "build-storybook && gh-pages -d storybook-static",
     "lint": "yarn lint-js && yarn lint-scss",
-    "lint-js": "eslint --ext .js,.jsx .",
+    "lint-js": "eslint --ext .js,.jsx . .storybook",
     "lint-scss": "stylelint src/**/*.scss",
     "pretest": "yarn lint",
     "release:major": "yarn test && yarn build && npm version major -m \"Released version %s\" && npm publish && git push --follow-tags",
