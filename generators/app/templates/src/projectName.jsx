@@ -1,7 +1,7 @@
 // For stateless components, use a functional component
 // For stateful components, use a class
-
 // https://facebook.github.io/react/docs/components-and-props.html#functional-and-class-components
+// Remove the above comments and this line before a pull request
 
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
