@@ -6,7 +6,7 @@ import { By } from 'selenium-webdriver';
 export default function () {
   describe('[XXXXXX] <%= titlecaseProjectName %>', () => {
     it('Displays with default properties', (done) => {
-      jasmine.driver.get('http://localhost:8080/<%= namespacelessProjectName %>-variant.html').then(() =>
+      jasmine.driver.get('http://localhost:18080/<%= namespacelessProjectName %>-variant.html').then(() =>
         jasmine.driver.findElement(By.className('<%= projectCssClassName %> <%= projectCssClassName %>--default')).getText(),
       )
       .then((text) => {
@@ -16,7 +16,7 @@ export default function () {
     });
 
     it('Transitions to the selected property when clicked', (done) => {
-      jasmine.driver.get('http://localhost:8080/<%= namespacelessProjectName %>-variant.html').then(() =>
+      jasmine.driver.get('http://localhost:18080/<%= namespacelessProjectName %>-variant.html').then(() =>
         jasmine.driver.findElement(By.className('<%= projectCssClassName %> <%= projectCssClassName %>--default')).click(),
       )
       .then(() =>
