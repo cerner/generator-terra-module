@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
+    "@kadira/storybook-addons": "^1.6.1",
     "@kadira/storybook-addon-knobs": "^1.7.1",
     "@kadira/storybook-addon-options": "^1.0.1",
     "autoprefixer": "^6.6.1",
