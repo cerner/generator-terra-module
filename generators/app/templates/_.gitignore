@@ -32,6 +32,7 @@
 /rdoc/
 /spec/examples.txt
 /spec/reports/
+/target/
 /test/tmp/
 /test/version_tmp/
 /tmp/

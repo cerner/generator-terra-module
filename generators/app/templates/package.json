@@ -20,8 +20,13 @@
     "url": "https://github.com/cerner/<%=projectName%>/issues"
   },
   "jest": {
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/tests",
+      "/stories"
+    ],
     "setupFiles": [
-      "./tests/jestsetup.js"
+      "./tests/spec/jestsetup.js"
     ],
     "snapshotSerializers": [
       "<rootDir>/node_modules/enzyme-to-json/serializer"
@@ -32,6 +37,7 @@
   },
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
+    "@kadira/storybook-addons": "^1.6.1",
     "@kadira/storybook-addon-knobs": "^1.7.1",
     "@kadira/storybook-addon-options": "^1.0.1",
     "autoprefixer": "^6.6.1",
@@ -49,13 +55,18 @@
     "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-react": "^6.9.0",
     "gh-pages": "^0.12.0",
+    "html-webpack-plugin": "^2.28.0",
     "identity-obj-proxy": "^3.0.0",
+    "jasmine-es6": "^0.4.0",
+    "jasmine-spec-reporter": "^3.1.0",
     "jest": "^18.1.0",
     "node-sass": "^4.3.0",
+    "phantomjs-prebuilt": "^2.1.14",
     "postcss-loader": "^1.2.2",
     "react-addons-test-utils": "^15.4.2",
     "react-storybook-addon-props-combinations": "^0.3.0",
     "sass-loader": "^4.1.1",
+    "selenium-webdriver": "^3.0.1",
     "storybook-addon-a11y": "0.0.4",
     "storybook-addon-i18n-tools": "^1.0.0",
     "storyshots": "^3.2.0",
@@ -64,6 +75,7 @@
     "stylelint-config-sass-guidelines": "^1.1.1",
     "terra-application": "^0.2.0",
     "terra-legacy-theme": "^0.1.0",
+    "terra-toolkit": "https://github.com/cerner/terra-toolkit.git",
     "webpack": "^1.14.0",
     "webpack-dev-server": "^1.16.2"
   },
@@ -77,15 +89,16 @@
     "build": "babel src --out-dir lib",
     "deploy": "build-storybook && gh-pages -d storybook-static",
     "lint": "yarn lint-js && yarn lint-scss",
-    "lint-js": "eslint --ext .js,.jsx .",
+    "lint-js": "eslint --ext .js,.jsx . .storybook",
     "lint-scss": "stylelint src/**/*.scss",
     "pretest": "yarn lint",
     "release:major": "yarn test && yarn build && npm version major -m \"Released version %s\" && npm publish && git push --follow-tags",
     "release:minor": "yarn test && yarn build && npm version minor -m \"Released version %s\" && npm publish && git push --follow-tags",
     "release:patch": "yarn test && yarn build && npm version patch -m \"Released version %s\" && npm publish && git push --follow-tags",
     "start": "start-storybook -p 8080",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test": "yarn test:spec && yarn test:features",
+    "test:features": "JASMINE_CONFIG_PATH=tests/features/jasmine.json jasmine",
+    "test:spec": "jest --coverage",
+    "test:spec:watch": "jest --coverage --watch"
   }
 }

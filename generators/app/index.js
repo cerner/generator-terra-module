@@ -73,7 +73,7 @@ module.exports = yeoman.Base.extend({
       // To access props later use this.props.name;
 
       this.props.cssClassName = toCssClassName(this.props.projectName);
-      this.props.namespacelessProjectClassName = toClassName(namespacelessProjectName(this.props.projectName));
+      this.props.namespacelessProjectName = namespacelessProjectName(this.props.projectName);
       this.props.projectClassName = toClassName(this.props.projectName);
       this.props.titlecaseProjectName = toTitleCase(this.props.projectName.replace('-', ' '));
       this.props.jsxFileName = toClassName(namespacelessProjectName(this.props.projectName));
@@ -90,7 +90,7 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('src/' + this.props.jsxFileName + '.jsx'),
       {
         scssFileName: this.props.scssFileName,
-        projectClassName: this.props.namespacelessProjectClassName,
+        projectClassName: this.props.jsxFileName,
         projectCssClassName: this.props.cssClassName
       }
     );
@@ -128,17 +128,49 @@ module.exports = yeoman.Base.extend({
 
     this.fs.copyTpl(
       this.templatePath('projectNameTest.jsx'),
-      this.destinationPath('tests/' + this.props.jsxFileName + '.test.jsx'),
+      this.destinationPath('tests/spec/' + this.props.jsxFileName + '.test.jsx'),
       {
-        namespacelessProjectClassName: this.props.namespacelessProjectClassName,
-        projectClassName: this.props.projectClassName,
+        jsxFileName: this.props.jsxFileName,
         projectCssClassName: this.props.cssClassName
       }
     );
 
     this.fs.copyTpl(
       this.templatePath('tests/**/*'),
-      this.destinationPath('tests/')
+      this.destinationPath('tests/'),
+      {
+        projectName: this.props.projectName,
+        namespacelessProjectName: this.props.namespacelessProjectName,
+        jsxFileName: this.props.jsxFileName
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('projectNameVariant/**/*'),
+      this.destinationPath('tests/features/fixtures/' + this.props.namespacelessProjectName + '-variant/'),
+      {
+        projectName: this.props.projectName,
+        jsxFileName: this.props.jsxFileName
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('projectName-base.html'),
+      this.destinationPath('tests/features/fixtures/' + this.props.namespacelessProjectName + '-base.html'),
+      {
+        projectName: this.props.projectName
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('projectName-spec.js'),
+      this.destinationPath('tests/features/' + this.props.namespacelessProjectName + '-spec.js'),
+      {
+        jsxFileName: this.props.jsxFileName,
+        namespacelessProjectName: this.props.namespacelessProjectName,
+        projectCssClassName: this.props.cssClassName,
+        titlecaseProjectName: this.props.titlecaseProjectName
+      }
     );
 
     this.fs.copy(
