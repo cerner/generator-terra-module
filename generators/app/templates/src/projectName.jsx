@@ -2,6 +2,16 @@ import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 import '../src/<%= scssFileName %>.scss';
 
+const propTypes = {
+  name: PropTypes.string.isRequired,
+  variant: PropTypes.string.isRequired,
+};
+
+const defaultProps = {
+  name: 'default',
+  variant: '<%= projectCssClassName %>--default',
+};
+
 class <%= projectClassName %> extends React.Component {
   constructor() {
     super();
@@ -16,33 +26,29 @@ class <%= projectClassName %> extends React.Component {
   }
 
   render() {
+    const { name, variant, ...customProps } = this.props;
     const classes = classNames(['<%= projectCssClassName %>',
-      this.props.variant,
+      variant,
       this.state.isSelected && 'u-selected',
+      customProps.className,
     ]);
 
 
-    if (!this.props.name) {
+    if (!name) {
       return null;
     }
-    if (!this.props.variant) {
+    if (!variant) {
       return null;
     }
     return (<button
+      {...customProps}
       className={classes}
       onClick={this.handleClick}
-    >Terra, {this.props.name}</button>);
+    >Terra, {name}</button>);
   }
 }
 
-<%= projectClassName %>.propTypes = {
-  name: PropTypes.string.isRequired,
-  variant: PropTypes.string.isRequired,
-};
-
-<%= projectClassName %>.defaultProps = {
-  name: 'default',
-  variant: '<%= projectCssClassName %>--default',
-};
+<%= projectClassName %>.propTypes = propTypes;
+<%= projectClassName %>.defaultProps = defaultProps;
 
 export default <%= projectClassName %>;
