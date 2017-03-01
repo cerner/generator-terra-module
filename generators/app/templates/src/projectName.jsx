@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import classNames from 'classnames';
-import '../src/<%= scssFileName %>.scss';
+import './<%= scssFileName %>.scss';
 
 const propTypes = {
   name: PropTypes.string.isRequired,

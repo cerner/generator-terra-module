@@ -15,37 +15,37 @@ describe('generator-terra-module:app', function () {
 
   it('creates files', function () {
     assert.file([
-      'README.md'
+      'packages/waffle-cake/README.md'
     ]);
   });
 
   it('creates the mixins and variables files', function () {
     assert.file([
-      'src/_mixins.scss',
-      'src/_variables.scss'
+      'packages/waffle-cake/src/_mixins.scss',
+      'packages/waffle-cake/src/_variables.scss'
     ]);
   });
 
   it('fills the sass file with some dummy sass', function () {
-    assert.fileContent('src/cake.scss', '@import \'./variables\';');
-    assert.fileContent('src/cake.scss', '@import \'./mixins\';');
+    assert.fileContent('packages/waffle-cake/src/cake.scss', '@import \'./variables\';');
+    assert.fileContent('packages/waffle-cake/src/cake.scss', '@import \'./mixins\';');
   });
 
   it('fills the docs/README file with title cased project data', function () {
-    assert.fileContent('docs/README.md', 'Waffle Cake Documentation');
+    assert.fileContent('packages/waffle-cake/docs/README.md', 'Waffle Cake Documentation');
   });
 
   it('fills the package.json file with project data', function () {
-    assert.fileContent('package.json', 'git+https://github.com/cerner/waffle-cake.git');
-    assert.fileContent('package.json', 'https://github.com/cerner/waffle-cake/issues');
+    assert.fileContent('packages/waffle-cake/package.json', 'git+https://github.com/cerner/terra-ui.git');
+    assert.fileContent('packages/waffle-cake/package.json', 'https://github.com/cerner/terra-ui/issues');
   });
 
   it('fills the README file with project data', function () {
-    assert.fileContent('README.md', '# Waffle Cake');
-    assert.fileContent('README.md', 'img.shields.io/npm/v/waffle-cake.svg');
-    assert.fileContent('README.md', 'travis-ci.org/cerner/waffle-cake.svg');
-    assert.fileContent('README.md', 'npm install waffle-cake');
-    assert.fileContent('README.md', 'https://github.com/cerner/waffle-cake/archive/master.zip');
-    assert.fileContent('README.md', 'https://github.com/cerner/waffle-cake.git');
+    assert.fileContent('packages/waffle-cake/README.md', '# Waffle Cake');
+    assert.fileContent('packages/waffle-cake/README.md', 'img.shields.io/npm/v/waffle-cake.svg');
+    assert.fileContent('packages/waffle-cake/README.md', 'travis-ci.org/cerner/waffle-cake.svg');
+    assert.fileContent('packages/waffle-cake/README.md', 'npm install waffle-cake');
+    assert.fileContent('packages/waffle-cake/README.md', 'https://github.com/cerner/waffle-cake/archive/master.zip');
+    assert.fileContent('packages/waffle-cake/README.md', 'https://github.com/cerner/waffle-cake.git');
   });
 });

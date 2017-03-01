@@ -1,11 +1,12 @@
 {
   "name": "<%=projectName%>",
   "main": "lib/<%=jsxFileName%>.js",
+  "private": true,
   "version": "0.1.0",
   "description": "<%=projectName%>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cerner/<%=projectName%>.git"
+    "url": "git+https://github.com/cerner/terra-ui.git"
   },
   "keywords": [
     "Cerner",
@@ -17,7 +18,7 @@
   "author": "Cerner Corporation",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/cerner/<%=projectName%>/issues"
+    "url": "https://github.com/cerner/terra-ui/issues"
   },
   "homepage": "https://github.com/cerner/terra-ui#readme",
   "devDependencies": {
