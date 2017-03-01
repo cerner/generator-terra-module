@@ -27,8 +27,8 @@ describe('generator-terra-module:app', function () {
   });
 
   it('fills the sass file with some dummy sass', function () {
-    assert.fileContent('packages/waffle-cake/src/cake.scss', '@import \'./variables\';');
-    assert.fileContent('packages/waffle-cake/src/cake.scss', '@import \'./mixins\';');
+    assert.fileContent('packages/waffle-cake/src/Cake.scss', '@import \'./variables\';');
+    assert.fileContent('packages/waffle-cake/src/Cake.scss', '@import \'./mixins\';');
   });
 
   it('fills the docs/README file with title cased project data', function () {
