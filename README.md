@@ -21,6 +21,8 @@ Then generate your new project:
 yo terra-module
 ```
 
+After generating the project inside of the mono repo terra-ui, you will need to add a link to your project in site/App.jsx, routes for your project in site/Index.jsx, and links to your test in site/TestLinks.jsx.
+
 # Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md)
