@@ -46,11 +46,7 @@ module.exports = yeoman.Base.extend({
 
     this.argument('paramProjectName', {type: String, required: false});
 
-    if (this.paramProjectName === undefined) {
-      this.projectName = path.basename(process.cwd());
-    } else {
-      this.projectName = this.paramProjectName;
-    }
+    this.projectName = this.paramProjectName;
   },
 
   prompting: function () {
@@ -65,7 +61,10 @@ module.exports = yeoman.Base.extend({
       type: 'input',
       name: 'projectName',
       message: 'Your module name:',
-      default: this.projectName
+      default: this.projectName,
+      validate: function (input) {
+        return input !== undefined && input.length !== 0;
+      }
     }];
 
     this.prompt(prompts, function (props) {
@@ -189,6 +188,19 @@ module.exports = yeoman.Base.extend({
       {
         projectName: this.props.projectName,
         jsxFileName: this.props.jsxFileName
+      }
+    );
+
+    this.fs.copy(
+      this.templatePath('LICENSE'),
+      this.destinationPath(this.props.baseDirectory + 'LICENSE')
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('NOTICE'),
+      this.destinationPath(this.props.baseDirectory + 'NOTICE'),
+      {
+        currentYear: this.props.currentYear
       }
     );
 
