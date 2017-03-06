@@ -1,11 +1,18 @@
-# <%= titlecaseProjectName %> Documentation
+# <%= titlecaseProjectName %>
 
-- [<%= titlecaseProjectName %>](<%= projectName %>.md)
+{insert description}
 
-Additional modifiers:
+## Getting Started
 
-- {insert links to documentation markdown files}
+- Install with [npmjs](https://www.npmjs.com):
+  - `npm install <%= projectName %>`
+  - `yarn add <%= projectName %>`
 
-Usage:
+## Usage
 
-- {insert usage}
+```jsx
+import React from 'react';
+import <%= projectClassName %> from '<%= projectName %>';
+
+<<%= projectClassName %> {props.......} />
+```

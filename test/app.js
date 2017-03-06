@@ -32,7 +32,7 @@ describe('generator-terra-module:app', function () {
   });
 
   it('fills the docs/README file with title cased project data', function () {
-    assert.fileContent('packages/waffle-cake/docs/README.md', 'Waffle Cake Documentation');
+    assert.fileContent('packages/waffle-cake/docs/README.md', 'Waffle Cake');
   });
 
   it('fills the package.json file with project data', function () {
@@ -43,9 +43,7 @@ describe('generator-terra-module:app', function () {
   it('fills the README file with project data', function () {
     assert.fileContent('packages/waffle-cake/README.md', '# Waffle Cake');
     assert.fileContent('packages/waffle-cake/README.md', 'img.shields.io/npm/v/waffle-cake.svg');
-    assert.fileContent('packages/waffle-cake/README.md', 'travis-ci.org/cerner/waffle-cake.svg');
+    assert.fileContent('packages/waffle-cake/README.md', 'travis-ci.org/cerner/terra-ui.svg');
     assert.fileContent('packages/waffle-cake/README.md', 'npm install waffle-cake');
-    assert.fileContent('packages/waffle-cake/README.md', 'https://github.com/cerner/waffle-cake/archive/master.zip');
-    assert.fileContent('packages/waffle-cake/README.md', 'https://github.com/cerner/waffle-cake.git');
   });
 });
