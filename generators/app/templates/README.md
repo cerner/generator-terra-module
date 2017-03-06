@@ -2,7 +2,7 @@
 
 
 [![NPM version](http://img.shields.io/npm/v/<%= projectName %>.svg)](https://www.npmjs.org/package/<%= projectName %>)
-[![Build Status](https://travis-ci.org/cerner/terra-ui.svg?branch=master)](https://travis-ci.org/cerner/<%= projectName %>)
+[![Build Status](https://travis-ci.org/cerner/terra-ui.svg?branch=master)](https://travis-ci.org/cerner/terra-ui)
 
 {insert description}
 

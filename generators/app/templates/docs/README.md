@@ -1,5 +1,7 @@
 # <%= titlecaseProjectName %>
 
+{insert description}
+
 ## Getting Started
 
 - Install with [npmjs](https://www.npmjs.com):
