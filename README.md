@@ -21,7 +21,7 @@ Then generate your new project:
 yo terra-module
 ```
 
-This will generate a project in the packages directory of a mono repo.  Make sure to type something other than the default when prompted for the project name.  After generating the project inside of the mono repo, you will need to add a link to your project in site/App.jsx, routes for your project in site/Index.jsx, and links to your test in site/TestLinks.jsx.
+This will generate a project in the packages directory of a mono repo.  Make sure to type something other than the default when prompted for the project name.  After generating the project inside of the mono repo, you will need to add a link to your project in site/App.jsx, routes for your project in site/Index.jsx, and links to your test in site/TestLinks.jsx.  For nightwatch tests to run optimally, you will also need to update the mono repo's nightwatch.conf.js file to point to the nightwatch directory in the new package.
 
 # Contributing
 
