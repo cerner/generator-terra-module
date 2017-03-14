@@ -49,6 +49,6 @@
     "test:nightwatch-default": "node ./node_modules/terra-toolkit/lib/scripts/nightwatch.js",
     "test:nightwatch-chrome": "node ./node_modules/terra-toolkit/lib/scripts/nightwatch.js chrome",
     "test:nightwatch-firefox": "node ./node_modules/terra-toolkit/lib/scripts/nightwatch.js firefox",
-    "test:nightwatch-safari": "node ./node_modules/terra-toolkit/lib/scripts/nightwatch-non-parallel.js safari",
+    "test:nightwatch-safari": "node ./node_modules/terra-toolkit/lib/scripts/nightwatch-non-parallel.js safari"
   }
 }
