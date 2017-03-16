@@ -45,5 +45,6 @@ describe('generator-terra-module:app', function () {
     assert.fileContent('packages/waffle-cake/README.md', 'img.shields.io/npm/v/waffle-cake.svg');
     assert.fileContent('packages/waffle-cake/README.md', 'travis-ci.org/cerner/terra-ui.svg');
     assert.fileContent('packages/waffle-cake/README.md', 'npm install waffle-cake');
+    assert.fileContent('packages/waffle-cake/README.md', '[Documentation](https://github.com/cerner/terra-ui/tree/master/packages/waffle-cake/docs)');
   });
 });

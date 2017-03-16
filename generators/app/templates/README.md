@@ -7,7 +7,7 @@
 {insert description}
 
 - [Getting Started](#getting-started)
-- [Documentation](docs/)
+- [Documentation](https://github.com/cerner/terra-ui/tree/master/packages/<%= projectName %>/docs)
 - [LICENSE](#license)
 
 ## Getting Started
