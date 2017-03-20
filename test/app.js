@@ -36,15 +36,15 @@ describe('generator-terra-module:app', function () {
   });
 
   it('fills the package.json file with project data', function () {
-    assert.fileContent('packages/waffle-cake/package.json', 'git+https://github.com/cerner/terra-ui.git');
-    assert.fileContent('packages/waffle-cake/package.json', 'https://github.com/cerner/terra-ui/issues');
+    assert.fileContent('packages/waffle-cake/package.json', 'git+https://github.com/cerner/terra-core.git');
+    assert.fileContent('packages/waffle-cake/package.json', 'https://github.com/cerner/terra-core/issues');
   });
 
   it('fills the README file with project data', function () {
     assert.fileContent('packages/waffle-cake/README.md', '# Waffle Cake');
     assert.fileContent('packages/waffle-cake/README.md', 'img.shields.io/npm/v/waffle-cake.svg');
-    assert.fileContent('packages/waffle-cake/README.md', 'travis-ci.org/cerner/terra-ui.svg');
+    assert.fileContent('packages/waffle-cake/README.md', 'travis-ci.org/cerner/terra-core.svg');
     assert.fileContent('packages/waffle-cake/README.md', 'npm install waffle-cake');
-    assert.fileContent('packages/waffle-cake/README.md', '[Documentation](https://github.com/cerner/terra-ui/tree/master/packages/waffle-cake/docs)');
+    assert.fileContent('packages/waffle-cake/README.md', '[Documentation](https://github.com/cerner/terra-core/tree/master/packages/waffle-cake/docs)');
   });
 });
