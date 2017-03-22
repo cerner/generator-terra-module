@@ -165,14 +165,6 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('examples/**/*'),
-      this.destinationPath(this.props.baseDirectory + 'examples/'),
-      {
-        projectClassName: this.props.namespacelessProjectClassName
-      }
-    );
-
-    this.fs.copyTpl(
       this.templatePath('README.md'),
       this.destinationPath(this.props.baseDirectory + 'README.md'),
       {
