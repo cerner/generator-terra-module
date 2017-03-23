@@ -166,8 +166,8 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('examples/**/*'),
-      this.destinationPath('packages/terra-site/src/examples/' + this.props.namespacelessProjectName),
+      this.templatePath('Index.jsx'),
+      this.destinationPath('packages/terra-site/src/examples/' + this.props.namespacelessProjectName + 'Index.jsx'),
       {
         projectClassName: this.props.namespacelessProjectClassName
       }
