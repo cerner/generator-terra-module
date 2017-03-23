@@ -15,7 +15,8 @@ describe('generator-terra-module:app', function () {
 
   it('creates files', function () {
     assert.file([
-      'packages/waffle-cake/README.md'
+      'packages/waffle-cake/README.md',
+      'packages/terra-site/src/examples/cake/Index.jsx'
     ]);
   });
 
@@ -46,5 +47,12 @@ describe('generator-terra-module:app', function () {
     assert.fileContent('packages/waffle-cake/README.md', 'travis-ci.org/cerner/terra-ui.svg');
     assert.fileContent('packages/waffle-cake/README.md', 'npm install waffle-cake');
     assert.fileContent('packages/waffle-cake/README.md', '[Documentation](https://github.com/cerner/terra-ui/tree/master/packages/waffle-cake/docs)');
+  });
+
+  it('fills the examples Index file with project data', function () {
+    assert.fileContent('packages/terra-site/src/examples/cake/Index.jsx', `import React from 'react';`);
+    assert.fileContent('packages/terra-site/src/examples/cake/Index.jsx', `import CakeSrc from '!raw-loader!waffle-cake/src/Cake';`);
+    assert.fileContent('packages/terra-site/src/examples/cake/Index.jsx', `import ReadMe from 'waffle-cake/docs/README.md';`);
+    assert.fileContent('packages/terra-site/src/examples/cake/Index.jsx', `export default CakeExamples;`);
   });
 });
