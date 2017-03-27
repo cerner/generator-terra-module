@@ -53,6 +53,7 @@ describe('generator-terra-module:app', function () {
     assert.fileContent('packages/terra-site/src/examples/cake/Index.jsx', `import React from 'react';`);
     assert.fileContent('packages/terra-site/src/examples/cake/Index.jsx', `import CakeSrc from '!raw-loader!waffle-cake/src/Cake';`);
     assert.fileContent('packages/terra-site/src/examples/cake/Index.jsx', `import ReadMe from 'waffle-cake/docs/README.md';`);
+    assert.fileContent('packages/terra-site/src/examples/cake/Index.jsx', `import { version } from 'waffle-cake/package.json';`);
     assert.fileContent('packages/terra-site/src/examples/cake/Index.jsx', `export default CakeExamples;`);
   });
 });
