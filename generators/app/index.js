@@ -122,6 +122,7 @@ module.exports = yeoman.Base.extend({
       this.templatePath('projectName-spec.js'),
       this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/' + this.props.namespacelessProjectName + '-spec.js'),
       {
+        projectName: this.props.projectName,
         namespacelessProjectName: this.props.namespacelessProjectName,
         projectCssClassName: this.props.cssClassName
       }
