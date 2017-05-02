@@ -56,4 +56,10 @@ describe('generator-terra-module:app', function () {
     assert.fileContent('packages/terra-site/src/examples/cake/Index.jsx', `import { version } from 'waffle-cake/package.json';`);
     assert.fileContent('packages/terra-site/src/examples/cake/Index.jsx', `export default CakeExamples;`);
   });
+
+  it('fills the examples Index file with project data', function () {
+    assert.fileContent('packages/waffle-cake/.npmignore', `src`);
+    assert.fileContent('packages/waffle-cake/.npmignore', `node_modules`);
+    assert.fileContent('packages/waffle-cake/.npmignore', `*.log`);
+  });
 });

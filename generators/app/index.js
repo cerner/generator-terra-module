@@ -206,6 +206,11 @@ module.exports = yeoman.Base.extend({
       }
     );
 
+    this.fs.copyTpl(
+      this.templatePath('_.npmignore'),
+      this.destinationPath(this.props.baseDirectory + '.npmignore')
+    );
+
     this.fs.write(this.destinationPath(this.props.baseDirectory + 'src/_mixins.scss'), '');
     this.fs.write(this.destinationPath(this.props.baseDirectory + 'src/_variables.scss'), '');
   },
