@@ -6,7 +6,6 @@
 
 - Install with [npmjs](https://www.npmjs.com):
   - `npm install <%= projectName %>`
-  - `yarn add <%= projectName %>`
 
 ## Usage
 

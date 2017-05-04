@@ -1,6 +1,24 @@
 import React from 'react';
 import <%= moduleClassName %> from '../../src/<%= moduleClassName %>';
 
-it('should render a default component', () => {
-  expect(1).toEqual(1);
+describe('<%= moduleClassName %>', () => {
+  const defaultRender = <<%= moduleClassName %> />;
+
+  // Snapshot Tests
+  it('should render a default component', () => {
+    const wrapper = shallow(defaultRender);
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  // Prop Tests
+  it('should use the default value when no value is given', () => {
+    const wrapper = shallow(defaultRender);
+    expect(wrapper.find('.<%= cssClassName %>').text()).toEqual('defualt');
+  });
+
+  // Structure Tests
+  it('should have the class <%= cssClassName %>', () => {
+    const wrapper = shallow(defaultRender);
+    expect(wrapper.prop('className')).toContain('<%= cssClassName %>');
+  });
 });
