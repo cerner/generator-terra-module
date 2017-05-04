@@ -9,14 +9,14 @@ const propTypes = {
 
 const defaultProps = {
   name: 'default',
-  variant: '<%= projectCssClassName %>--default',
+  variant: '<%= cssClassName %>--default',
 };
 
-const <%= projectClassName %> = (props) => (
+const <%= moduleClassName %> = (props) => (
   <div />
 );
 
-<%= projectClassName %>.propTypes = propTypes;
-<%= projectClassName %>.defaultProps = defaultProps;
+<%= moduleClassName %>.propTypes = propTypes;
+<%= moduleClassName %>.defaultProps = defaultProps;
 
-export default <%= projectClassName %>;
+export default <%= moduleClassName %>;

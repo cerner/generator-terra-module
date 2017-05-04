@@ -3,12 +3,12 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const <%= namespacelessProjectClassName %>Tests = () => (
+const <%= moduleClassName %>Tests = () => (
   <div>
     <ul>
-      <li><Link to="/tests/<%= namespacelessProjectName %>-tests/default">Default <%= namespacelessProjectClassName %></Link></li>
+      <li><Link to="/tests/<%= moduleName %>-tests/default">Default <%= moduleClassName %></Link></li>
     </ul>
   </div>
 );
 
-export default <%= namespacelessProjectClassName %>Tests;
+export default <%= moduleClassName %>Tests;

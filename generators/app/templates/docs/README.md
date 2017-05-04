@@ -14,5 +14,5 @@
 import React from 'react';
 import <%= projectClassName %> from '<%= projectName %>';
 
-<<%= projectClassName %> {props.......} />
+<<%= projectClassName %> {props...} />
 ```
