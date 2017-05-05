@@ -4,8 +4,10 @@ Cerner Corporation
 - Rory Hardy [@gneatgeek]
 - Matt Henkes [@mjhenkes]
 - Ryan Manuel [@ryanthemanuel]
+- Emily Rohrbough [@emilyrohrbough]
 
 [@gneatgeek]: https://github.com/gneatgeek
 [@Matt-Butler]: https://github.com/Matt-Butler
 [@mjhenkes]: http://github.com/mjhenkes
 [@ryanthemanuel]: https://github.com/ryanthemanuel
+[@emilyrohrbough]: https://github.com/emilyrohrbough
