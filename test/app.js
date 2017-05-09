@@ -66,69 +66,11 @@ describe('generator-terra-module:app', function () {
       assert.fileContent('packages/terra-site/src/examples/waffle-cake/Index.jsx', `import { version } from 'terra-waffle-cake/package.json';`);
       assert.fileContent('packages/terra-site/src/examples/waffle-cake/Index.jsx', `export default WaffleCakeExamples;`);
     });
-  });
-
-  describe('terra-core module', function () {
-    before(function (done) {
-      helpers.run(path.join(__dirname, '../generators/app'))
-        .withPrompts({
-          repository: 'terra-core',
-          moduleName: 'waffle-cake',
-          curentYear: '1000'
-        })
-        .on('end', done);
-    });
-
-    it('creates files', function () {
-      assert.file([
-        'packages/waffle-cake/README.md',
-        'packages/terra-site/src/examples/waffle-cake/Index.jsx'
-      ]);
-    });
-
-    it('creates the mixins and variables files', function () {
-      assert.file([
-        'packages/waffle-cake/src/_mixins.scss',
-        'packages/waffle-cake/src/_variables.scss'
-      ]);
-    });
-
-    it('creates the License and Notice files', function () {
-      assert.file([
-        'packages/waffle-cake/LICENSE',
-        'packages/waffle-cake/NOTICE'
-      ]);
-    });
-
-    it('fills the sass file with some dummy sass', function () {
-      assert.fileContent('packages/waffle-cake/src/WaffleCake.scss', '@import \'./variables\';');
-      assert.fileContent('packages/waffle-cake/src/WaffleCake.scss', '@import \'./mixins\';');
-      assert.fileContent('packages/waffle-cake/src/WaffleCake.scss', '.terra-WaffleCake {');
-    });
-
-    it('fills the docs/README file with title cased project data', function () {
-      assert.fileContent('packages/waffle-cake/docs/README.md', 'Terra Waffle Cake');
-    });
-
-    it('fills the package.json file with project data', function () {
-      assert.fileContent('packages/waffle-cake/package.json', 'git+https://github.com/cerner/terra-core.git');
-      assert.fileContent('packages/waffle-cake/package.json', 'https://github.com/cerner/terra-core/issues');
-    });
-
-    it('fills the README file with project data', function () {
-      assert.fileContent('packages/waffle-cake/README.md', '# Terra Waffle Cake');
-      assert.fileContent('packages/waffle-cake/README.md', 'img.shields.io/npm/v/terra-waffle-cake.svg');
-      assert.fileContent('packages/waffle-cake/README.md', 'travis-ci.org/cerner/terra-core.svg');
-      assert.fileContent('packages/waffle-cake/README.md', 'npm install terra-waffle-cake');
-      assert.fileContent('packages/waffle-cake/README.md', '[Documentation](https://github.com/cerner/terra-core/tree/master/packages/terra-waffle-cake/docs)');
-    });
 
     it('fills the examples Index file with project data', function () {
-      assert.fileContent('packages/terra-site/src/examples/waffle-cake/Index.jsx', `import React from 'react';`);
-      assert.fileContent('packages/terra-site/src/examples/waffle-cake/Index.jsx', `import WaffleCakeSrc from '!raw-loader!terra-waffle-cake/src/WaffleCake';`);
-      assert.fileContent('packages/terra-site/src/examples/waffle-cake/Index.jsx', `import ReadMe from 'terra-waffle-cake/docs/README.md';`);
-      assert.fileContent('packages/terra-site/src/examples/waffle-cake/Index.jsx', `import { version } from 'terra-waffle-cake/package.json';`);
-      assert.fileContent('packages/terra-site/src/examples/waffle-cake/Index.jsx', `export default WaffleCakeExamples;`);
+      assert.fileContent('packages/waffle-cake/.npmignore', `src`);
+      assert.fileContent('packages/waffle-cake/.npmignore', `node_modules`);
+      assert.fileContent('packages/waffle-cake/.npmignore', `*.log`);
     });
   });
 
@@ -195,11 +137,11 @@ describe('generator-terra-module:app', function () {
       assert.fileContent('packages/terra-clinical-site/src/examples/monster-cookies/Index.jsx', `import { version } from 'terra-clinical-monster-cookies/package.json';`);
       assert.fileContent('packages/terra-clinical-site/src/examples/monster-cookies/Index.jsx', `export default MonsterCookiesExamples;`);
     });
-  });
 
-  it('fills the examples Index file with project data', function () {
-    assert.fileContent('packages/waffle-cake/.npmignore', `src`);
-    assert.fileContent('packages/waffle-cake/.npmignore', `node_modules`);
-    assert.fileContent('packages/waffle-cake/.npmignore', `*.log`);
+    it('fills the examples Index file with project data', function () {
+      assert.fileContent('packages/monster-cookies/.npmignore', `src`);
+      assert.fileContent('packages/monster-cookies/.npmignore', `node_modules`);
+      assert.fileContent('packages/monster-cookies/.npmignore', `*.log`);
+    });
   });
 });
