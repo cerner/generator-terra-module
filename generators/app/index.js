@@ -95,7 +95,7 @@ module.exports = yeoman.Base.extend({
 
       this.props.cssClassName = toCssClassName(this.props.repoPrefix, this.props.moduleName);
 
-      this.props.baseDirectory = 'packages/' + this.props.moduleName + '/';
+      this.props.baseDirectory = 'packages/' + this.props.projectName + '/';
       this.props.jsxFileName = toClassName(this.props.moduleName);
       this.props.scssFileName = this.props.jsxFileName;
 
