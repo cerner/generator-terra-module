@@ -20,8 +20,15 @@ Then generate your new project:
 ```bash
 yo terra-module
 ```
+From here, you will be prompted with two messages:
+1. `Terra repository:`
+Input `terra-core` or `terra-clinical`. It defaults to `terra-core` if no input is provided.
+2. `Your module name:`
+Input the desired name of the react component being created. **Note**: the first prompt handles the name space prefixes.
 
-This will generate a project in the packages directory of a mono repo.  Make sure to type something other than the default when prompted for the project name.  After generating the project inside of the mono repo, you will need to add a link to your project's examples in site/App.jsx, routes for your project in site/Index.jsx, and links to your tests in site/TestLinks.jsx.  For nightwatch tests to run optimally, you will also need to update the mono repo's nightwatch.conf.js file to point to the nightwatch directory in the new package.
+Your new project will be generated in the packages directory of the chosen repository. After generating the project, add a link to your project's examples in site/App.jsx, routes for your project in site/Index.jsx, and links to your tests in site/TestLinks.jsx.
+
+Now you are ready to start building your terra module!
 
 # Contributing
 
