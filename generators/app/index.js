@@ -6,7 +6,7 @@ var _ = require('lodash');
 
 /**
  * Converts a string of the form ab bc cd into Ab Bc Cd
- * @param {String} the typically hyphenless project name
+ * @param {String} the project name
  */
 function toTitleCase(str) {
   return _.startCase(_.toLower(str));
@@ -14,29 +14,36 @@ function toTitleCase(str) {
 
 /**
  * Converts a string of the form a-b-c into ABC
- * @param {String} the project name
+ * @param {String} the project name or module name
  */
 function toClassName(str) {
   return _.upperFirst(_.camelCase(str));
 }
 
 /**
- * Converts a string of the form a-b-c into b-c
- * @param {String} the project name
+ * Concatinates strings a and b into the form a-b
+ * @param str1 {String} the repository name
+ * @param str2 {String} the module name
  */
-function namespacelessProjectName(str) {
-  var hyphenlessProjectNameArray = str.split("-");
-  hyphenlessProjectNameArray.shift();
-  return hyphenlessProjectNameArray.join("-");
+function toProjectName(str1, str2) {
+  return str1 + '-' + str2;
 }
 
 /**
- * Converts a string of the form a-b-c into a-BC
- * @param {String} the project name
+ * Concatinates strings a-b and c-d into the form aB-CD
+ * @param str1 {String} the repository name
+ * @param str2 {String} the module name
  */
-function toCssClassName(str) {
-  const namespaceless = namespacelessProjectName(str);
-  return str.replace(namespaceless, toClassName(namespaceless));
+function toCssClassName(str1, str2) {
+  return toProjectName(_.camelCase(str1), toClassName(str2));
+}
+
+/**
+ * Returns the repository prefix
+ * @param {String} the repository name
+ */
+function repositoryPrefix(repo) {
+  return (repo === 'terra-core') ? 'terra' : repo;
 }
 
 module.exports = yeoman.Base.extend({
@@ -58,9 +65,18 @@ module.exports = yeoman.Base.extend({
 
     var prompts = [{
       type: 'input',
-      name: 'projectName',
+      name: 'repository',
+      message: 'Terra repository:',
+      default: 'terra-core',
+      validate: function (input) {
+        var validRepos = ['terra-core', 'terra-clinical'];
+        return input !== undefined && validRepos.includes(input);
+      }
+    }, {
+      type: 'input',
+      name: 'moduleName',
       message: 'Your module name:',
-      default: this.projectName,
+      default: this.moduleName,
       validate: function (input) {
         return input !== undefined && input.length !== 0;
       }
@@ -69,15 +85,20 @@ module.exports = yeoman.Base.extend({
     this.prompt(prompts, function (props) {
       this.props = props;
       // To access props later use this.props.name;
+      this.props.repoPrefix = repositoryPrefix(this.props.repository);
 
-      this.props.cssClassName = toCssClassName(this.props.projectName);
-      this.props.namespacelessProjectName = namespacelessProjectName(this.props.projectName);
-      this.props.namespacelessProjectClassName = toClassName(namespacelessProjectName(this.props.projectName));
+      this.props.moduleClassName = toClassName(this.props.moduleName);
+
+      this.props.projectName = toProjectName(this.props.repoPrefix, this.props.moduleName);
       this.props.projectClassName = toClassName(this.props.projectName);
       this.props.titlecaseProjectName = toTitleCase(this.props.projectName.replace('-', ' '));
-      this.props.jsxFileName = toClassName(namespacelessProjectName(this.props.projectName));
-      this.props.scssFileName = this.props.jsxFileName;
+
+      this.props.cssClassName = toCssClassName(this.props.repoPrefix, this.props.moduleName);
+
       this.props.baseDirectory = 'packages/' + this.props.projectName + '/';
+      this.props.jsxFileName = toClassName(this.props.moduleName);
+      this.props.scssFileName = this.props.jsxFileName;
+
       this.props.currentYear = new Date().getFullYear();
 
       done();
@@ -90,8 +111,8 @@ module.exports = yeoman.Base.extend({
       this.destinationPath(this.props.baseDirectory + 'src/' + this.props.jsxFileName + '.jsx'),
       {
         scssFileName: this.props.scssFileName,
-        projectClassName: this.props.namespacelessProjectClassName,
-        projectCssClassName: this.props.cssClassName
+        moduleClassName: this.props.moduleClassName,
+        cssClassName: this.props.cssClassName
       }
     );
 
@@ -99,7 +120,7 @@ module.exports = yeoman.Base.extend({
       this.templatePath('src/projectName.scss'),
       this.destinationPath(this.props.baseDirectory + 'src/' + this.props.scssFileName + '.scss'),
       {
-        projectCssClassName: this.props.cssClassName
+        cssClassName: this.props.cssClassName
       }
     );
 
@@ -107,59 +128,58 @@ module.exports = yeoman.Base.extend({
       this.templatePath('projectNameTest.jsx'),
       this.destinationPath(this.props.baseDirectory + 'tests/jest/' + this.props.jsxFileName + '.test.jsx'),
       {
-        namespacelessProjectClassName: this.props.namespacelessProjectClassName,
-        projectClassName: this.props.projectClassName,
-        projectCssClassName: this.props.cssClassName
+        moduleClassName: this.props.moduleClassName,
+        cssClassName: this.props.cssClassName
       }
     );
 
     this.fs.copyTpl(
-      this.templatePath('tests/**/*'),
+      this.templatePath('tests/*'),
       this.destinationPath(this.props.baseDirectory + 'tests/')
     );
 
     this.fs.copyTpl(
       this.templatePath('projectName-spec.js'),
-      this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/' + this.props.namespacelessProjectName + '-spec.js'),
+      this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/' + this.props.moduleName + '-spec.js'),
       {
         projectName: this.props.projectName,
-        namespacelessProjectName: this.props.namespacelessProjectName,
-        projectCssClassName: this.props.cssClassName
+        moduleName: this.props.moduleName,
+        cssClassName: this.props.cssClassName
       }
     );
 
     this.fs.copyTpl(
       this.templatePath('projectNameTestRoutes.jsx'),
-      this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/' + this.props.namespacelessProjectClassName + 'TestRoutes.jsx'),
+      this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/' + this.props.moduleClassName + 'TestRoutes.jsx'),
       {
-        namespacelessProjectName: this.props.namespacelessProjectName,
-        namespacelessProjectClassName: this.props.namespacelessProjectClassName
+        moduleName: this.props.moduleName,
+        moduleClassName: this.props.moduleClassName
       }
     );
 
     this.fs.copyTpl(
       this.templatePath('projectNameTests.jsx'),
-      this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/' + this.props.namespacelessProjectClassName + 'Tests.jsx'),
+      this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/' + this.props.moduleClassName + 'Tests.jsx'),
       {
-        namespacelessProjectName: this.props.namespacelessProjectName,
-        namespacelessProjectClassName: this.props.namespacelessProjectClassName
+        moduleName: this.props.moduleName,
+        moduleClassName: this.props.moduleClassName
       }
     );
 
     this.fs.copyTpl(
       this.templatePath('DefaultProjectName.jsx'),
-      this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/Default' + this.props.namespacelessProjectClassName + '.jsx'),
+      this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/Default' + this.props.moduleClassName + '.jsx'),
       {
-        namespacelessProjectClassName: this.props.namespacelessProjectClassName
+        moduleClassName: this.props.moduleClassName
       }
     );
 
     this.fs.copyTpl(
-      this.templatePath('docs/**/*'),
+      this.templatePath('docs/*'),
       this.destinationPath(this.props.baseDirectory + 'docs/'),
       {
         projectName: this.props.projectName,
-        projectClassName: this.props.namespacelessProjectClassName,
+        projectClassName: this.props.moduleClassName,
         titlecaseProjectName: this.props.titlecaseProjectName,
         currentYear: this.props.currentYear
       }
@@ -167,10 +187,10 @@ module.exports = yeoman.Base.extend({
 
     this.fs.copyTpl(
       this.templatePath('Index.jsx'),
-      this.destinationPath('packages/terra-site/src/examples/' + this.props.namespacelessProjectName + '/Index.jsx'),
+      this.destinationPath('packages/' + this.props.repoPrefix + '-site/src/examples/' + this.props.moduleName + '/Index.jsx'),
       {
         projectName: this.props.projectName,
-        projectClassName: this.props.namespacelessProjectClassName
+        projectClassName: this.props.moduleClassName
       }
     );
 
@@ -180,12 +200,13 @@ module.exports = yeoman.Base.extend({
       {
         projectName: this.props.projectName,
         titlecaseProjectName: this.props.titlecaseProjectName,
-        currentYear: this.props.currentYear
+        currentYear: this.props.currentYear,
+        repository: this.props.repository
       }
     );
 
     this.fs.copyTpl(
-      this.templatePath('package.json'),
+      this.templatePath(this.props.repoPrefix + '-package.json'),
       this.destinationPath(this.props.baseDirectory + 'package.json'),
       {
         projectName: this.props.projectName,

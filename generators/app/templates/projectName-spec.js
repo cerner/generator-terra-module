@@ -11,9 +11,9 @@ module.exports = {
     screenshot(browser, '<%= projectName %>', done);
   },
 
-  'Displays a default button with the provided text': (browser) => {
+  'Displays a default <%= moduleName %>': (browser) => {
     browser
-      .url(`http://localhost:${browser.globals.webpackDevServerPort}/#/tests/<%= namespacelessProjectName %>-tests/default`);
+      .url(`http://localhost:${browser.globals.webpackDevServerPort}/#/tests/<%= moduleName %>-tests/default`)
+      .assert.elementPresent('.<%= cssClassName %>');
   },
 };
-

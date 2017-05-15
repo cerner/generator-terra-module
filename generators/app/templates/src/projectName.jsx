@@ -1,22 +1,31 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import 'terra-base/lib/baseStyles';
 import './<%= scssFileName %>.scss';
 
 const propTypes = {
-  name: PropTypes.string.isRequired,
-  variant: PropTypes.string.isRequired,
+ /*
+ * Content to be displayed as the name
+ */
+  name: PropTypes.string,
 };
 
 const defaultProps = {
   name: 'default',
-  variant: '<%= projectCssClassName %>--default',
 };
 
-const <%= projectClassName %> = (props) => (
-  <div />
-);
+const <%= moduleClassName %> = ({ name, ...customProps }) => {
+  const attributes = Object.assign({}, customProps);
+  const <%= moduleClassName %>ClassNames = classNames([
+    '<%= cssClassName %>',
+    attributes.className,
+  ]);
 
-<%= projectClassName %>.propTypes = propTypes;
-<%= projectClassName %>.defaultProps = defaultProps;
+  return (<div {...attributes} className={<%= moduleClassName %>ClassNames} />)
+};
 
-export default <%= projectClassName %>;
+<%= moduleClassName %>.propTypes = propTypes;
+<%= moduleClassName %>.defaultProps = defaultProps;
+
+export default <%= moduleClassName %>;

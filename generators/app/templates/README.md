@@ -2,12 +2,12 @@
 
 
 [![NPM version](http://img.shields.io/npm/v/<%= projectName %>.svg)](https://www.npmjs.org/package/<%= projectName %>)
-[![Build Status](https://travis-ci.org/cerner/terra-core.svg?branch=master)](https://travis-ci.org/cerner/terra-core)
+[![Build Status](https://travis-ci.org/cerner/<%= repository %>.svg?branch=master)](https://travis-ci.org/cerner/<%= repository %>)
 
 {insert description}
 
 - [Getting Started](#getting-started)
-- [Documentation](https://github.com/cerner/terra-core/tree/master/packages/<%= projectName %>/docs)
+- [Documentation](https://github.com/cerner/<%= repository %>/tree/master/packages/<%= projectName %>/docs)
 - [LICENSE](#license)
 
 ## Getting Started

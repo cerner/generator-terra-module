@@ -2,13 +2,15 @@
 
 import React from 'react';
 import { Route } from 'react-router';
-import <%= namespacelessProjectClassName %>Tests from './<%= namespacelessProjectClassName %>Tests';
-import Default<%= namespacelessProjectClassName %> from './Default<%= namespacelessProjectClassName %>';
+import <%= moduleClassName %>Tests from './<%= moduleClassName %>Tests';
+
+// Test Cases
+import Default<%= moduleClassName %> from './Default<%= moduleClassName %>';
 
 const routes = (
   <div>
-    <Route path="/tests/<%= namespacelessProjectName %>-tests" component={<%= namespacelessProjectClassName %>Tests} />
-    <Route path="/tests/<%= namespacelessProjectName %>-tests/default" component={Default<%= namespacelessProjectClassName %>} />
+    <Route path="/tests/<%= moduleName %>-tests" component={<%= moduleClassName %>Tests} />
+    <Route path="/tests/<%= moduleName %>-tests/default" component={Default<%= moduleClassName %>} />
   </div>
 );
 

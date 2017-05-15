@@ -1,5 +1,5 @@
 import React from 'react';
 
-import <%= namespacelessProjectClassName %> from '../../lib/<%= namespacelessProjectClassName %>';
+import <%= moduleClassName %> from '../../lib/<%= moduleClassName %>';
 
-export default () => <<%= namespacelessProjectClassName %> />;
+export default () => <<%= moduleClassName %> />;
