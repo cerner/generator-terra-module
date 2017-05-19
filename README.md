@@ -30,6 +30,12 @@ Your new project will be generated in the packages directory of the chosen repos
 
 Now you are ready to start building your terra module!
 
+# Updating The Generator
+
+```bash
+npm install -g generator-terra-module
+```
+
 # Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md)
