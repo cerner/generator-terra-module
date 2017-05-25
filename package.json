@@ -44,6 +44,5 @@
     "release:minor": "npm test && gulp prepublish && npm version minor -m \"Released version %s\" && npm publish && git push --follow-tags",
     "release:patch": "npm test && gulp prepublish && npm version patch -m \"Released version %s\" && npm publish && git push --follow-tags",
     "test": "gulp"
-  },
-  "private": true
+  }
 }
