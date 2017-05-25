@@ -35,6 +35,12 @@ Finally, add your package name to the command.publish.ignore in the lerna.json f
 
 Now you are ready to start building your terra module!
 
+# Updating The Generator
+
+```bash
+npm install -g generator-terra-module
+```
+
 # Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md)
