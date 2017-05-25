@@ -12,7 +12,7 @@ First, install [Yeoman](http://yeoman.io) and generator-terra-module using [npm]
 
 ```bash
 npm install -g yo
-npm install -g git+https://github.com/cerner/generator-terra-module
+npm install -g generator-terra-module
 ```
 
 Then generate your new project:
@@ -36,6 +36,8 @@ Finally, add your package name to the command.publish.ignore in the lerna.json f
 Now you are ready to start building your terra module!
 
 # Updating The Generator
+
+To update the generator to the latest release, run the following command.
 
 ```bash
 npm install -g generator-terra-module
