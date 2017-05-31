@@ -71,6 +71,9 @@ describe('generator-terra-module:app', function () {
       assert.fileContent('packages/terra-waffle-cake/.npmignore', `src`);
       assert.fileContent('packages/terra-waffle-cake/.npmignore', `node_modules`);
       assert.fileContent('packages/terra-waffle-cake/.npmignore', `*.log`);
+      assert.fileContent('packages/terra-waffle-cake/.npmignore', `target`);
+      assert.fileContent('packages/terra-waffle-cake/.npmignore', `tests`);
+      assert.fileContent('packages/terra-waffle-cake/.npmignore', `reports`);
     });
   });
 
