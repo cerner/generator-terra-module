@@ -18,7 +18,8 @@ describe('generator-terra-module:app', function () {
     it('creates files', function () {
       assert.file([
         'packages/terra-waffle-cake/README.md',
-        'packages/terra-site/src/examples/waffle-cake/Index.jsx'
+        'packages/terra-site/src/examples/waffle-cake/Index.jsx',
+        'packages/terra-waffle-cake/tests/nightwatch.conf.js'
       ]);
     });
 
@@ -88,7 +89,8 @@ describe('generator-terra-module:app', function () {
     it('creates files', function () {
       assert.file([
         'packages/terra-clinical-monster-cookies/README.md',
-        'packages/terra-clinical-site/src/examples/monster-cookies/Index.jsx'
+        'packages/terra-clinical-site/src/examples/monster-cookies/Index.jsx',
+        'packages/terra-clinical-monster-cookies/tests/nightwatch.conf.js'
       ]);
     });
 
