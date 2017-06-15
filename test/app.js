@@ -125,6 +125,7 @@ describe('generator-terra-module:app', function () {
       assert.fileContent('packages/terra-clinical-monster-cookies/package.json', 'git+https://github.com/cerner/terra-clinical.git');
       assert.fileContent('packages/terra-clinical-monster-cookies/package.json', 'https://github.com/cerner/terra-clinical/issues');
       assert.fileContent('packages/terra-clinical-monster-cookies/package.json', 'WEBPACK_CONFIG_PATH=../../../../terra-clinical-site/webpack.config');
+      assert.fileContent('packages/terra-clinical-monster-cookies/package.json', '../../node_modules/terra-toolkit/lib/scripts');
     });
 
     it('fills the README file with project data', function () {
