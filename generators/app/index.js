@@ -134,8 +134,8 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('tests/*'),
-      this.destinationPath(this.props.baseDirectory + 'tests/')
+      this.templatePath('tests/' + this.props.repoPrefix + '-nightwatch.conf.js'),
+      this.destinationPath(this.props.baseDirectory + 'tests/nightwatch.conf.js')
     );
 
     this.fs.copyTpl(
@@ -180,8 +180,7 @@ module.exports = yeoman.Base.extend({
       {
         projectName: this.props.projectName,
         projectClassName: this.props.moduleClassName,
-        titlecaseProjectName: this.props.titlecaseProjectName,
-        currentYear: this.props.currentYear
+        titlecaseProjectName: this.props.titlecaseProjectName
       }
     );
 
