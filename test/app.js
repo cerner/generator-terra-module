@@ -50,6 +50,7 @@ describe('generator-terra-module:app', function () {
     it('fills the package.json file with project data', function () {
       assert.fileContent('packages/terra-waffle-cake/package.json', 'git+https://github.com/cerner/terra-core.git');
       assert.fileContent('packages/terra-waffle-cake/package.json', 'https://github.com/cerner/terra-core/issues');
+      assert.fileContent('packages/terra-waffle-cake/package.json', `"props-table": "props-table ./src/WaffleCake.jsx --out-dir ./docs/props-table",`);
     });
 
     it('fills the README file with project data', function () {
@@ -126,6 +127,7 @@ describe('generator-terra-module:app', function () {
       assert.fileContent('packages/terra-clinical-monster-cookies/package.json', 'https://github.com/cerner/terra-clinical/issues');
       assert.fileContent('packages/terra-clinical-monster-cookies/package.json', 'WEBPACK_CONFIG_PATH=../../../../terra-clinical-site/webpack.config');
       assert.fileContent('packages/terra-clinical-monster-cookies/package.json', '../../node_modules/terra-toolkit/lib/scripts');
+      assert.fileContent('packages/terra-clinical-monster-cookies/package.json', `"props-table": "$(cd ..; npm bin)/props-table ./src/MonsterCookies.jsx --out-dir ./docs/props-table",`);
     });
 
     it('fills the README file with project data', function () {
