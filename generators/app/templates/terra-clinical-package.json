@@ -1,8 +1,7 @@
 {
   "name": "<%=projectName%>",
   "main": "lib/<%=jsxFileName%>.js",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "{insert description}",
   "repository": {
     "type": "git",
