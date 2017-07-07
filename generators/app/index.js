@@ -205,6 +205,11 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
+      this.templatePath('CHANGELOG.md'),
+      this.destinationPath(this.props.baseDirectory + 'CHANGELOG.md')
+    );
+
+    this.fs.copyTpl(
       this.templatePath(this.props.repoPrefix + '-package.json'),
       this.destinationPath(this.props.baseDirectory + 'package.json'),
       {
