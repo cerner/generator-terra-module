@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import classNames from 'classnames/bind';
 import 'terra-base/lib/baseStyles';
-import './<%= scssFileName %>.scss';
+import styles from './<%= scssFileName %>.scss';
+
+const cx = classNames.bind(styles);
 
 const propTypes = {
  /*
@@ -17,7 +19,7 @@ const defaultProps = {
 
 const <%= moduleClassName %> = ({ name, ...customProps }) => {
   const attributes = Object.assign({}, customProps);
-  const <%= moduleClassName %>ClassNames = classNames([
+  const <%= moduleClassName %>ClassNames = cx([
     '<%= cssClassName %>',
     attributes.className,
   ]);

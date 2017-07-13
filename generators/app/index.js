@@ -30,15 +30,6 @@ function toProjectName(str1, str2) {
 }
 
 /**
- * Concatinates strings a-b and c-d into the form aB-CD
- * @param str1 {String} the repository name
- * @param str2 {String} the module name
- */
-function toCssClassName(str1, str2) {
-  return toProjectName(_.camelCase(str1), toClassName(str2));
-}
-
-/**
  * Returns the repository prefix
  * @param {String} the repository name
  */
@@ -69,7 +60,7 @@ module.exports = yeoman.Base.extend({
       message: 'Terra repository:',
       default: 'terra-core',
       validate: function (input) {
-        var validRepos = ['terra-core', 'terra-clinical'];
+        var validRepos = ['terra-core', 'terra-clinical', 'terra-consumer'];
         return input !== undefined && validRepos.includes(input);
       }
     }, {
@@ -93,7 +84,7 @@ module.exports = yeoman.Base.extend({
       this.props.projectClassName = toClassName(this.props.projectName);
       this.props.titlecaseProjectName = toTitleCase(this.props.projectName.replace('-', ' '));
 
-      this.props.cssClassName = toCssClassName(this.props.repoPrefix, this.props.moduleName);
+      this.props.cssClassName = _.camelCase(this.props.moduleName);
 
       this.props.baseDirectory = 'packages/' + this.props.projectName + '/';
       this.props.jsxFileName = toClassName(this.props.moduleName);

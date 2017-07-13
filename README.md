@@ -22,13 +22,13 @@ yo terra-module
 ```
 From here, you will be prompted with two messages:
 1. `Terra repository:`
-Input `terra-core` or `terra-clinical`. It defaults to `terra-core` if no input is provided.
+Input `terra-core`, `terra-clinical` or `terra-consumer`. It defaults to `terra-core` if no input is provided.
 2. `Your module name:`
 Input the desired name of the react component being created. **Note**: the first prompt handles the name space prefixes.
 
 Your new project will be generated in the packages directory of the chosen repository.
 
-After generating the project, add your package to the packages listed in the README.md file of the repository you created the project in. 
+After generating the project, add your package to the packages listed in the README.md file of the repository you created the project in.
 
 Now you are ready to start building your terra module!
 
