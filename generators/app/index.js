@@ -84,7 +84,7 @@ module.exports = yeoman.Base.extend({
       this.props.projectClassName = toClassName(this.props.projectName);
       this.props.titlecaseProjectName = toTitleCase(this.props.projectName.replace('-', ' '));
 
-      this.props.cssClassName = _.camelCase(this.props.moduleName);
+      this.props.cssClassName = this.props.moduleName;
 
       this.props.baseDirectory = 'packages/' + this.props.projectName + '/';
       this.props.jsxFileName = toClassName(this.props.moduleName);

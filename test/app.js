@@ -43,7 +43,7 @@ describe('generator-terra-module:app', function () {
       assert.fileContent('packages/terra-waffle-cake/src/WaffleCake.scss', '@import \'./variables\';');
       assert.fileContent('packages/terra-waffle-cake/src/WaffleCake.scss', '@import \'./mixins\';');
       assert.fileContent('packages/terra-waffle-cake/src/WaffleCake.scss', ':local {');
-      assert.fileContent('packages/terra-waffle-cake/src/WaffleCake.scss', '.waffleCake {');
+      assert.fileContent('packages/terra-waffle-cake/src/WaffleCake.scss', '.waffle-cake {');
     });
 
     it('fills the docs/README file with title cased project data', function () {
@@ -85,6 +85,7 @@ describe('generator-terra-module:app', function () {
 
   ['terra-clinical', 'terra-consumer'].forEach(repository => {
     describe(repository, function () {
+      // Capititalize Repository Name for README test assertion
       const title = repository.split('-').map(titleize).join(' ');
 
       before(function (done) {
@@ -124,7 +125,7 @@ describe('generator-terra-module:app', function () {
         assert.fileContent(scss, '@import \'./variables\';');
         assert.fileContent(scss, '@import \'./mixins\';');
         assert.fileContent(scss, ':local {');
-        assert.fileContent(scss, '.monsterCookies {');
+        assert.fileContent(scss, '.monster-cookies {');
       });
 
       it('fills the docs/README file with title cased project data', function () {
