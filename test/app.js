@@ -21,8 +21,7 @@ describe('generator-terra-module:app', function () {
       assert.file([
         'packages/terra-waffle-cake/README.md',
         'packages/terra-waffle-cake/CHANGELOG.md',
-        'packages/terra-site/src/examples/waffle-cake/Index.jsx',
-        'packages/terra-waffle-cake/tests/nightwatch.conf.js'
+        'packages/terra-site/src/examples/waffle-cake/Index.jsx'
       ]);
     });
 
@@ -54,6 +53,7 @@ describe('generator-terra-module:app', function () {
     it('fills the package.json file with project data', function () {
       assert.fileContent('packages/terra-waffle-cake/package.json', 'git+https://github.com/cerner/terra-core.git');
       assert.fileContent('packages/terra-waffle-cake/package.json', 'https://github.com/cerner/terra-core/issues');
+      assert.fileContent('packages/terra-waffle-cake/package.json', '../../node_modules/terra-toolkit/lib/scripts');
       assert.fileContent('packages/terra-waffle-cake/package.json', `"props-table": "props-table ./src/WaffleCake.jsx --out-dir ./docs/props-table",`);
     });
 
@@ -101,8 +101,7 @@ describe('generator-terra-module:app', function () {
         assert.file([
           `packages/${repository}-monster-cookies/README.md`,
           `packages/${repository}-monster-cookies/CHANGELOG.md`,
-          `packages/${repository}-site/src/examples/monster-cookies/Index.jsx`,
-          `packages/${repository}-monster-cookies/tests/nightwatch.conf.js`
+          `packages/${repository}-site/src/examples/monster-cookies/Index.jsx`
         ]);
       });
 
@@ -136,7 +135,6 @@ describe('generator-terra-module:app', function () {
         const packageJSON = `packages/${repository}-monster-cookies/package.json`;
         assert.fileContent(packageJSON, `git+https://github.com/cerner/${repository}.git`);
         assert.fileContent(packageJSON, `https://github.com/cerner/${repository}/issues`);
-        assert.fileContent(packageJSON, `WEBPACK_CONFIG_PATH=../../../../${repository}-site/webpack.config`);
         assert.fileContent(packageJSON, '../../node_modules/terra-toolkit/lib/scripts');
         assert.fileContent(packageJSON, `"props-table": "$(cd ..; npm bin)/props-table ./src/MonsterCookies.jsx --out-dir ./docs/props-table",`);
       });

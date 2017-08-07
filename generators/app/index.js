@@ -125,11 +125,6 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('tests/' + this.props.repoPrefix + '-nightwatch.conf.js'),
-      this.destinationPath(this.props.baseDirectory + 'tests/nightwatch.conf.js')
-    );
-
-    this.fs.copyTpl(
       this.templatePath('projectName-spec.js'),
       this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/' + this.props.moduleName + '-spec.js'),
       {
