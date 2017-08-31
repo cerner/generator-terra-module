@@ -53,7 +53,7 @@ describe('generator-terra-module:app', function () {
     it('fills the package.json file with project data', function () {
       assert.fileContent('packages/terra-waffle-cake/package.json', 'git+https://github.com/cerner/terra-core.git');
       assert.fileContent('packages/terra-waffle-cake/package.json', 'https://github.com/cerner/terra-core/issues');
-      assert.fileContent('packages/terra-waffle-cake/package.json', '../../node_modules/terra-toolkit/lib/scripts');
+      assert.fileContent('packages/terra-waffle-cake/package.json', '$(cd ..; npm bin)/nightwatch -c ../../nightwatch.conf.js');
       assert.fileContent('packages/terra-waffle-cake/package.json', `"props-table": "props-table ./src/WaffleCake.jsx --out-dir ./docs/props-table",`);
     });
 
@@ -136,7 +136,7 @@ describe('generator-terra-module:app', function () {
         const packageJSON = `packages/${repository}-monster-cookies/package.json`;
         assert.fileContent(packageJSON, `git+https://github.com/cerner/${repository}.git`);
         assert.fileContent(packageJSON, `https://github.com/cerner/${repository}/issues`);
-        assert.fileContent(packageJSON, '../../node_modules/terra-toolkit/lib/scripts');
+        assert.fileContent(packageJSON, '$(cd ..; npm bin)/nightwatch -c ../../nightwatch.conf.js');
         assert.fileContent(packageJSON, `"props-table": "$(cd ..; npm bin)/props-table ./src/MonsterCookies.jsx --out-dir ./docs/props-table",`);
       });
 
