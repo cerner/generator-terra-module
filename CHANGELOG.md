@@ -4,7 +4,7 @@ Changelog
 Unreleased
 ------------------
 ### Changes
-* Update package templates for Jest v2.0.0 in terra repos
+* Update package templates for Jest v21.0.2 in terra repos
 * Update nightwatch test templates
 * Update test scripts in package templates
 
