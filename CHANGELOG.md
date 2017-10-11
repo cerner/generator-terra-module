@@ -7,6 +7,7 @@ Unreleased
 * Update package templates for Jest v21.0.2 in terra repos
 * Update nightwatch test templates
 * Update test scripts in package templates
+* Add .npmrc template
 
 1.1.0 - (Aug 8, 2017)
 ------------------

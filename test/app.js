@@ -80,6 +80,7 @@ describe('generator-terra-module:app', function () {
       assert.fileContent('packages/terra-waffle-cake/.npmignore', `target`);
       assert.fileContent('packages/terra-waffle-cake/.npmignore', `tests`);
       assert.fileContent('packages/terra-waffle-cake/.npmignore', `reports`);
+      assert.fileContent('packages/terra-waffle-cake/.npmrc', `package-lock=false`);
     });
   });
 
@@ -163,6 +164,9 @@ describe('generator-terra-module:app', function () {
         assert.fileContent(ignore, `src`);
         assert.fileContent(ignore, `node_modules`);
         assert.fileContent(ignore, `*.log`);
+
+        const npmrc = `packages/${repository}-monster-cookies/.npmrc`;
+        assert.fileContent(npmrc, `package-lock=false`);
       });
     });
   });
