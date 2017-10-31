@@ -8,6 +8,9 @@ Unreleased
 * Update nightwatch test templates
 * Update test scripts in package templates
 * Add .npmrc template
+* Update package scripts for windows https://github.com/cerner/terra-core/issues/217
+* Remove 'selector-class-pattern' rule from sass template https://github.com/cerner/terra-core/issues/812 & https://github.com/cerner/terra-clinical/issues/193
+* Remove _variables.scss & _mixins.scss file creation. Most packages no longer use these files.
 
 1.1.0 - (Aug 8, 2017)
 ------------------
