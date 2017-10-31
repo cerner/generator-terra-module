@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-
 import React from 'react';
 import { Route } from 'react-router';
 import <%= moduleClassName %>Tests from './<%= moduleClassName %>Tests';
