@@ -3,6 +3,9 @@ Changelog
 
 Unreleased
 ------------------
+
+1.2.0 - (Oct 31, 2017)
+------------------
 ### Changes
 * Update package templates for Jest v21.0.2 in terra repos
 * Update nightwatch test templates
@@ -10,7 +13,8 @@ Unreleased
 * Add .npmrc template
 * Update package scripts for windows https://github.com/cerner/terra-core/issues/217
 * Remove 'selector-class-pattern' rule from sass template https://github.com/cerner/terra-core/issues/812 & https://github.com/cerner/terra-clinical/issues/193
-* Remove _variables.scss & _mixins.scss file creation. Most packages no longer use these files.
+* Remove `_variables.scss` & `_mixins.scss` file creation. Most packages no longer use these files.
+
 
 1.1.0 - (Aug 8, 2017)
 ------------------
