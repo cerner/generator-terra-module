@@ -5,24 +5,23 @@
   "description": "{insert description}",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cerner/terra-clinical.git"
+    "url": "git+https://github.com/cerner/<%=repository%>.git"
   },
   "keywords": [
     "Cerner",
     "Terra",
-    "Clinical",
-    "<%=projectName%>",
+    <%-keywords%>"<%=projectName%>",
     "<%=jsxFileName%>",
     "UI"
   ],
   "author": "Cerner Corporation",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/cerner/terra-clinical/issues"
+    "url": "https://github.com/cerner/<%=repository%>/issues"
   },
-  "homepage": "https://github.com/cerner/terra-clinical#readme",
+  "homepage": "https://github.com/cerner/<%=repository%>#readme",
   "devDependencies": {
-    "terra-props-table": "^1.4.0"
+    "terra-props-table": "^1.10.1"
   },
   "peerDependencies": {
     "react": "^15.4.2",
