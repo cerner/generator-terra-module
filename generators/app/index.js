@@ -4,6 +4,13 @@ var chalk = require('chalk');
 var yosay = require('yosay');
 var _ = require('lodash');
 
+const keywords = {
+  'terra-core': null,
+  'terra-clinical': '\"Clinical\",\n    ',
+  'terra-consumer': '\"Consumer\",\n    \"\HealtheLife\",\n    ',
+  'terra-framework': '\"Framework\",\n    '
+};
+
 /**
  * Converts a string of the form ab bc cd into Ab Bc Cd
  * @param {String} the project name
@@ -60,7 +67,7 @@ module.exports = yeoman.Base.extend({
       message: 'Terra repository:',
       default: 'terra-core',
       validate: function (input) {
-        var validRepos = ['terra-core', 'terra-clinical', 'terra-consumer'];
+        var validRepos = ['terra-core', 'terra-clinical', 'terra-consumer', 'terra-framework'];
         return input !== undefined && validRepos.includes(input);
       }
     }, {
@@ -75,9 +82,8 @@ module.exports = yeoman.Base.extend({
 
     this.prompt(prompts, function (props) {
       this.props = props;
-      // To access props later use this.props.name;
+      // To access props later use this.props."name";
       this.props.repoPrefix = repositoryPrefix(this.props.repository);
-
       this.props.moduleClassName = toClassName(this.props.moduleName);
 
       this.props.projectName = toProjectName(this.props.repoPrefix, this.props.moduleName);
@@ -196,11 +202,13 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath(this.props.repoPrefix + '-package.json'),
+      this.templatePath('package.json'),
       this.destinationPath(this.props.baseDirectory + 'package.json'),
       {
+        repository: this.props.repository,
         projectName: this.props.projectName,
-        jsxFileName: this.props.jsxFileName
+        jsxFileName: this.props.jsxFileName,
+        keywords: keywords[this.props.repository]
       }
     );
 
