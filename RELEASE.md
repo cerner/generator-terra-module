@@ -18,8 +18,8 @@ Below is a guide for releasing:
 ```
 
 When run, these commands do the following:
-- Runs tests
-- Runs [gulp-nsp](https://github.com/nodesecurity/gulp-nsp) to check for known security vulnerabilities in dependent packages
+- Runs tests.
+- Runs [gulp-nsp](https://github.com/nodesecurity/gulp-nsp) to check for known security vulnerabilities in dependent packages.
 - Bumps the version number in the package.json file according to the release command that has been run via [npm version](https://docs.npmjs.com/cli/version) command.
 - Publishes the release to npm via [npm publish](https://docs.npmjs.com/cli/publish) command.
 - Creates a new git commit/tag in the process of publishing to npm.
