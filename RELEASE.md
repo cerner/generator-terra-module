@@ -1,15 +1,28 @@
 # How to Release
 
-This project is hosted on HOSTING-SITE.  You can see it [here][project-url].
+This project is hosted on NPM.  You can see it [here][project-url].
+This project uses [semantic-versioning][semver] to manage versions.
 
-Releasing the project requires these steps:
+Below is a guide for releasing:
+- Checkout the master branch and run `git pull` to ensure you have the latest changes in master.
+- Be sure to check the changelog and ensure it has been updated accordingly.
+- Verify that the version number in the package.json is correct.
+  - Confirm that the version matches the latest released version. The publish script will update the version.
+- Login to npm on the command line.
+- Run one of the following npm release scripts.
 
-0. Set the version number in the code
-1. BUILD-COMMAND
-2. Use a GitHub [project release][github-release-url] to release the project and tag (be sure it follows [semver][semantic-versioning])
-3. PACKAGE-COMMAND and/or RELEASE-COMMAND
-4. Update `master` to a new minor version
+```
+"release:major"
+"release:minor"
+"release:patch"
+```
 
-[project-url]: https://github.com/cerner/generator-terra-module/
-[semantic-versioning]: http://semver.org/
-[github-release-url]: https://help.github.com/articles/creating-releases/
+When run, these commands do the following:
+- Runs tests
+- Runs [gulp-nsp](https://github.com/nodesecurity/gulp-nsp) to check for known security vulnerabilities in dependent packages
+- Bumps the version number in the package.json file according to the release command that has been run via [npm version](https://docs.npmjs.com/cli/version) command.
+- Publishes the release to npm via [npm publish](https://docs.npmjs.com/cli/publish) command.
+- Creates a new git commit/tag in the process of publishing to npm.
+
+[project-url]: https://www.npmjs.com/package/generator-terra-module
+[semver]: http://semver.org/
