@@ -6,9 +6,12 @@ Unreleased
 ### Added
 * Terra-framework support
 
+### Changed
+* Removed `src` and `tests` from `.npmignore` file. These will now be included in the npm package.
+
 1.2.0 - (Oct 31, 2017)
 ------------------
-### Changes
+### Changed
 * Update package templates for Jest v21.0.2 in terra repos
 * Update nightwatch test templates
 * Update test scripts in package templates
