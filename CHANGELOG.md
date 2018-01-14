@@ -3,11 +3,15 @@ Changelog
 
 Unreleased
 ------------------
+
+1.3.0 - (Jan 14, 2018)
+------------------
 ### Added
 * Terra-framework support
 
 ### Changed
 * Removed `src` and `tests` from `.npmignore` file. These will now be included in the npm package.
+* Updated the release doc.
 
 1.2.0 - (Oct 31, 2017)
 ------------------
