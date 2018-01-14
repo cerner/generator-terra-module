@@ -94,7 +94,8 @@ describe('generator-terra-module:app', function () {
 
       it('fills the examples Index file with project data', function () {
         const ignore = `packages/${repository}-monster-cookies/.npmignore`;
-        assert.fileContent(ignore, `src`);
+        assert.fileContent(ignore, `target`);
+        assert.fileContent(ignore, `reports`);
         assert.fileContent(ignore, `node_modules`);
         assert.fileContent(ignore, `*.log`);
 
