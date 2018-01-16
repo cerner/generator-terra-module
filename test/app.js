@@ -9,7 +9,7 @@ describe('generator-terra-module:app', function () {
   ['terra-core', 'terra-clinical', 'terra-consumer', 'terra-framework'].forEach(repositoryName => {
     describe(repositoryName, function () {
       // Change terra-core's repository prefix to be just 'terra'
-      const repository = repositoryName === 'terra-core' ? 'terra' : repositoryName;
+      const repository = (repositoryName === 'terra-core' || repositoryName === 'terra-framework') ? 'terra' : repositoryName;
 
       // Capititalize Repository Name for README test assertion
       const title = repository.split('-').map(titleize).join(' ');

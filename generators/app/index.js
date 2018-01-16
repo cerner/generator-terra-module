@@ -41,7 +41,7 @@ function toProjectName(str1, str2) {
  * @param {String} the repository name
  */
 function repositoryPrefix(repo) {
-  return (repo === 'terra-core') ? 'terra' : repo;
+  return (repo === 'terra-core' || repo === 'terra-framework') ? 'terra' : repo;
 }
 
 module.exports = yeoman.Base.extend({
