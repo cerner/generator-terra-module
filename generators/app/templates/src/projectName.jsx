@@ -24,7 +24,7 @@ const <%= moduleClassName %> = ({ name, ...customProps }) => {
     attributes.className,
   ]);
 
-  return (<div {...attributes} className={<%= moduleClassName %>ClassNames} />);
+  return (<div {...attributes} className={EmbeddedComponentClassNames}>{name}</div>);
 };
 
 <%= moduleClassName %>.propTypes = propTypes;
