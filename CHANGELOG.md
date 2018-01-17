@@ -4,6 +4,11 @@ Changelog
 Unreleased
 ------------------
 
+1.5.0 - (Jan 17, 2018)
+------------------
+### Changed
+* Fixed lint error in generated code.
+
 1.4.0 - (Jan 16, 2018)
 ------------------
 ### Changed
