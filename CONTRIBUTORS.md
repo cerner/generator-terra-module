@@ -1,11 +1,13 @@
 Cerner Corporation
 
-- Matt Butler [@Matt-Butler]
 - Rory Hardy [@gneatgeek]
+- Matt Butler [@Matt-Butler]
 - Matt Henkes [@mjhenkes]
 - Ryan Manuel [@ryanthemanuel]
 - Emily Rohrbough [@emilyrohrbough]
 - Mike Hemesath [@mhemesath]
+- Brett Jankord [@bjankord]
+- Derek Yu [@yuderekyu]
 
 [@gneatgeek]: https://github.com/gneatgeek
 [@Matt-Butler]: https://github.com/Matt-Butler
@@ -13,3 +15,5 @@ Cerner Corporation
 [@ryanthemanuel]: https://github.com/ryanthemanuel
 [@emilyrohrbough]: https://github.com/emilyrohrbough
 [@mhemesath]: https://github.com/mhemesath
+[@bjankord]: https://github.com/bjankord
+[@yuderekyu]: https://github.com/yuderekyu

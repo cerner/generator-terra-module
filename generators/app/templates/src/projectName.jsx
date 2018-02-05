@@ -23,7 +23,7 @@ const <%= moduleClassName %> = ({ name, ...customProps }) => {
     customProps.className,
   ]);
 
-  return (<div {...customProps} className={<%= moduleClassName %>ClassNames} />)
+  return (<div {...customProps} className={<%= moduleClassName %>ClassNames}>{name}</div>);
 };
 
 <%= moduleClassName %>.propTypes = propTypes;

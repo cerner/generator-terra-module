@@ -85,7 +85,6 @@ describe('generator-terra-module:app', function () {
       });
 
       it('fills the site examples Index file with project data', function () {
-
         let index = `packages/${repository}-site/src/examples/monster-cookies/Index.jsx`;
         let fileImportPath = `${repository}-monster-cookies`;
         if (repositoryName === 'terra-framwork') {

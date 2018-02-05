@@ -22,7 +22,7 @@ yo terra-module
 ```
 From here, you will be prompted with two messages:
 1. `Terra repository:`
-Input `terra-core`, `terra-clinical` or `terra-consumer`. It defaults to `terra-core` if no input is provided.
+Input `terra-core`, `terra-clinical`, `terra-consumer`, or `terra-framework`. It defaults to `terra-core` if no input is provided.
 2. `Your module name:`
 Input the desired name of the react component being created. **Note**: the first prompt handles the name space prefixes.
 

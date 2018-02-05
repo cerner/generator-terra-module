@@ -12,9 +12,29 @@ Unreleased
 * Update `.npmignore` file
 
 
+1.5.0 - (Jan 17, 2018)
+------------------
+### Changed
+* Fixed lint error in generated code.
+
+1.4.0 - (Jan 16, 2018)
+------------------
+### Changed
+* terra-framework packages now match terra core in that they generate the prefix 'terra-' instead of 'terra-framework-'
+* Updated readme to include terra-framework
+
+1.3.0 - (Jan 14, 2018)
+------------------
+### Added
+* Terra-framework support
+
+### Changed
+* Removed `src` and `tests` from `.npmignore` file. These will now be included in the npm package.
+* Updated the release doc.
+
 1.2.0 - (Oct 31, 2017)
 ------------------
-### Changes
+### Changed
 * Update package templates for Jest v21.0.2 in terra repos
 * Update nightwatch test templates
 * Update test scripts in package templates
