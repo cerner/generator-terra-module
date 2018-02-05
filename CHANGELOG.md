@@ -5,6 +5,12 @@ Unreleased
 ------------------
 ### Added
 * Terra-framework support
+* Update template files for new repo file structor
+
+### Changes
+* Replace nightwatch template & script with webdriver.io template & script
+* Update `.npmignore` file
+
 
 1.2.0 - (Oct 31, 2017)
 ------------------

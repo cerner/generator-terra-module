@@ -9,7 +9,7 @@ describe('generator-terra-module:app', function () {
   ['terra-core', 'terra-clinical', 'terra-consumer', 'terra-framework'].forEach(repositoryName => {
     describe(repositoryName, function () {
       // Change terra-core's repository prefix to be just 'terra'
-      const repository = repositoryName === 'terra-core' ? 'terra' : repositoryName;
+      const repository = repositoryName === 'terra-core' || repositoryName === 'terra-framework' ? 'terra' : repositoryName;
 
       // Capititalize Repository Name for README test assertion
       const title = repository.split('-').map(titleize).join(' ');
@@ -25,10 +25,12 @@ describe('generator-terra-module:app', function () {
       });
 
       it('creates files', function () {
+        const examplePath = repositoryName === 'terra-framwork' ? '/examples/Index.site-page.jsx' : '-site/src/examples/monster-cookies/Index.jsx';
+
         assert.file([
           `packages/${repository}-monster-cookies/README.md`,
           `packages/${repository}-monster-cookies/CHANGELOG.md`,
-          `packages/${repository}-site/src/examples/monster-cookies/Index.jsx`
+          `packages/${repository}${examplePath}`
         ]);
       });
 
@@ -55,7 +57,7 @@ describe('generator-terra-module:app', function () {
 
         assert.fileContent(packageJSON, `git+https://github.com/cerner/${repository}.git`);
         assert.fileContent(packageJSON, `https://github.com/cerner/${repository}/issues`);
-        assert.fileContent(packageJSON, 'nightwatch -c ../../nightwatch.conf.js');
+        assert.fileContent(packageJSON, 'wdio ../../wdio.conf.js');
         assert.fileContent(packageJSON, `"props-table": "props-table ./src/MonsterCookies.jsx --out-dir ./docs/props-table",`);
       });
 
@@ -82,19 +84,24 @@ describe('generator-terra-module:app', function () {
         assert.fileContent(readme, `[Documentation](https://github.com/cerner/${repository}/tree/master/packages/${repository}-monster-cookies/docs)`);
       });
 
-      it('fills the examples Index file with project data', function () {
-        const index = `packages/${repository}-site/src/examples/monster-cookies/Index.jsx`;
+      it('fills the site examples Index file with project data', function () {
+
+        let index = `packages/${repository}-site/src/examples/monster-cookies/Index.jsx`;
+        let fileImportPath = `${repository}-monster-cookies`;
+        if (repositoryName === 'terra-framwork') {
+          index = `packages/${repository}-monster-cookies/examples/Index.site-page.jsx`;
+          fileImportPath = '..';
+        }
 
         assert.fileContent(index, `import React from 'react';`);
-        assert.fileContent(index, `import MonsterCookiesSrc from '!raw-loader!${repository}-monster-cookies/src/MonsterCookies';`);
-        assert.fileContent(index, `import ReadMe from '${repository}-monster-cookies/docs/README.md';`);
-        assert.fileContent(index, `import { version } from '${repository}-monster-cookies/package.json';`);
+        assert.fileContent(index, `import MonsterCookiesSrc from '!raw-loader!${fileImportPath}/src/MonsterCookies';`);
+        assert.fileContent(index, `import ReadMe from '${fileImportPath}/docs/README.md';`);
+        assert.fileContent(index, `import { version } from '${fileImportPath}/package.json';`);
         assert.fileContent(index, `export default MonsterCookiesExamples;`);
       });
 
       it('fills the examples Index file with project data', function () {
         const ignore = `packages/${repository}-monster-cookies/.npmignore`;
-        assert.fileContent(ignore, `src`);
         assert.fileContent(ignore, `node_modules`);
         assert.fileContent(ignore, `*.log`);
 
