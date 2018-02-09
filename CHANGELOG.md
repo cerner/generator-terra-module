@@ -4,7 +4,6 @@ Changelog
 Unreleased
 ------------------
 ### Added
-* Terra-framework support
 * Update template files for new repo file structure
 
 ### Changes
