@@ -5,7 +5,7 @@ Unreleased
 ------------------
 ### Added
 * Terra-framework support
-* Update template files for new repo file structor
+* Update template files for new repo file structure
 
 ### Changes
 * Replace nightwatch template & script with webdriver.io template & script

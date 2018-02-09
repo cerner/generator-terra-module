@@ -17,7 +17,7 @@ describe('generator-terra-module:app', function () {
       before(function (done) {
         helpers.run(path.join(__dirname, '../generators/app'))
           .withPrompts({
-            repository: repository,
+            repository: repositoryName,
             moduleName: 'monster-cookies',
             curentYear: '1000'
           })
@@ -25,7 +25,7 @@ describe('generator-terra-module:app', function () {
       });
 
       it('creates files', function () {
-        const examplePath = repositoryName === 'terra-framwork' ? '/examples/Index.site-page.jsx' : '-site/src/examples/monster-cookies/Index.jsx';
+        const examplePath = repositoryName === 'terra-framework' ? '-monster-cookies/examples/Index.site-page.jsx' : '-site/src/examples/monster-cookies/Index.jsx';
 
         assert.file([
           `packages/${repository}-monster-cookies/README.md`,
@@ -55,8 +55,8 @@ describe('generator-terra-module:app', function () {
       it('fills the package.json file with project data', function () {
         const packageJSON = `packages/${repository}-monster-cookies/package.json`;
 
-        assert.fileContent(packageJSON, `git+https://github.com/cerner/${repository}.git`);
-        assert.fileContent(packageJSON, `https://github.com/cerner/${repository}/issues`);
+        assert.fileContent(packageJSON, `git+https://github.com/cerner/${repositoryName}.git`);
+        assert.fileContent(packageJSON, `https://github.com/cerner/${repositoryName}/issues`);
         assert.fileContent(packageJSON, 'wdio ../../wdio.conf.js');
         assert.fileContent(packageJSON, `"props-table": "props-table ./src/MonsterCookies.jsx --out-dir ./docs/props-table",`);
       });
@@ -79,15 +79,15 @@ describe('generator-terra-module:app', function () {
 
         assert.fileContent(readme, `# ${title} Monster Cookies`);
         assert.fileContent(readme, `img.shields.io/npm/v/${repository}-monster-cookies.svg`);
-        assert.fileContent(readme, `travis-ci.org/cerner/${repository}.svg`);
+        assert.fileContent(readme, `travis-ci.org/cerner/${repositoryName}.svg`);
         assert.fileContent(readme, `npm install ${repository}-monster-cookies`);
-        assert.fileContent(readme, `[Documentation](https://github.com/cerner/${repository}/tree/master/packages/${repository}-monster-cookies/docs)`);
+        assert.fileContent(readme, `[Documentation](https://github.com/cerner/${repositoryName}/tree/master/packages/${repository}-monster-cookies/docs)`);
       });
 
       it('fills the site examples Index file with project data', function () {
         let index = `packages/${repository}-site/src/examples/monster-cookies/Index.jsx`;
         let fileImportPath = `${repository}-monster-cookies`;
-        if (repositoryName === 'terra-framwork') {
+        if (repositoryName === 'terra-framework') {
           index = `packages/${repository}-monster-cookies/examples/Index.site-page.jsx`;
           fileImportPath = '..';
         }
