@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 const <%= moduleClassName %>Tests = () => (
   <div>
     <ul>
-      <li><Link to="/tests/<%= moduleName %>-tests/default"><%= moduleClassName %> - Default</Link></li>
+      <li><Link to="/tests/<%= moduleName %>/default-<%= moduleName %>"><%= moduleClassName %> - Default</Link></li>
     </ul>
   </div>
 );

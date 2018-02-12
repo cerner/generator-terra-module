@@ -8,8 +8,8 @@ import Default<%= moduleClassName %> from './Default<%= moduleClassName %>';
 
 const routes = (
   <div>
-    <Route path="/tests/<%= moduleName %>-tests" component={<%= moduleClassName %>Tests} />
-    <Route path="/tests/<%= moduleName %>-tests/default" component={Default<%= moduleClassName %>} />
+    <Route path="/tests/<%= moduleName %>" component={<%= moduleClassName %>Tests} />
+    <Route path="/tests/<%= moduleName %>/default-<%= moduleName %>" component={Default<%= moduleClassName %>} />
   </div>
 );
 

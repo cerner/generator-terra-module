@@ -131,40 +131,53 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('projectName-spec.js'),
-      this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/' + this.props.moduleName + '-spec.js'),
+      this.templatePath('moduleName-spec.js'),
+      this.destinationPath(this.props.baseDirectory + 'tests/wdio/' + this.props.moduleName + '-spec.js'),
       {
-        projectName: this.props.projectName,
         moduleName: this.props.moduleName,
-        cssClassName: this.props.cssClassName
+        moduleClassName: this.props.moduleClassName,
+        rootPath: this.props.repository === 'terra-framework' ? 'raw/tests' : 'tests'
       }
     );
 
-    this.fs.copyTpl(
-      this.templatePath('projectNameTestRoutes.jsx'),
-      this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/' + this.props.moduleClassName + 'TestRoutes.jsx'),
-      {
-        moduleName: this.props.moduleName,
-        moduleClassName: this.props.moduleClassName
-      }
-    );
+    if (this.props.repository === 'terra-framework') {
+      const examplesPaths = ['examples/index-examples/Default', 'examples/test-examples/Default'];
+      examplesPaths.map(outputPath => (
+        this.fs.copyTpl(
+          this.templatePath('DefaultProjectName.jsx'),
+          this.destinationPath(this.props.baseDirectory + outputPath + this.props.moduleClassName + '.jsx'),
+          {
+            moduleClassName: this.props.moduleClassName
+          }
+        )
+      ));
+    } else {
+      this.fs.copyTpl(
+        this.templatePath('projectNameTestRoutes.jsx'),
+        this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/' + this.props.moduleClassName + 'TestRoutes.jsx'),
+        {
+          moduleName: this.props.moduleName,
+          moduleClassName: this.props.moduleClassName
+        }
+      );
 
-    this.fs.copyTpl(
-      this.templatePath('projectNameTests.jsx'),
-      this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/' + this.props.moduleClassName + 'Tests.jsx'),
-      {
-        moduleName: this.props.moduleName,
-        moduleClassName: this.props.moduleClassName
-      }
-    );
+      this.fs.copyTpl(
+        this.templatePath('projectNameTests.jsx'),
+        this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/' + this.props.moduleClassName + 'Tests.jsx'),
+        {
+          moduleName: this.props.moduleName,
+          moduleClassName: this.props.moduleClassName
+        }
+      );
 
-    this.fs.copyTpl(
-      this.templatePath('DefaultProjectName.jsx'),
-      this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/Default' + this.props.moduleClassName + '.jsx'),
-      {
-        moduleClassName: this.props.moduleClassName
-      }
-    );
+      this.fs.copyTpl(
+        this.templatePath('DefaultProjectName.jsx'),
+        this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/Default' + this.props.moduleClassName + '.jsx'),
+        {
+          moduleClassName: this.props.moduleClassName
+        }
+      );
+    }
 
     this.fs.copyTpl(
       this.templatePath('docs/*'),
@@ -176,14 +189,27 @@ module.exports = yeoman.Base.extend({
       }
     );
 
-    this.fs.copyTpl(
-      this.templatePath('Index.jsx'),
-      this.destinationPath('packages/' + this.props.repoPrefix + '-site/src/examples/' + this.props.moduleName + '/Index.jsx'),
-      {
-        projectName: this.props.projectName,
-        projectClassName: this.props.moduleClassName
-      }
-    );
+    if (this.props.repository === 'terra-framework') {
+      this.fs.copyTpl(
+        this.templatePath('Index.jsx'),
+        this.destinationPath(this.props.baseDirectory + '/examples/Index.site-page.jsx'),
+        {
+          importPath: 'index-examples/',
+          srcPath: '..',
+          projectClassName: this.props.moduleClassName
+        }
+      );
+    } else {
+      this.fs.copyTpl(
+        this.templatePath('Index.jsx'),
+        this.destinationPath('packages/' + this.props.repoPrefix + '-site/src/examples/' + this.props.moduleName + '/Index.jsx'),
+        {
+          importPath: '',
+          srcPath: this.props.projectName,
+          projectClassName: this.props.moduleClassName
+        }
+      );
+    }
 
     this.fs.copyTpl(
       this.templatePath('README.md'),
@@ -214,7 +240,10 @@ module.exports = yeoman.Base.extend({
 
     this.fs.copy(
       this.templatePath('LICENSE'),
-      this.destinationPath(this.props.baseDirectory + 'LICENSE')
+      this.destinationPath(this.props.baseDirectory + 'LICENSE'),
+      {
+        currentYear: this.props.currentYear
+      }
     );
 
     this.fs.copyTpl(

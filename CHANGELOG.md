@@ -3,6 +3,13 @@ Changelog
 
 Unreleased
 ------------------
+### Added
+* Update template files for new repo file structure
+
+### Changes
+* Replace nightwatch template & script with webdriver.io template & script
+* Update `.npmignore` file
+
 
 1.5.0 - (Jan 17, 2018)
 ------------------

@@ -18,13 +18,12 @@ const defaultProps = {
 };
 
 const <%= moduleClassName %> = ({ name, ...customProps }) => {
-  const attributes = Object.assign({}, customProps);
   const <%= moduleClassName %>ClassNames = cx([
     '<%= cssClassName %>',
-    attributes.className,
+    customProps.className,
   ]);
 
-  return (<div {...attributes} className={<%= moduleClassName %>ClassNames}>{name}</div>);
+  return (<div {...customProps} className={<%= moduleClassName %>ClassNames}>{name}</div>);
 };
 
 <%= moduleClassName %>.propTypes = propTypes;
