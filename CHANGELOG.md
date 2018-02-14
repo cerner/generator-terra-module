@@ -3,6 +3,9 @@ Changelog
 
 Unreleased
 ------------------
+
+1.6.0 - (Feb 15, 2018)
+------------------
 ### Added
 * Update template files for new repo file structure
 
