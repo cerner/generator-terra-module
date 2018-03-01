@@ -3,6 +3,7 @@ Changelog
 
 Unreleased
 ------------------
+# Update to use React 16 dependencies
 
 1.6.0 - (Feb 15, 2018)
 ------------------
