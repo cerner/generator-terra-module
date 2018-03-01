@@ -61,7 +61,6 @@ describe('generator-terra-module:app', function () {
         assert.fileContent(packageJSON, `git+https://github.com/cerner/${repositoryName}.git`);
         assert.fileContent(packageJSON, `https://github.com/cerner/${repositoryName}/issues`);
         assert.fileContent(packageJSON, 'wdio ../../wdio.conf.js');
-        assert.fileContent(packageJSON, `"props-table": "props-table ./src/MonsterCookies.jsx --out-dir ./docs/props-table",`);
       });
 
       it('fills the package.json file with the appropriate keywords', function () {
