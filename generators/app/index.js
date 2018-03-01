@@ -145,7 +145,7 @@ module.exports = yeoman.Base.extend({
       examplesPaths.map(outputPath => (
         this.fs.copyTpl(
           this.templatePath('DefaultProjectName.jsx'),
-          this.destinationPath(this.props.baseDirectory + outputPath + this.props.moduleClassName + '.jsx'),
+          this.destinationPath(this.props.baseDirectory + outputPath + this.props.moduleClassName + '.example.jsx'),
           {
             moduleClassName: this.props.moduleClassName
           }
