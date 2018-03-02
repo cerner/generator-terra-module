@@ -140,12 +140,12 @@ module.exports = yeoman.Base.extend({
       }
     );
 
-    if (this.props.repository === 'terra-framework') {
+    if (this.props.repository === 'terra-framework' || this.props.repository === 'terra-clinical') {
       const examplesPaths = ['examples/index-examples/Default', 'examples/test-examples/Default'];
       examplesPaths.map(outputPath => (
         this.fs.copyTpl(
           this.templatePath('DefaultProjectName.jsx'),
-          this.destinationPath(this.props.baseDirectory + outputPath + this.props.moduleClassName + '.jsx'),
+          this.destinationPath(this.props.baseDirectory + outputPath + this.props.moduleClassName + '.example.jsx'),
           {
             moduleClassName: this.props.moduleClassName
           }
@@ -189,7 +189,7 @@ module.exports = yeoman.Base.extend({
       }
     );
 
-    if (this.props.repository === 'terra-framework') {
+    if (this.props.repository === 'terra-framework' || this.props.repository === 'terra-clinical') {
       this.fs.copyTpl(
         this.templatePath('Index.jsx'),
         this.destinationPath(this.props.baseDirectory + '/examples/Index.site-page.jsx'),

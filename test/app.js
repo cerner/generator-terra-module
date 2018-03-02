@@ -25,7 +25,10 @@ describe('generator-terra-module:app', function () {
       });
 
       it('creates files', function () {
-        const examplePath = repositoryName === 'terra-framework' ? '-monster-cookies/examples/Index.site-page.jsx' : '-site/src/examples/monster-cookies/Index.jsx';
+        let examplePath = '-site/src/examples/monster-cookies/Index.jsx';
+        if (repositoryName === 'terra-framework' || repositoryName === 'terra-clinical') {
+          examplePath = '-monster-cookies/examples/Index.site-page.jsx';
+        }
 
         assert.file([
           `packages/${repository}-monster-cookies/README.md`,
@@ -58,7 +61,6 @@ describe('generator-terra-module:app', function () {
         assert.fileContent(packageJSON, `git+https://github.com/cerner/${repositoryName}.git`);
         assert.fileContent(packageJSON, `https://github.com/cerner/${repositoryName}/issues`);
         assert.fileContent(packageJSON, 'wdio ../../wdio.conf.js');
-        assert.fileContent(packageJSON, `"props-table": "props-table ./src/MonsterCookies.jsx --out-dir ./docs/props-table",`);
       });
 
       it('fills the package.json file with the appropriate keywords', function () {
@@ -87,7 +89,7 @@ describe('generator-terra-module:app', function () {
       it('fills the site examples Index file with project data', function () {
         let index = `packages/${repository}-site/src/examples/monster-cookies/Index.jsx`;
         let fileImportPath = `${repository}-monster-cookies`;
-        if (repositoryName === 'terra-framework') {
+        if (repositoryName === 'terra-framework' || repositoryName === 'terra-clinical') {
           index = `packages/${repository}-monster-cookies/examples/Index.site-page.jsx`;
           fileImportPath = '..';
         }
