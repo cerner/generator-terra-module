@@ -3,6 +3,8 @@ Changelog
 
 Unreleased
 ------------------
+### Changed
+* NPM ignore snapshots folders in test folder
 
 1.7.0 - (Mar 6, 2018)
 ------------------
