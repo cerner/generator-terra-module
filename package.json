@@ -40,9 +40,9 @@
   },
   "repository": "/generator-terra-module",
   "scripts": {
-    "release:major": "npm test && gulp prepublish && npm version major -m \"Released version %s\" && npm publish && git push --follow-tags",
-    "release:minor": "npm test && gulp prepublish && npm version minor -m \"Released version %s\" && npm publish && git push --follow-tags",
-    "release:patch": "npm test && gulp prepublish && npm version patch -m \"Released version %s\" && npm publish && git push --follow-tags",
+    "release:major": "npm test && npm version major -m \"Released version %s\" && npm publish && git push --follow-tags",
+    "release:minor": "npm test && npm version minor -m \"Released version %s\" && npm publish && git push --follow-tags",
+    "release:patch": "npm test && npm version patch -m \"Released version %s\" && npm publish && git push --follow-tags",
     "test": "gulp"
   }
 }
