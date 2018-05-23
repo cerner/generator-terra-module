@@ -10,6 +10,7 @@ describe('generator-terra-module:app', function () {
     describe(repositoryName, function () {
       // Change terra-core's repository prefix to be just 'terra'
       const repository = repositoryName === 'terra-core' || repositoryName === 'terra-framework' ? 'terra' : repositoryName;
+      const repoNamespace = repositoryName === 'terra-core' || repositoryName === 'terra-framework' ? '' : `${repositoryName.replace('terra-', '')}-`;
 
       // Capititalize Repository Name for README test assertion
       const title = repository.split('-').map(titleize).join(' ');
@@ -28,7 +29,8 @@ describe('generator-terra-module:app', function () {
         assert.file([
           `packages/${repository}-monster-cookies/README.md`,
           `packages/${repository}-monster-cookies/CHANGELOG.md`,
-          `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies.doc.jsx`
+          `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies.doc.jsx`,
+          `packages/${repository}-monster-cookies/src/terra-dev-site/tests/${repoNamespace}monster-cookies/MonsterCookies.doc.jsx`
         ]);
       });
 

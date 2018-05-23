@@ -44,6 +44,14 @@ function repositoryPrefix(repo) {
   return (repo === 'terra-core' || repo === 'terra-framework') ? 'terra' : repo;
 }
 
+/**
+ * Returns the repository namespace
+ * @param {String} the repository name
+ */
+function repositoryNamespace(repo) {
+  return (repo === 'terra-core' || repo === 'terra-framework') ? '' : `${repo.replace('terra-', '')}-`;
+}
+
 module.exports = yeoman.Base.extend({
   constructor: function () {
     yeoman.Base.apply(this, arguments);
@@ -84,6 +92,7 @@ module.exports = yeoman.Base.extend({
       this.props = props;
       // To access props later use this.props."name";
       this.props.repoPrefix = repositoryPrefix(this.props.repository);
+      this.props.repoNamespace = repositoryNamespace(this.props.repository);
       this.props.moduleClassName = toClassName(this.props.moduleName);
 
       this.props.projectName = toProjectName(this.props.repoPrefix, this.props.moduleName);
@@ -176,9 +185,10 @@ module.exports = yeoman.Base.extend({
     );
 
     // Add Default Test Example
+    const testFolder = `${this.props.repoNamespace}${this.props.moduleName}`;
     this.fs.copyTpl(
       this.templatePath('src/terra-dev-site/DefaultProjectName.jsx'),
-      this.destinationPath(this.props.baseDirectory + 'src/terra-dev-site/test/Default' + this.props.moduleClassName + '.test.jsx'),
+      this.destinationPath(this.props.baseDirectory + 'src/terra-dev-site/test/' + testFolder + '/Default' + this.props.moduleClassName + '.test.jsx'),
       {
         moduleClassName: this.props.moduleClassName
       }
