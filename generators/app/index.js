@@ -103,16 +103,18 @@ module.exports = yeoman.Base.extend({
   },
 
   writing: function () {
+    // Add Component JSX File
     this.fs.copyTpl(
       this.templatePath('src/projectName.jsx'),
       this.destinationPath(this.props.baseDirectory + 'src/' + this.props.jsxFileName + '.jsx'),
       {
-        scssFileName: this.props.scssFileName,
+        cssClassName: this.props.cssClassName,
         moduleClassName: this.props.moduleClassName,
-        cssClassName: this.props.cssClassName
+        scssFileName: this.props.scssFileName
       }
     );
 
+    // Add Component SCSS File
     this.fs.copyTpl(
       this.templatePath('src/projectName.scss'),
       this.destinationPath(this.props.baseDirectory + 'src/' + this.props.scssFileName + '.scss'),
@@ -121,64 +123,7 @@ module.exports = yeoman.Base.extend({
       }
     );
 
-    this.fs.copyTpl(
-      this.templatePath('projectNameTest.jsx'),
-      this.destinationPath(this.props.baseDirectory + 'tests/jest/' + this.props.jsxFileName + '.test.jsx'),
-      {
-        moduleClassName: this.props.moduleClassName,
-        cssClassName: this.props.cssClassName
-      }
-    );
-
-    this.fs.copyTpl(
-      this.templatePath('moduleName-spec.js'),
-      this.destinationPath(this.props.baseDirectory + 'tests/wdio/' + this.props.moduleName + '-spec.js'),
-      {
-        moduleName: this.props.moduleName,
-        moduleClassName: this.props.moduleClassName,
-        rootPath: this.props.repository === 'terra-framework' ? 'raw/tests' : 'tests'
-      }
-    );
-
-    if (this.props.repository === 'terra-framework' || this.props.repository === 'terra-clinical') {
-      const examplesPaths = ['examples/index-examples/Default', 'examples/test-examples/Default'];
-      examplesPaths.map(outputPath => (
-        this.fs.copyTpl(
-          this.templatePath('DefaultProjectName.jsx'),
-          this.destinationPath(this.props.baseDirectory + outputPath + this.props.moduleClassName + '.example.jsx'),
-          {
-            moduleClassName: this.props.moduleClassName
-          }
-        )
-      ));
-    } else {
-      this.fs.copyTpl(
-        this.templatePath('projectNameTestRoutes.jsx'),
-        this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/' + this.props.moduleClassName + 'TestRoutes.jsx'),
-        {
-          moduleName: this.props.moduleName,
-          moduleClassName: this.props.moduleClassName
-        }
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('projectNameTests.jsx'),
-        this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/' + this.props.moduleClassName + 'Tests.jsx'),
-        {
-          moduleName: this.props.moduleName,
-          moduleClassName: this.props.moduleClassName
-        }
-      );
-
-      this.fs.copyTpl(
-        this.templatePath('DefaultProjectName.jsx'),
-        this.destinationPath(this.props.baseDirectory + 'tests/nightwatch/Default' + this.props.moduleClassName + '.jsx'),
-        {
-          moduleClassName: this.props.moduleClassName
-        }
-      );
-    }
-
+    // Add Docs
     this.fs.copyTpl(
       this.templatePath('docs/*'),
       this.destinationPath(this.props.baseDirectory + 'docs/'),
@@ -189,28 +134,57 @@ module.exports = yeoman.Base.extend({
       }
     );
 
-    if (this.props.repository === 'terra-framework' || this.props.repository === 'terra-clinical') {
-      this.fs.copyTpl(
-        this.templatePath('Index.jsx'),
-        this.destinationPath(this.props.baseDirectory + '/examples/Index.site-page.jsx'),
-        {
-          importPath: 'index-examples/',
-          srcPath: '..',
-          projectClassName: this.props.moduleClassName
-        }
-      );
-    } else {
-      this.fs.copyTpl(
-        this.templatePath('Index.jsx'),
-        this.destinationPath('packages/' + this.props.repoPrefix + '-site/src/examples/' + this.props.moduleName + '/Index.jsx'),
-        {
-          importPath: '',
-          srcPath: this.props.projectName,
-          projectClassName: this.props.moduleClassName
-        }
-      );
-    }
+    // Add Jest Test File
+    this.fs.copyTpl(
+      this.templatePath('tests/projectNameTest.jsx'),
+      this.destinationPath(this.props.baseDirectory + 'tests/jest/' + this.props.jsxFileName + '.test.jsx'),
+      {
+        moduleClassName: this.props.moduleClassName,
+        cssClassName: this.props.cssClassName
+      }
+    );
 
+    // Add Wdio Spec File
+    this.fs.copyTpl(
+      this.templatePath('tests/moduleName-spec.js'),
+      this.destinationPath(this.props.baseDirectory + 'tests/wdio/' + this.props.moduleName + '-spec.js'),
+      {
+        moduleName: this.props.moduleName,
+        moduleClassName: this.props.moduleClassName,
+        projectName: this.props.projectName
+      }
+    );
+
+    // Add Doc Index
+    this.fs.copyTpl(
+      this.templatePath('src/terra-dev-site/Index.jsx'),
+      this.destinationPath(this.props.baseDirectory + 'src/terra-dev-site/doc/' + this.props.moduleClassName + '.doc.jsx'),
+      {
+        projectClassName: this.props.moduleClassName,
+        repository: this.props.repository
+      }
+    );
+
+    // Add Default Doc Example
+    this.fs.copyTpl(
+      this.templatePath('src/terra-dev-site/DefaultDocExample.jsx'),
+      this.destinationPath(this.props.baseDirectory + 'src/terra-dev-site/doc/example/Default' + this.props.moduleClassName + '.jsx'),
+      {
+        moduleClassName: this.props.moduleClassName,
+        projectName: this.props.projectName
+      }
+    );
+
+    // Add Default Test Example
+    this.fs.copyTpl(
+      this.templatePath('src/terra-dev-site/DefaultProjectName.jsx'),
+      this.destinationPath(this.props.baseDirectory + 'src/terra-dev-site/test/Default' + this.props.moduleClassName + '.test.jsx'),
+      {
+        moduleClassName: this.props.moduleClassName
+      }
+    );
+
+    // Add Package Readme
     this.fs.copyTpl(
       this.templatePath('README.md'),
       this.destinationPath(this.props.baseDirectory + 'README.md'),
@@ -222,11 +196,13 @@ module.exports = yeoman.Base.extend({
       }
     );
 
+    // Add Changelog
     this.fs.copyTpl(
       this.templatePath('CHANGELOG.md'),
       this.destinationPath(this.props.baseDirectory + 'CHANGELOG.md')
     );
 
+    // Add package.json
     this.fs.copyTpl(
       this.templatePath('package.json'),
       this.destinationPath(this.props.baseDirectory + 'package.json'),
@@ -238,6 +214,7 @@ module.exports = yeoman.Base.extend({
       }
     );
 
+    // Add LICENSE
     this.fs.copy(
       this.templatePath('LICENSE'),
       this.destinationPath(this.props.baseDirectory + 'LICENSE'),
@@ -246,6 +223,7 @@ module.exports = yeoman.Base.extend({
       }
     );
 
+    // Add NOTICE
     this.fs.copyTpl(
       this.templatePath('NOTICE'),
       this.destinationPath(this.props.baseDirectory + 'NOTICE'),
@@ -254,11 +232,13 @@ module.exports = yeoman.Base.extend({
       }
     );
 
+    // Add npmignore file
     this.fs.copyTpl(
       this.templatePath('_.npmignore'),
       this.destinationPath(this.props.baseDirectory + '.npmignore')
     );
 
+    // Add npmrc file
     this.fs.copyTpl(
       this.templatePath('_.npmrc'),
       this.destinationPath(this.props.baseDirectory + '.npmrc')

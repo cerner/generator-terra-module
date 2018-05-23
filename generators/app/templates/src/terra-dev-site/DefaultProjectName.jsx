@@ -1,5 +1,5 @@
 import React from 'react';
 
-import <%= moduleClassName %> from '../../lib/<%= moduleClassName %>';
+import <%= moduleClassName %> from '../../../<%= moduleClassName %>';
 
 export default () => <<%= moduleClassName %> />;
