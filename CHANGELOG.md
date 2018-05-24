@@ -3,6 +3,10 @@ Changelog
 
 Unreleased
 ------------------
+### Changed
+* Updated wdio file path
+* Updated Index template to use terra-doc-template
+* Update template files for new repo file structure
 
 1.8.0 - (May 22, 2018)
 ------------------
