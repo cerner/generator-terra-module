@@ -30,7 +30,7 @@ describe('generator-terra-module:app', function () {
           `packages/${repository}-monster-cookies/README.md`,
           `packages/${repository}-monster-cookies/CHANGELOG.md`,
           `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies.doc.jsx`,
-          `packages/${repository}-monster-cookies/src/terra-dev-site/tests/${repoNamespace}monster-cookies/MonsterCookies.doc.jsx`
+          `packages/${repository}-monster-cookies/src/terra-dev-site/test/${repoNamespace}monster-cookies/DefaultMonsterCookies.test.jsx`
         ]);
       });
 
