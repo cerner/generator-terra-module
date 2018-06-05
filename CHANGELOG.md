@@ -7,6 +7,7 @@ Unreleased
 * Updated wdio file path
 * Updated Index template to use terra-doc-template
 * Update template files for new repo file structure
+* Updated template package.json to use js instead of json for jest config
 
 1.8.0 - (May 22, 2018)
 ------------------
