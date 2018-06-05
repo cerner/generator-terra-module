@@ -4,6 +4,11 @@ Changelog
 Unreleased
 ------------------
 ### Changed
+* Updated template package.json to use js instead of json for jest config
+
+1.9.0 - (May 31, 2018)
+------------------
+### Changed
 * Updated wdio file path
 * Updated Index template to use terra-doc-template
 * Update template files for new repo file structure
