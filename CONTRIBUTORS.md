@@ -8,6 +8,7 @@ Cerner Corporation
 - Mike Hemesath [@mhemesath]
 - Brett Jankord [@bjankord]
 - Derek Yu [@yuderekyu]
+- Ben Boersma [@BenBoersma]
 
 [@gneatgeek]: https://github.com/gneatgeek
 [@Matt-Butler]: https://github.com/Matt-Butler
@@ -17,3 +18,4 @@ Cerner Corporation
 [@mhemesath]: https://github.com/mhemesath
 [@bjankord]: https://github.com/bjankord
 [@yuderekyu]: https://github.com/yuderekyu
+[@BenBoersma]: https://github.com/BenBoersma
