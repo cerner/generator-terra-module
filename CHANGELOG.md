@@ -3,6 +3,9 @@ Changelog
 
 Unreleased
 ------------------
+
+1.10.0 - (June 12, 2018)
+------------------
 ### Changed
 * Updated template package.json to use js instead of json for jest config
 
