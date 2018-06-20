@@ -3,6 +3,8 @@ Changelog
 
 Unreleased
 ------------------
+### Changed
+* Removed terra-base from dependencies.
 
 1.10.0 - (June 12, 2018)
 ------------------
