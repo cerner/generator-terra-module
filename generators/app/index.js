@@ -167,9 +167,19 @@ module.exports = yeoman.Base.extend({
     // Add Doc Index
     this.fs.copyTpl(
       this.templatePath('src/terra-dev-site/Index.jsx'),
-      this.destinationPath(this.props.baseDirectory + 'src/terra-dev-site/doc/' + this.props.moduleClassName + '.doc.jsx'),
+      this.destinationPath(this.props.baseDirectory + 'src/terra-dev-site/doc/' + this.props.moduleClassName + '/' + this.props.moduleClassName + '.1.doc.jsx'),
       {
         projectClassName: this.props.moduleClassName,
+        repository: this.props.repository
+      }
+    );
+
+    // Add Doc ChangeLog
+    this.fs.copyTpl(
+      this.templatePath('src/terra-dev-site/ChangeLog.jsx'),
+      this.destinationPath(this.props.baseDirectory + 'src/terra-dev-site/doc/' + this.props.moduleClassName + '/ChangeLog.2.doc.jsx'),
+      {
+        projectClassName: this.props.moduleName,
         repository: this.props.repository
       }
     );
