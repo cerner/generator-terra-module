@@ -3,6 +3,8 @@ Changelog
 
 Unreleased
 ------------------
+### Added
+* Generate CHANGELOG entry in docs
 
 1.11.0 - (June 26, 2018)
 ------------------
