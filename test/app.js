@@ -20,7 +20,7 @@ describe('generator-terra-module:app', function () {
           .withPrompts({
             repository: repositoryName,
             moduleName: 'monster-cookies',
-            curentYear: '1000'
+            currentYear: '1000'
           })
           .on('end', done);
       });
@@ -92,6 +92,15 @@ describe('generator-terra-module:app', function () {
         assert.fileContent(index, `import ReadMe from '../../../../docs/README.md';`);
         assert.fileContent(index, `import { version } from '../../../../package.json';`);
         assert.fileContent(index, `export default DocPage;`);
+      });
+
+      it('fills the ChangeLog with appropriate Git URL', function () {
+        const changelog = `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies/ChangeLog.2.doc.jsx`;
+
+        assert.fileContent(changelog, `import React from 'react';`);
+        assert.fileContent(changelog, `import DocTemplate from 'terra-doc-template';`);
+        assert.fileContent(changelog, `import ChangeLog from '../../../../CHANGELOG.md';`);
+        assert.fileContent(changelog, `srcPath="https://github.com/cerner/${repositoryName}/tree/master/packages/monster-cookies"`);
       });
 
       it('fills the examples Index file with project data', function () {
