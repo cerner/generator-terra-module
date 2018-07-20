@@ -43,7 +43,7 @@ describe('generator-terra-module:app', function () {
       });
 
       it('fills the sass file with some dummy sass', function () {
-        const scss = `packages/${repository}-monster-cookies/src/MonsterCookies.scss`;
+        const scss = `packages/${repository}-monster-cookies/src/MonsterCookies.module.scss`;
 
         assert.fileContent(scss, ':local {');
         assert.fileContent(scss, '.monster-cookies {');
