@@ -20,7 +20,7 @@ describe('generator-terra-module:app', function () {
           .withPrompts({
             repository: repositoryName,
             moduleName: 'monster-cookies',
-            curentYear: '1000'
+            currentYear: '1000'
           })
           .on('end', done);
       });
@@ -29,7 +29,8 @@ describe('generator-terra-module:app', function () {
         assert.file([
           `packages/${repository}-monster-cookies/README.md`,
           `packages/${repository}-monster-cookies/CHANGELOG.md`,
-          `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies.doc.jsx`,
+          `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies/MonsterCookies.1.doc.jsx`,
+          `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies/ChangeLog.2.doc.jsx`,
           `packages/${repository}-monster-cookies/src/terra-dev-site/test/${repoNamespace}monster-cookies/DefaultMonsterCookies.test.jsx`
         ]);
       });
@@ -84,13 +85,22 @@ describe('generator-terra-module:app', function () {
       });
 
       it('fills the site examples Index file with project data', function () {
-        const index = `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies.doc.jsx`;
+        const index = `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies/MonsterCookies.1.doc.jsx`;
 
         assert.fileContent(index, `import React from 'react';`);
-        assert.fileContent(index, `import DefaultMonsterCookiesSrc from '!raw-loader!../../../src/terra-dev-site/doc/example/DefaultMonsterCookies.jsx';`);
-        assert.fileContent(index, `import ReadMe from '../../../docs/README.md';`);
-        assert.fileContent(index, `import { version } from '../../../package.json';`);
+        assert.fileContent(index, `import DefaultMonsterCookiesSrc from '!raw-loader!../../../../src/terra-dev-site/doc/example/DefaultMonsterCookies.jsx';`);
+        assert.fileContent(index, `import ReadMe from '../../../../docs/README.md';`);
+        assert.fileContent(index, `import { version } from '../../../../package.json';`);
         assert.fileContent(index, `export default DocPage;`);
+      });
+
+      it('fills the ChangeLog with appropriate Git URL', function () {
+        const changelog = `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies/ChangeLog.2.doc.jsx`;
+
+        assert.fileContent(changelog, `import React from 'react';`);
+        assert.fileContent(changelog, `import DocTemplate from 'terra-doc-template';`);
+        assert.fileContent(changelog, `import ChangeLog from '../../../../CHANGELOG.md';`);
+        assert.fileContent(changelog, `srcPath="https://github.com/cerner/${repositoryName}/tree/master/packages/monster-cookies"`);
       });
 
       it('fills the examples Index file with project data', function () {

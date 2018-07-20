@@ -9,6 +9,7 @@ Cerner Corporation
 - Brett Jankord [@bjankord]
 - Derek Yu [@yuderekyu]
 - Ben Boersma [@BenBoersma]
+- Tom Wu [@tomleewu]
 
 [@gneatgeek]: https://github.com/gneatgeek
 [@Matt-Butler]: https://github.com/Matt-Butler
@@ -19,3 +20,4 @@ Cerner Corporation
 [@bjankord]: https://github.com/bjankord
 [@yuderekyu]: https://github.com/yuderekyu
 [@BenBoersma]: https://github.com/BenBoersma
+[@tomleewu]: https://github.com/tomleewu
