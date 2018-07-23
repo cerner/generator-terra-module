@@ -125,8 +125,8 @@ module.exports = yeoman.Base.extend({
 
     // Add Component SCSS File
     this.fs.copyTpl(
-      this.templatePath('src/projectName.scss'),
-      this.destinationPath(this.props.baseDirectory + 'src/' + this.props.scssFileName + '.scss'),
+      this.templatePath('src/projectName.module.scss'),
+      this.destinationPath(this.props.baseDirectory + 'src/' + this.props.scssFileName + '.module.scss'),
       {
         cssClassName: this.props.cssClassName
       }
