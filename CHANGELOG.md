@@ -3,6 +3,9 @@ Changelog
 
 Unreleased
 ------------------
+
+1.12.0 - (July 25, 2018)
+------------------
 ### Added
 * Generate CHANGELOG entry in the terra-dev-site docs
 * Added ChangeLog.jsx template for terra-dev-site docs
