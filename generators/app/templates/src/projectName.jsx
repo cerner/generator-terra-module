@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import 'terra-base/lib/baseStyles';
-import styles from './<%= scssFileName %>.scss';
+import styles from './<%= scssFileName %>.module.scss';
 
 const cx = classNames.bind(styles);
 
 const propTypes = {
- /*
- * Content to be displayed as the name
- */
+  /**
+   * Content to be displayed as the name
+   */
   name: PropTypes.string,
 };
 
