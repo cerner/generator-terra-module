@@ -1,8 +1,8 @@
-/* eslint-disable import/no-webpack-loader-syntax, import/first, import/extensions, import/no-duplicates */
+/* eslint-disable import/no-webpack-loader-syntax, import/first, import/extensions, import/no-duplicates, import/no-unresolved */
 import React from 'react';
 import DocTemplate from 'terra-doc-template';
 import ReadMe from '../../../../docs/README.md';
-import { version } from '../../../../package.json';
+import { name } from '../../../../package.json';
 
 // Component Source
 import <%= projectClassName %>Src from '!raw-loader!../../../../src/<%= projectClassName %>';

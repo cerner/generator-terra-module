@@ -1,4 +1,4 @@
-/* global browser, Terra */
+/* global browser, Terra, before */
 const viewports = Terra.viewports('tiny', 'medium', 'large');
 
 describe('<%= moduleClassName %>', () => {
