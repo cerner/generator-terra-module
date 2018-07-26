@@ -90,7 +90,7 @@ describe('generator-terra-module:app', function () {
         assert.fileContent(index, `import React from 'react';`);
         assert.fileContent(index, `import DefaultMonsterCookiesSrc from '!raw-loader!../../../../src/terra-dev-site/doc/example/DefaultMonsterCookies.jsx';`);
         assert.fileContent(index, `import ReadMe from '../../../../docs/README.md';`);
-        assert.fileContent(index, `import { version } from '../../../../package.json';`);
+        assert.fileContent(index, `import { name } from '../../../../package.json';`);
         assert.fileContent(index, `export default DocPage;`);
       });
 
