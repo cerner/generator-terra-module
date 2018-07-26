@@ -4,6 +4,11 @@ Changelog
 Unreleased
 ------------------
 
+1.12.1 - (July 26, 2018)
+------------------
+### Changed
+* Fixed some lint errors in generated output
+
 1.12.0 - (July 25, 2018)
 ------------------
 ### Added
