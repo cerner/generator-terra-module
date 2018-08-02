@@ -26,7 +26,41 @@ Input `terra-core`, `terra-clinical`, `terra-consumer`, or `terra-framework`. It
 2. `Your module name:`
 Input the desired name of the react component being created. **Note**: the first prompt handles the name space prefixes.
 
+## Generated package
 Your new project will be generated in the packages directory of the chosen repository.
+
+Given the module name `button`, the following directory structure would be generated inside of the related monorepos.
+
+```
+terra-button
+├──docs
+│  └── README.md // The component README that appears on the documenation site
+├──src
+│   ├──terra-dev-site
+│   │  ├──doc
+│   │  │  ├──Button
+│   │  │  │  ├──Button.1.doc.jsx // Doc template that imports all the examples into one page
+│   │  │  │  └──ChangeLog.2.doc.jsx // This imports and renders the CHANGELOG.md file
+│   │  │  └──example
+│   │  │     └──DefaultButton.jsx // Default component example used in doc site
+│   │  └──test
+│   │     └──button
+│   │        └──DefaultButton.test.jsx // Default component example used in wdio testing
+│   ├──Button.jsx // Source code for react component
+│   └──Button.module.scss // Source code for component styles
+├──tests
+│   └──jest
+│   │  └──DefaultButton.test.jsx // Jest test file
+│   └──wdio
+│      └──button-spec.js // Webdriver.io test file
+├──.npmignore // Contains files we don't want to include in npm package
+├──.npmrc // Specifies npm package config
+├──CHANGELOG // Contains component change log history
+├──LICENSE // License used with component package
+├──NOTICE // Notice used with component package
+├──package.json // NPM Package metadata
+└──README.md // The component README that appears on NPM
+```
 
 After generating the project, add your package to the packages listed in the README.md file of the repository you created the project in.
 
