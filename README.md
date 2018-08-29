@@ -1,4 +1,17 @@
-# Generator Terra Module
+<!-- Logo -->
+<p align="center">
+  <img height="128" width="128" src="https://github.com/cerner/generator-terra-module/raw/master/terra.png">
+</p>
+
+<!-- Name -->
+<h1 align="center">
+  Generator Terra Module
+</h1>
+
+[![NPM version](https://badgen.net/npm/v/generator-terra-module)](https://www.npmjs.org/package/generator-terra-module)
+[![License](https://badgen.net/github/license/cerner/generator-terra-module)](https://github.com/cerner/generator-terra-module/blob/master/LICENSE)
+[![Build Status](https://badgen.net/travis/cerner/generator-terra-module)](https://travis-ci.org/cerner/generator-terra-module)
+[![devDependencies status](https://badgen.net/david/dev/cerner/generator-terra-module)](https://david-dm.org/cerner/generator-terra-module?type=dev)
 
 > Quickly scaffold terra modules with this yeoman generator
 

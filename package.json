@@ -2,15 +2,26 @@
   "name": "generator-terra-module",
   "version": "1.12.1",
   "description": "terra module skeleton generator",
-  "homepage": "",
+  "author": "Cerner Corporation",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/cerner/generator-terra-module",
   "files": [
     "generators"
   ],
   "main": "generators/index.js",
   "keywords": [
-    "",
-    "yeoman-generator"
+    "yeoman-generator",
+    "Cerner",
+    "Terra",
+    "module-generator"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cerner/generator-terra-module"
+  },
+  "bugs": {
+    "url": "https://github.com/cerner/generator-terra-module/issues"
+  },
   "dependencies": {
     "chalk": "^1.0.0",
     "lodash": "^4.11.1",
@@ -38,7 +49,6 @@
       "mocha": true
     }
   },
-  "repository": "/generator-terra-module",
   "scripts": {
     "release:major": "npm test && npm version major -m \"Released version %s\" && npm publish && git push --follow-tags",
     "release:minor": "npm test && npm version minor -m \"Released version %s\" && npm publish && git push --follow-tags",

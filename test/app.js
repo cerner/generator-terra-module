@@ -78,8 +78,8 @@ describe('generator-terra-module:app', function () {
         const readme = `packages/${repository}-monster-cookies/README.md`;
 
         assert.fileContent(readme, `# ${title} Monster Cookies`);
-        assert.fileContent(readme, `img.shields.io/npm/v/${repository}-monster-cookies.svg`);
-        assert.fileContent(readme, `travis-ci.org/cerner/${repositoryName}.svg`);
+        assert.fileContent(readme, `https://badgen.net/npm/v/${repository}-monster-cookies`);
+        assert.fileContent(readme, `https://badgen.net/travis/cerner/${repositoryName}`);
         assert.fileContent(readme, `npm install ${repository}-monster-cookies`);
         assert.fileContent(readme, `[Documentation](https://github.com/cerner/${repositoryName}/tree/master/packages/${repository}-monster-cookies/docs)`);
       });

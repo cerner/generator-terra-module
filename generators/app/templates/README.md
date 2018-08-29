@@ -1,8 +1,7 @@
 # <%= titlecaseProjectName %>
 
-
-[![NPM version](http://img.shields.io/npm/v/<%= projectName %>.svg)](https://www.npmjs.org/package/<%= projectName %>)
-[![Build Status](https://travis-ci.org/cerner/<%= repository %>.svg?branch=master)](https://travis-ci.org/cerner/<%= repository %>)
+[![NPM version](https://badgen.net/npm/v/<%= projectName %>)](https://www.npmjs.org/package/<%= projectName %>)
+[![Build Status](https://badgen.net/travis/cerner/<%= repository %>)](https://travis-ci.org/cerner/<%= repository %>)
 
 {insert description}
 
