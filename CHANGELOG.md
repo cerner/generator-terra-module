@@ -4,6 +4,11 @@ Changelog
 Unreleased
 ------------------
 
+1.13.0 - (August 30, 2018)
+------------------
+### Changed
+* Switch badges to use badgen-service
+
 1.12.1 - (July 26, 2018)
 ------------------
 ### Changed
