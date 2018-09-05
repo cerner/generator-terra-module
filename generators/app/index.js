@@ -2,7 +2,9 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
-var _ = require('lodash');
+var startCase = require('lodash.startcase');
+var upperFirst = require('lodash.upperfirst');
+var camelCase = require('lodash.camelcase');
 
 const keywords = {
   'terra-core': null,
@@ -16,7 +18,7 @@ const keywords = {
  * @param {String} the project name
  */
 function toTitleCase(str) {
-  return _.startCase(_.toLower(str));
+  return startCase(str.toLowerCase());
 }
 
 /**
@@ -24,7 +26,7 @@ function toTitleCase(str) {
  * @param {String} the project name or module name
  */
 function toClassName(str) {
-  return _.upperFirst(_.camelCase(str));
+  return upperFirst(camelCase(str));
 }
 
 /**

@@ -3,6 +3,8 @@ Changelog
 
 Unreleased
 ------------------
+### Changed
+* Replaced dependency on lodash with modularized lodash packages
 
 1.13.0 - (August 30, 2018)
 ------------------
