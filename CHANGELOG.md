@@ -3,6 +3,9 @@ Changelog
 
 Unreleased
 ------------------
+### Changed
+* Updated dependencies to latest version
+* Uplifted generator to use latest yeoman-generator conventions
 
 1.14.0 - (September 5, 2018)
 ------------------
