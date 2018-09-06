@@ -1,5 +1,5 @@
 'use strict';
-var yeoman = require('yeoman-generator');
+var Generator = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var startCase = require('lodash.startcase');
@@ -54,18 +54,18 @@ function repositoryNamespace(repo) {
   return (repo === 'terra-core' || repo === 'terra-framework') ? '' : `${repo.replace('terra-', '')}-`;
 }
 
-module.exports = yeoman.Base.extend({
-  constructor: function () {
-    yeoman.Base.apply(this, arguments);
+module.exports = class extends Generator {
+  // The name `constructor` is important here
+  constructor(args, opts) {
+    // Calling the super constructor is important so our generator is correctly set up
+    super(args, opts);
 
     this.argument('paramProjectName', {type: String, required: false});
 
-    this.projectName = this.paramProjectName;
-  },
+    this.projectName = this.options.paramProjectName;
+  }
 
-  prompting: function () {
-    var done = this.async();
-
+  prompting() {
     // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to the ' + chalk.red('generator-terra-module') + ' generator! This will scaffold a skeleton to help start developing a terra module!'
@@ -80,7 +80,8 @@ module.exports = yeoman.Base.extend({
         var validRepos = ['terra-core', 'terra-clinical', 'terra-consumer', 'terra-framework'];
         return input !== undefined && validRepos.includes(input);
       }
-    }, {
+    },
+    {
       type: 'input',
       name: 'moduleName',
       message: 'Your module name:',
@@ -90,9 +91,9 @@ module.exports = yeoman.Base.extend({
       }
     }];
 
-    this.prompt(prompts, function (props) {
+    return this.prompt(prompts).then(props => {
+      // To access props later use this.props.someAnswer;
       this.props = props;
-      // To access props later use this.props."name";
       this.props.repoPrefix = repositoryPrefix(this.props.repository);
       this.props.repoNamespace = repositoryNamespace(this.props.repository);
       this.props.moduleClassName = toClassName(this.props.moduleName);
@@ -108,12 +109,10 @@ module.exports = yeoman.Base.extend({
       this.props.scssFileName = this.props.jsxFileName;
 
       this.props.currentYear = new Date().getFullYear();
+    });
+  }
 
-      done();
-    }.bind(this));
-  },
-
-  writing: function () {
+  writing() {
     // Add Component JSX File
     this.fs.copyTpl(
       this.templatePath('src/projectName.jsx'),
@@ -265,11 +264,9 @@ module.exports = yeoman.Base.extend({
       this.templatePath('_.npmrc'),
       this.destinationPath(this.props.baseDirectory + '.npmrc')
     );
-  },
-
-  install: function () {
-    this.installDependencies({
-      bower: false
-    });
   }
-});
+
+  install() {
+    this.installDependencies({ bower: false });
+  }
+};

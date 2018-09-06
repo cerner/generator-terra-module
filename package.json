@@ -23,12 +23,12 @@
     "url": "https://github.com/cerner/generator-terra-module/issues"
   },
   "dependencies": {
-    "chalk": "^1.0.0",
+    "chalk": "^2.4.1",
     "lodash.camelcase": "^4.3.0",
     "lodash.startcase": "^4.4.0",
     "lodash.upperfirst": "^4.3.1",
-    "yeoman-generator": "^0.22.0",
-    "yosay": "^1.0.2"
+    "yeoman-generator": "^3.1.1",
+    "yosay": "^2.0.2"
   },
   "devDependencies": {
     "eslint": "^2.1.0",
