@@ -55,18 +55,13 @@ function repositoryNamespace(repo) {
 }
 
 module.exports = class extends Generator {
-  // The name `constructor` is important here
   constructor(args, opts) {
-    // Calling the super constructor is important so our generator is correctly set up
     super(args, opts);
-
     this.argument('paramProjectName', {type: String, required: false});
-
     this.projectName = this.options.paramProjectName;
   }
 
   prompting() {
-    // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to the ' + chalk.red('generator-terra-module') + ' generator! This will scaffold a skeleton to help start developing a terra module!'
     ));
@@ -80,8 +75,7 @@ module.exports = class extends Generator {
         var validRepos = ['terra-core', 'terra-clinical', 'terra-consumer', 'terra-framework'];
         return input !== undefined && validRepos.includes(input);
       }
-    },
-    {
+    }, {
       type: 'input',
       name: 'moduleName',
       message: 'Your module name:',
@@ -267,6 +261,6 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.installDependencies({ bower: false });
+    this.installDependencies({bower: false});
   }
 };
