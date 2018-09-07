@@ -31,10 +31,9 @@
     "yosay": "^2.0.2"
   },
   "devDependencies": {
-    "eslint": "^2.1.0",
-    "eslint-config-xo-space": "^0.10.0",
+    "eslint": "^5.0.0",
+    "eslint-config-terra": "^2.0.0",
     "gulp": "^3.9.0",
-    "gulp-eslint": "^2.0.0",
     "gulp-exclude-gitignore": "^1.0.0",
     "gulp-istanbul": "^0.10.3",
     "gulp-line-ending-corrector": "^1.0.1",
@@ -45,15 +44,21 @@
     "yeoman-test": "^1.0.0"
   },
   "eslintConfig": {
-    "extends": "xo-space",
+    "extends": "terra",
     "env": {
       "mocha": true
     }
   },
+  "eslintIgnore": [
+    "generators/app/templates/",
+    "coverage/"
+  ],
   "scripts": {
     "release:major": "npm test && npm version major -m \"Released version %s\" && npm publish && git push --follow-tags",
     "release:minor": "npm test && npm version minor -m \"Released version %s\" && npm publish && git push --follow-tags",
     "release:patch": "npm test && npm version patch -m \"Released version %s\" && npm publish && git push --follow-tags",
+    "lint": "eslint --ext .js,.jsx .",
+    "pretest": "npm run lint",
     "test": "gulp"
   }
 }
