@@ -6,6 +6,7 @@ Unreleased
 ### Changed
 * Updated dependencies to latest version
 * Uplifted generator to use latest yeoman-generator conventions
+* Updated linter to ESLint 5 and fixed lint issues
 
 1.14.0 - (September 5, 2018)
 ------------------
