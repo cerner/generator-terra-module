@@ -30,3 +30,6 @@ about: If something isn't working as expected
 ## Environment
 <!-- Include as many relevant details about the environment you experienced the bug in -->
 * Generator Version:
+
+## @ Mentions
+<!-- @ Mention anyone on the terra team that you have been working with so far. -->
