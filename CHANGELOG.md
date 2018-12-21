@@ -8,6 +8,7 @@ Unreleased
 * Uplifted generator to use latest yeoman-generator conventions
 * Updated linter to ESLint 5 and fixed lint issues
 * Replaced gulp with npm scripts
+* Updated .nvmrc file to use `lts/carbon` for version
 
 1.14.0 - (September 5, 2018)
 ------------------
