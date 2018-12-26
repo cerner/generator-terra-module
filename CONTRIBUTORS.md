@@ -10,6 +10,7 @@ Cerner Corporation
 - Derek Yu [@yuderekyu]
 - Ben Boersma [@BenBoersma]
 - Tom Wu [@tomleewu]
+- Lalitha Kalidindi [@lalitha94]
 
 [@gneatgeek]: https://github.com/gneatgeek
 [@Matt-Butler]: https://github.com/Matt-Butler
@@ -21,3 +22,4 @@ Cerner Corporation
 [@yuderekyu]: https://github.com/yuderekyu
 [@BenBoersma]: https://github.com/BenBoersma
 [@tomleewu]: https://github.com/tomleewu
+[@lalitha94]:https://github.com/lalitha94
