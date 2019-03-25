@@ -27,6 +27,8 @@
     "lodash.camelcase": "^4.3.0",
     "lodash.startcase": "^4.4.0",
     "lodash.upperfirst": "^4.3.1",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
     "yeoman-generator": "^3.1.1",
     "yosay": "^2.0.2"
   },
