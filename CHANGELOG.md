@@ -3,12 +3,17 @@ Changelog
 
 Unreleased
 ------------------
+
+1.15.0 - (March 28, 2019)
+------------------
 ### Changed
 * Updated dependencies to latest version
 * Uplifted generator to use latest yeoman-generator conventions
 * Updated linter to ESLint 5 and fixed lint issues
 * Replaced gulp with npm scripts
 * Updated .nvmrc file to use `lts/carbon` for version
+* Bumped minimum react peerDependency version from ^16.4.2 to ^16.8.5
+* Bumped minimum react-dom peerDependency version from ^16.4.2 to ^16.8.5
 
 1.14.0 - (September 5, 2018)
 ------------------
