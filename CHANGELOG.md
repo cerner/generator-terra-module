@@ -4,6 +4,9 @@ Changelog
 Unreleased
 ------------------
 
+### Changed
+* Updated generated test template to utilize `Terra.should.validateElement()` from terra-toolkit.
+
 1.16.0 - (March 28, 2019)
 ------------------
 ### Changed

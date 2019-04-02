@@ -12,6 +12,7 @@ Cerner Corporation
 - Tom Wu [@tomleewu]
 - Lalitha Kalidindi [@lalitha94]
 - Alex Brisimitzakis [@alexbrizi]
+- Naveen Kumar Ramamurthy [@nramamurth]
 
 [@gneatgeek]: https://github.com/gneatgeek
 [@Matt-Butler]: https://github.com/Matt-Butler
@@ -25,3 +26,4 @@ Cerner Corporation
 [@tomleewu]: https://github.com/tomleewu
 [@lalitha94]:https://github.com/lalitha94
 [@alexbrizi]:https://github.com/AlexBrizi
+[@nramamurth]: https://github.com/nramamurth
