@@ -11,7 +11,7 @@ Cerner Corporation
 - Ben Boersma [@BenBoersma]
 - Tom Wu [@tomleewu]
 - Lalitha Kalidindi [@lalitha94]
-- Alex Brisimitzakis [@alexbrizi]
+- Alex Brisimitzakis [@AlexB98]
 - Naveen Kumar Ramamurthy [@nramamurth]
 
 [@gneatgeek]: https://github.com/gneatgeek
@@ -25,5 +25,5 @@ Cerner Corporation
 [@BenBoersma]: https://github.com/BenBoersma
 [@tomleewu]: https://github.com/tomleewu
 [@lalitha94]:https://github.com/lalitha94
-[@alexbrizi]:https://github.com/AlexBrizi
+[@alexbrizi]:https://github.com/AlexB98
 [@nramamurth]: https://github.com/nramamurth
