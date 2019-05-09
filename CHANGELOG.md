@@ -3,8 +3,8 @@ Changelog
 
 Unreleased
 ------------------
-
 ### Changed
+* Update yeoman-generator to ^4.0.0
 * Updated generated test template to utilize `Terra.should.validateElement()` from terra-toolkit.
 * Updated mocha dependency to 6.1.4 (current version)
 
