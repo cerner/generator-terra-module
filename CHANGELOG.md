@@ -3,6 +3,8 @@ Changelog
 
 Unreleased
 ------------------
+
+1.17.0 - (May 9, 2019)
 ### Changed
 * Update yeoman-generator to ^4.0.0
 * Updated generated test template to utilize `Terra.should.validateElement()` from terra-toolkit.
