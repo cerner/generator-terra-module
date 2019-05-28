@@ -10,7 +10,7 @@
 
 [![NPM version](https://badgen.net/npm/v/generator-terra-module)](https://www.npmjs.org/package/generator-terra-module)
 [![License](https://badgen.net/github/license/cerner/generator-terra-module)](https://github.com/cerner/generator-terra-module/blob/master/LICENSE)
-[![Build Status](https://badgen.net/travis/cerner/generator-terra-module)](https://travis-ci.org/cerner/generator-terra-module)
+[![Build Status](https://badgen.net/travis/cerner/generator-terra-module)](https://travis-ci.com/cerner/generator-terra-module)
 [![Dependencies status](https://badgen.net/david/dep/cerner/generator-terra-module)](https://david-dm.org/cerner/generator-terra-module)
 [![devDependencies status](https://badgen.net/david/dev/cerner/generator-terra-module)](https://david-dm.org/cerner/generator-terra-module?type=dev)
 
