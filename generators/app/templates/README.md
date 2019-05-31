@@ -1,7 +1,7 @@
 # <%= titlecaseProjectName %>
 
-[![NPM version](https://badgen.net/npm/v/<%= projectName %>)](https://www.npmjs.cin/package/<%= projectName %>)
-[![Build Status](https://badgen.net/travis/cerner/<%= repository %>)](https://travis-ci.org/cerner/<%= repository %>)
+[![NPM version](https://badgen.net/npm/v/<%= projectName %>)](https://www.npmjs.com/package/<%= projectName %>)
+[![Build Status](https://badgen.net/travis/cerner/<%= repository %>)](https://travis-ci.com/cerner/<%= repository %>)
 
 {insert description}
 
