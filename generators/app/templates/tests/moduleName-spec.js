@@ -1,16 +1,9 @@
-/* global browser, Terra, before */
-Terra.viewports('tiny', 'medium', 'large').forEach((viewport) => {
-  describe('<%= moduleClassName %>', () => {
-    before(() => {
-      browser.setViewportSize(viewport);
-    });
+Terra.describeVeiwports('<%= moduleClassName %>', ['tiny', 'medium', 'large']), () => {
+  describe('Default', () => {
+    before(() => browser.url('/#/raw/tests/<%= projectName %>/default-<%= moduleName %>'));
 
-    describe('Default', () => {
-      before(() => {
-        browser.url('/#/raw/tests/<%= projectName %>/default-<%= moduleName %>');
-      });
-
-      Terra.should.validateElement();
+    it('validates the element', () => {
+      Terra.validates.element();
     });
   });
 });
