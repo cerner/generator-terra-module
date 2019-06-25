@@ -3,10 +3,14 @@ Changelog
 
 Unreleased
 ------------------
-### Changes
+### Changed
 * Update to reflect terra-toolkit v5 and babel v7 changes in the mono-repos
 
+### Fixed
+* Fixed syntax errors in generated WDIO script
+
 1.17.0 - (May 9, 2019)
+------------------
 ### Changed
 * Update yeoman-generator to ^4.0.0
 * Updated generated test template to utilize `Terra.should.validateElement()` from terra-toolkit.
