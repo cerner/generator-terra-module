@@ -5,6 +5,7 @@ Unreleased
 ------------------
 ### Changed
 * Update to reflect terra-toolkit v5 and babel v7 changes in the mono-repos
+* Added additional items to .npmignore file
 
 ### Fixed
 * Fixed syntax errors in generated WDIO script
