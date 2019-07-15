@@ -6,6 +6,7 @@ Unreleased
 ### Changed
 * Update to reflect terra-toolkit v5 and babel v7 changes in the mono-repos
 * Added additional items to .npmignore file
+* Update terra-doc-template version from `^1.2.0` to `^2.12.0`
 
 ### Fixed
 * Fixed syntax errors in generated WDIO script
