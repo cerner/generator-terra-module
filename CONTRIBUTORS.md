@@ -14,6 +14,7 @@ Cerner Corporation
 - Alex Brisimitzakis [@AlexB98]
 - Naveen Kumar Ramamurthy [@nramamurth]
 - Nathan Faltermeier [@Blackop778]
+- Pranav Agarwal [@pranav300]
 
 [@gneatgeek]: https://github.com/gneatgeek
 [@Matt-Butler]: https://github.com/Matt-Butler
@@ -29,3 +30,4 @@ Cerner Corporation
 [@alexbrizi]:https://github.com/AlexB98
 [@nramamurth]: https://github.com/nramamurth
 [@Blackop778]: https://github.com/Blackop778
+[@pranav300]: https://github.com/pranav300
