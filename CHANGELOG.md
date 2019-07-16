@@ -3,6 +3,9 @@ Changelog
 
 Unreleased
 ------------------
+
+1.18.0 - (July 16, 2019)
+------------------
 ### Changed
 * Update to reflect terra-toolkit v5 and babel v7 changes in the mono-repos
 * Added additional items to .npmignore file
