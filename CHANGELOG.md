@@ -3,6 +3,8 @@ Changelog
 
 Unreleased
 ------------------
+### Changed
+* Update test commands to work with terra-dev-site v6.
 
 1.18.0 - (July 16, 2019)
 ------------------

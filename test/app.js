@@ -58,7 +58,7 @@ describe('generator-terra-module:app', () => {
 
         assert.fileContent(packageJSON, `git+https://github.com/cerner/${repositoryName}.git`);
         assert.fileContent(packageJSON, `https://github.com/cerner/${repositoryName}/issues`);
-        assert.fileContent(packageJSON, '../../node_modules/.bin/wdio ../../node_modules/terra-dev-site/config/wdio/wdio.conf.js');
+        assert.fileContent(packageJSON, 'cd ../.. && npx wdio ./packages/$npm_package_name/wdio.conf.js');
       });
 
       it('fills the package.json file with the appropriate keywords', () => {
