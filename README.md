@@ -32,7 +32,7 @@ npm install -g generator-terra-module
 Then generate your new project:
 
 ```bash
-yo terra-module
+npx yo terra-module
 ```
 From here, you will be prompted with two messages:
 1. `Terra repository:`
