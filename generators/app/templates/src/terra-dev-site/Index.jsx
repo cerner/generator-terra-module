@@ -24,10 +24,10 @@ const DocPage = () => (
       },
     ]}
     propsTables={[
-        {
-          componentName: '<%= projectClassName %>',
-          componentSrc: <%= projectClassName %>Src,
-        },
+      {
+        componentName: '<%= projectClassName %>',
+        componentSrc: <%= projectClassName %>Src,
+      },
     ]}
   />
 );
