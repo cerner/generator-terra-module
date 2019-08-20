@@ -3,6 +3,8 @@ Changelog
 
 Unreleased
 ------------------
+### Changed
+* Updated ESLint to v6
 
 1.19.0 - (August 1, 2019)
 ------------------

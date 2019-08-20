@@ -31,8 +31,8 @@
     "yosay": "^2.0.2"
   },
   "devDependencies": {
-    "eslint": "^5.0.0",
-    "eslint-config-terra": "^2.0.0",
+    "eslint": "^6.1.0",
+    "eslint-config-terra": "^3.0.0",
     "mocha": "^6.1.4",
     "yeoman-assert": "^3.0.0",
     "yeoman-test": "^2.0.0"
