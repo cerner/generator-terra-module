@@ -5,6 +5,7 @@ Unreleased
 ------------------
 ### Changed
 * Updated ESLint to v6
+* Add GitHub labeler action
 
 1.19.0 - (August 1, 2019)
 ------------------
