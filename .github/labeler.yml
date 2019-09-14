@@ -2,4 +2,4 @@ tests:
 - test/**/*
 
 docs: 
-- *.md
+- '*.md'
