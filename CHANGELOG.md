@@ -3,6 +3,9 @@ Changelog
 
 Unreleased
 ------------------
+
+1.20.0 - (October 30, 2019)
+------------------
 ### Changed
 * Updated ESLint to v6
 * Add GitHub labeler action
