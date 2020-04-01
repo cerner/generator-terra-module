@@ -29,8 +29,6 @@ describe('generator-terra-module:app', () => {
         assert.file([
           `packages/${repository}-monster-cookies/README.md`,
           `packages/${repository}-monster-cookies/CHANGELOG.md`,
-          `packages/${repository}-monster-cookies/wdio.conf.js`,
-          `packages/${repository}-monster-cookies/clinical-lowligh-wdio.conf.js`,
           `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies/MonsterCookies.1.doc.jsx`,
           `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies/ChangeLog.2.doc.jsx`,
           `packages/${repository}-monster-cookies/src/terra-dev-site/test/${repoNamespace}monster-cookies/DefaultMonsterCookies.test.jsx`,
@@ -61,9 +59,6 @@ describe('generator-terra-module:app', () => {
         assert.fileContent(packageJSON, `git+https://github.com/cerner/${repositoryName}.git`);
         assert.fileContent(packageJSON, `https://github.com/cerner/${repositoryName}/issues`);
         assert.fileContent(packageJSON, 'cd ../.. && npx wdio ./packages/$npm_package_name/wdio.conf.js');
-        assert.fileContent(packageJSON, 'cd ../.. && THEME=clinical-lowlight-theme npx wdio ./packages/$npm_package_name/clinical-lowlight-wdio.conf.js');
-        assert.fileContent(packageJSON, 'cd ../.. && THEME=orion-fusion-theme npx wdio ./packages/$npm_package_name/wdio.conf.js');
-        assert.fileContent(packageJSON, 'npm run wdio-default && npm run wdio-lowlight && npm run wdio-fusion');
       });
 
       it('fills the package.json file with the appropriate keywords', () => {
