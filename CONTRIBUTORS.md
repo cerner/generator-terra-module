@@ -15,6 +15,7 @@ Cerner Corporation
 - Naveen Kumar Ramamurthy [@nramamurth]
 - Nathan Faltermeier [@Blackop778]
 - Pranav Agarwal [@pranav300]
+- Dianna McGinn [@DMcginn]
 
 [@gneatgeek]: https://github.com/gneatgeek
 [@Matt-Butler]: https://github.com/Matt-Butler
@@ -31,3 +32,4 @@ Cerner Corporation
 [@nramamurth]: https://github.com/nramamurth
 [@Blackop778]: https://github.com/Blackop778
 [@pranav300]: https://github.com/pranav300
+[@DMcginn]: https://github.com/DMcginn
