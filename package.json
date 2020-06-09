@@ -1,6 +1,6 @@
 {
   "name": "generator-terra-module",
-  "version": "1.21.0",
+  "version": "1.22.0",
   "description": "terra module skeleton generator",
   "author": "Cerner Corporation",
   "license": "Apache-2.0",
