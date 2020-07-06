@@ -6,7 +6,7 @@
 {insert description}
 
 - [Getting Started](#getting-started)
-- [Documentation](https://github.com/cerner/<%= repository %>/tree/master/packages/<%= projectName %>/docs)
+- [Documentation](https://github.com/cerner/<%= repository %>/tree/main/packages/<%= projectName %>/docs)
 - [LICENSE](#license)
 
 ## Getting Started

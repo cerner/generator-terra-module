@@ -1,6 +1,6 @@
 <!-- Logo -->
 <p align="center">
-  <img height="128" width="128" src="https://github.com/cerner/generator-terra-module/raw/master/terra.png">
+  <img height="128" width="128" src="https://github.com/cerner/generator-terra-module/raw/main/terra.png">
 </p>
 
 <!-- Name -->
@@ -9,7 +9,7 @@
 </h1>
 
 [![NPM version](https://badgen.net/npm/v/generator-terra-module)](https://www.npmjs.org/package/generator-terra-module)
-[![License](https://badgen.net/github/license/cerner/generator-terra-module)](https://github.com/cerner/generator-terra-module/blob/master/LICENSE)
+[![License](https://badgen.net/github/license/cerner/generator-terra-module)](https://github.com/cerner/generator-terra-module/blob/main/LICENSE)
 [![Build Status](https://badgen.net/travis/cerner/generator-terra-module)](https://travis-ci.com/cerner/generator-terra-module)
 [![Dependencies status](https://badgen.net/david/dep/cerner/generator-terra-module)](https://david-dm.org/cerner/generator-terra-module)
 [![devDependencies status](https://badgen.net/david/dev/cerner/generator-terra-module)](https://david-dm.org/cerner/generator-terra-module?type=dev)
