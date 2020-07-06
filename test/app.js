@@ -81,7 +81,7 @@ describe('generator-terra-module:app', () => {
         assert.fileContent(readme, `https://badgen.net/npm/v/${repository}-monster-cookies`);
         assert.fileContent(readme, `https://badgen.net/travis/cerner/${repositoryName}`);
         assert.fileContent(readme, `npm install ${repository}-monster-cookies`);
-        assert.fileContent(readme, `[Documentation](https://github.com/cerner/${repositoryName}/tree/master/packages/${repository}-monster-cookies/docs)`);
+        assert.fileContent(readme, `[Documentation](https://github.com/cerner/${repositoryName}/tree/main/packages/${repository}-monster-cookies/docs)`);
       });
 
       it('fills the site examples Index file with project data', () => {
@@ -100,7 +100,7 @@ describe('generator-terra-module:app', () => {
         assert.fileContent(changelog, 'import React from \'react\';');
         assert.fileContent(changelog, 'import DocTemplate from \'terra-doc-template\';');
         assert.fileContent(changelog, 'import ChangeLog from \'../../../../CHANGELOG.md\';');
-        assert.fileContent(changelog, `srcPath="https://github.com/cerner/${repositoryName}/tree/master/packages/monster-cookies"`);
+        assert.fileContent(changelog, `srcPath="https://github.com/cerner/${repositoryName}/tree/main/packages/monster-cookies"`);
       });
 
       it('fills the examples Index file with project data', () => {

@@ -14,7 +14,7 @@ const DocPage = () => (
   <DocTemplate
     packageName={name}
     readme={ReadMe}
-    srcPath={`https://github.com/cerner/<%= repository %>/tree/master/packages/${name}`}
+    srcPath={`https://github.com/cerner/<%= repository %>/tree/main/packages/${name}`}
     examples={[
       {
         title: 'Default <%= projectClassName %>',

@@ -4,7 +4,7 @@ This project is hosted on NPM.  You can see it [here][project-url].
 This project uses [semantic-versioning][semver] to manage versions.
 
 Below is a guide for releasing:
-- Checkout the master branch and run `git pull` to ensure you have the latest changes in master.
+- Checkout the main branch and run `git pull` to ensure you have the latest changes in main.
 - Be sure to check the changelog and ensure it has been updated accordingly.
 - Verify that the version number in the package.json is correct.
   - Confirm that the version matches the latest released version. The publish script will update the version.
