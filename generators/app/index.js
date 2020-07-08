@@ -1,4 +1,3 @@
-
 const Generator = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
@@ -127,17 +126,6 @@ module.exports = class extends Generator {
       },
     );
 
-    // Add Docs
-    this.fs.copyTpl(
-      this.templatePath('docs/*'),
-      this.destinationPath(`${this.props.baseDirectory}docs/`),
-      {
-        projectName: this.props.projectName,
-        projectClassName: this.props.moduleClassName,
-        titlecaseProjectName: this.props.titlecaseProjectName,
-      },
-    );
-
     // Add Jest Test File
     this.fs.copyTpl(
       this.templatePath('tests/projectNameTest.jsx'),
@@ -161,21 +149,22 @@ module.exports = class extends Generator {
 
     // Add Doc Index
     this.fs.copyTpl(
-      this.templatePath('src/terra-dev-site/Index.jsx'),
-      this.destinationPath(`${this.props.baseDirectory}src/terra-dev-site/doc/${this.props.moduleClassName}/${this.props.moduleClassName}.1.doc.jsx`),
+      this.templatePath('src/terra-dev-site/Index.mdx'),
+      this.destinationPath(`${this.props.baseDirectory}src/terra-dev-site/doc/${this.props.moduleClassName}/${this.props.moduleClassName}.1.doc.mdx`),
       {
         projectClassName: this.props.moduleClassName,
         repository: this.props.repository,
+        projectName: this.props.projectName,
+        titlecaseProjectName: this.props.titlecaseProjectName,
       },
     );
 
     // Add Doc ChangeLog
     this.fs.copyTpl(
-      this.templatePath('src/terra-dev-site/ChangeLog.jsx'),
-      this.destinationPath(`${this.props.baseDirectory}src/terra-dev-site/doc/${this.props.moduleClassName}/ChangeLog.2.doc.jsx`),
+      this.templatePath('src/terra-dev-site/ChangeLog.mdx'),
+      this.destinationPath(`${this.props.baseDirectory}src/terra-dev-site/doc/${this.props.moduleClassName}/ChangeLog.2.doc.mdx`),
       {
-        projectClassName: this.props.moduleName,
-        repository: this.props.repository,
+        projectName: this.props.projectName,
       },
     );
 
