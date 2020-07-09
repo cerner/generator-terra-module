@@ -137,6 +137,7 @@ module.exports = class extends Generator {
     );
 
     // Add Wdio Spec File
+    const testFolder = `${this.props.repoNamespace}${this.props.moduleName}`;
     this.fs.copyTpl(
       this.templatePath('tests/moduleName-spec.js'),
       this.destinationPath(`${this.props.baseDirectory}tests/wdio/${this.props.moduleName}-spec.js`),
@@ -144,6 +145,7 @@ module.exports = class extends Generator {
         moduleName: this.props.moduleName,
         moduleClassName: this.props.moduleClassName,
         projectName: this.props.projectName,
+        testFolder,
       },
     );
 
@@ -179,7 +181,6 @@ module.exports = class extends Generator {
     );
 
     // Add Default Test Example
-    const testFolder = `${this.props.repoNamespace}${this.props.moduleName}`;
     this.fs.copyTpl(
       this.templatePath('src/terra-dev-site/DefaultProjectName.jsx'),
       this.destinationPath(`${this.props.baseDirectory}src/terra-dev-site/test/${testFolder}/Default${this.props.moduleClassName}.test.jsx`),
