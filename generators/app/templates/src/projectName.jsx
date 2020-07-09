@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
+import classNames from 'classnames';
+import classNamesBind from 'classnames/bind';
+import ThemeContext from 'terra-theme-context';
 import styles from './<%= scssFileName %>.module.scss';
 
-const cx = classNames.bind(styles);
+const cx = classNamesBind.bind(styles);
 
 const propTypes = {
   /**
@@ -17,10 +19,14 @@ const defaultProps = {
 };
 
 const <%= moduleClassName %> = ({ name, ...customProps }) => {
-  const <%= moduleClassName %>ClassNames = cx([
+  const theme = React.useContext(ThemeContext);
+  const <%= moduleClassName %>ClassNames = classNames(
+    cx([
     '<%= cssClassName %>',
+    theme.className,
+  ]),
     customProps.className,
-  ]);
+  );
 
   return (<div {...customProps} className={<%= moduleClassName %>ClassNames}>{name}</div>);
 };
