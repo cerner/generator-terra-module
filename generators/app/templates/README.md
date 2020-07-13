@@ -13,9 +13,6 @@
 
 - Install from [npmjs](https://www.npmjs.com): `npm install <%= projectName %>`
 
-<!-- AUTO-GENERATED-CONTENT:START Peer Dependencies -->
-<!-- AUTO-GENERATED-CONTENT:END -->
-
 ## LICENSE
 
 Copyright <%= currentYear %> Cerner Innovation, Inc.

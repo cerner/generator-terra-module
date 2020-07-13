@@ -1,4 +1,3 @@
-
 const path = require('path');
 const assert = require('yeoman-assert');
 const helpers = require('yeoman-test');
@@ -29,8 +28,8 @@ describe('generator-terra-module:app', () => {
         assert.file([
           `packages/${repository}-monster-cookies/README.md`,
           `packages/${repository}-monster-cookies/CHANGELOG.md`,
-          `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies/MonsterCookies.1.doc.jsx`,
-          `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies/ChangeLog.2.doc.jsx`,
+          `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies/MonsterCookies.1.doc.mdx`,
+          `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies/ChangeLog.2.doc.mdx`,
           `packages/${repository}-monster-cookies/src/terra-dev-site/test/${repoNamespace}monster-cookies/DefaultMonsterCookies.test.jsx`,
         ]);
       });
@@ -49,16 +48,12 @@ describe('generator-terra-module:app', () => {
         assert.fileContent(scss, '.monster-cookies {');
       });
 
-      it('fills the docs/README file with title cased project data', () => {
-        assert.fileContent(`packages/${repository}-monster-cookies/docs/README.md`, `${title} Monster Cookies`);
-      });
-
       it('fills the package.json file with project data', () => {
         const packageJSON = `packages/${repository}-monster-cookies/package.json`;
 
         assert.fileContent(packageJSON, `git+https://github.com/cerner/${repositoryName}.git`);
         assert.fileContent(packageJSON, `https://github.com/cerner/${repositoryName}/issues`);
-        assert.fileContent(packageJSON, 'cd ../.. && npx wdio ./packages/$npm_package_name/wdio.conf.js');
+        assert.fileContent(packageJSON, 'npm run wdio-default && npm run wdio-lowlight && npm run wdio-fusion');
       });
 
       it('fills the package.json file with the appropriate keywords', () => {
@@ -85,22 +80,22 @@ describe('generator-terra-module:app', () => {
       });
 
       it('fills the site examples Index file with project data', () => {
-        const index = `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies/MonsterCookies.1.doc.jsx`;
+        const index = `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies/MonsterCookies.1.doc.mdx`;
 
-        assert.fileContent(index, 'import React from \'react\';');
-        assert.fileContent(index, 'import DefaultMonsterCookiesSrc from \'!raw-loader!../../../../src/terra-dev-site/doc/example/DefaultMonsterCookies.jsx\';');
-        assert.fileContent(index, 'import ReadMe from \'../../../../docs/README.md\';');
-        assert.fileContent(index, 'import { name } from \'../../../../package.json\';');
-        assert.fileContent(index, 'export default DocPage;');
+        assert.fileContent(index, `import { Badge } from '${repository}-monster-cookies/package.json?dev-site-package';`);
+        assert.fileContent(index, 'import DefaultMonsterCookies from \'../example/DefaultMonsterCookies?dev-site-example\';');
+        assert.fileContent(index, `import PropsTable from '${repository}-monster-cookies/src/MonsterCookies?dev-site-props-table';`);
+        assert.fileContent(index, `# ${title} Monster Cookies`);
+        assert.fileContent(index, '<DefaultMonsterCookies />');
       });
 
       it('fills the ChangeLog with appropriate Git URL', () => {
-        const changelog = `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies/ChangeLog.2.doc.jsx`;
+        const changelog = `packages/${repository}-monster-cookies/src/terra-dev-site/doc/MonsterCookies/ChangeLog.2.doc.mdx`;
 
-        assert.fileContent(changelog, 'import React from \'react\';');
-        assert.fileContent(changelog, 'import DocTemplate from \'terra-doc-template\';');
-        assert.fileContent(changelog, 'import ChangeLog from \'../../../../CHANGELOG.md\';');
-        assert.fileContent(changelog, `srcPath="https://github.com/cerner/${repositoryName}/tree/main/packages/monster-cookies"`);
+        assert.fileContent(changelog, `import { Badge } from '${repository}-monster-cookies/package.json?dev-site-package';`);
+        assert.fileContent(changelog, `import ChangeLog from '${repository}-monster-cookies/CHANGELOG.md';`);
+        assert.fileContent(changelog, '<Badge />');
+        assert.fileContent(changelog, '<ChangeLog />');
       });
 
       it('fills the examples Index file with project data', () => {
