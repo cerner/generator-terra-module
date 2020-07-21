@@ -3,6 +3,9 @@ Changelog
 
 Unreleased
 ------------------
+
+1.23.0 - (July 21, 2020)
+------------------
 ### Changed
 * Create mdx components by default.
 
