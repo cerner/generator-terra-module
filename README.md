@@ -14,6 +14,8 @@
 [![Dependencies status](https://badgen.net/david/dep/cerner/generator-terra-module)](https://david-dm.org/cerner/generator-terra-module)
 [![devDependencies status](https://badgen.net/david/dev/cerner/generator-terra-module)](https://david-dm.org/cerner/generator-terra-module?type=dev)
 
+# This project has been archived. If you need to create a new terra package in any of the mono repos, copy an existing module.
+
 > Quickly scaffold terra modules with this yeoman generator
 
 - [Getting Started](#getting-started)
